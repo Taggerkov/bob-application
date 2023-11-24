@@ -3,7 +3,7 @@ package Model;
 public abstract class Project {
     private double budget;
     private Resources resources;
-    private MyDate startDate;
+    private final MyDate startDate;
     private MyDate endDate;
     private boolean isActive;
 
@@ -26,10 +26,16 @@ public abstract class Project {
         this.isActive = true;
     }
     
-    public Project(MyDate startDate) {
+    public Project(String start) {
         this.budget = 0;
         this.resources = new Resources();
-        this.startDate = startDate;
+
+        String[] temp = start.split("\\.");
+        int tempDay = Integer.parseInt(temp[0]);
+        int tempMonth = Integer.parseInt(temp[1]);
+        int tempYear = Integer.parseInt(temp[2]);
+        this.startDate = new MyDate(tempDay,tempMonth,tempYear);
+
         this.endDate = null;
         this.isActive = true;
     }
