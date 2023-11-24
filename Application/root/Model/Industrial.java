@@ -1,12 +1,13 @@
 package Model;
 
-public class Industrial
+public class Industrial extends Project
 {
   private double size;
   private String typeOfFacility;
 
-  public Industrial(double size, String typeOfFacility)
+  public Industrial(double budget, String start, String end,double size, String typeOfFacility)
   {
+    super(budget, start, end);
     this.size = size;
     this.typeOfFacility = typeOfFacility;
   }
