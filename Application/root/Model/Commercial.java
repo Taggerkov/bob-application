@@ -13,7 +13,7 @@ public class Commercial extends Project {
     }
 
     public Commercial(){
-        super(String.valueOf(java.time.LocalDate.now()));
+        super(500000, String.valueOf(java.time.LocalDate.now()));
         this.noOfFloors = 1;
         //end 'Date' would default 18 months.
     }
