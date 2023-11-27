@@ -14,6 +14,8 @@ public class Industrial extends Project
   public Industrial ()
   {
     super(2000000,String.valueOf(java.time.LocalDate.now()), "30 months");
+    size=0.00;
+    typeOfFacility="Unspecified";
   }
 
   public double getSize()
