@@ -15,8 +15,8 @@ public abstract class Project {
         this.isActive = true;
     }
     
-    public Project(String start) {
-        this.budget = 0;
+    public Project(double budget, String start) {
+        this.budget = budget;
         this.resources = new Resources();
         this.startDate = new MyDate(start);
         this.endDate = null;
