@@ -10,32 +10,15 @@ public abstract class Project {
     public Project(double budget, String start, String end) {
         this.budget = budget;
         this.resources = new Resources();
-
-        String[] temp = start.split("\\.");
-        int tempDay = Integer.parseInt(temp[0]);
-        int tempMonth = Integer.parseInt(temp[1]);
-        int tempYear = Integer.parseInt(temp[2]);
-        this.startDate = new MyDate(tempDay,tempMonth,tempYear);
-
-        temp = end.split("\\.");
-        tempDay = Integer.parseInt(temp[0]);
-        tempMonth = Integer.parseInt(temp[1]);
-        tempYear = Integer.parseInt(temp[2]);
-        this.endDate = new MyDate(tempDay,tempMonth,tempYear);
-
+        this.startDate = new MyDate(start);
+        this.endDate = new MyDate(end);
         this.isActive = true;
     }
     
     public Project(String start) {
         this.budget = 0;
         this.resources = new Resources();
-
-        String[] temp = start.split("\\.");
-        int tempDay = Integer.parseInt(temp[0]);
-        int tempMonth = Integer.parseInt(temp[1]);
-        int tempYear = Integer.parseInt(temp[2]);
-        this.startDate = new MyDate(tempDay,tempMonth,tempYear);
-
+        this.startDate = new MyDate(start);
         this.endDate = null;
         this.isActive = true;
     }
