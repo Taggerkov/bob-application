@@ -21,8 +21,7 @@ public class Residential extends Project
   public Residential()
   {
    super(100000, String.valueOf(java.time.LocalDate.now()), String.valueOf(java.time.LocalDate.now()));
-    
-   //Temporary solution. Not sure how we make the end date in this format
+   super.setEndDate(super.getEndDate().endDate(9));
    noOfKitchens = 1;
    noOfBathrooms = 1;
    roomsWPlumbing = 1;
