@@ -1,65 +1,59 @@
 package Model;
 
-public class MyDate
-{
-  private int day;
-  private int month;
-  private  int year;
+public class MyDate {
+    private int day;
+    private int month;
+    private int year;
 
-  public MyDate(int day, int month, int year)
-  {
-    this.day = day;
-    this.month = month;
-    this.year = year;
-  }
-  public MyDate(String date){
-    String[] temp = date.split("-");
-    this.year = Integer.parseInt(temp[0]);
-    this.month = Integer.parseInt(temp[1]);
-    this.day = Integer.parseInt(temp[2]);
-  }
+    public MyDate(int day, int month, int year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
 
-  public int getDay()
-  {
-    return day;
-  }
+    public MyDate(String date) {
+        String[] temp = date.split("-");
+        this.year = Integer.parseInt(temp[0]);
+        this.month = Integer.parseInt(temp[1]);
+        this.day = Integer.parseInt(temp[2]);
+    }
 
-  public void setDay(int day)
-  {
-    this.day = day;
-  }
+    public int getDay() {
+        return day;
+    }
 
-  public int getMonth()
-  {
-    return month;
-  }
+    public void setDay(int day) {
+        this.day = day;
+    }
 
-  public void setMonth(int month)
-  {
-    this.month = month;
-  }
+    public int getMonth() {
+        return month;
+    }
 
-  public int getYear()
-  {
-    return year;
-  }
+    public void setMonth(int month) {
+        this.month = month;
+    }
 
-  public void setYear(int year)
-  {
-    this.year = year;
-  }
-  public MyDate endDate(int months){
-     MyDate temp = this;
-     int month = temp.getMonth();
-     int year = temp.getYear();
-     month += months;
-     if (month > 12){
-       double residues = Math.floor(month/12);
-       year += (int) (1*residues);
-       month -= (int) (12*residues);
-       temp.setMonth(month);
-       temp.setYear(year);
-     }
-     return temp;
-  }
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public MyDate endDate(int months) {
+        MyDate temp = this;
+        int month = temp.getMonth();
+        int year = temp.getYear();
+        month += months;
+        if (month > 12) {
+            int residues = month / 12;
+            year += residues;
+            month -= 12 * residues;
+            temp.setMonth(month);
+            temp.setYear(year);
+        }
+        return temp;
+    }
 }
