@@ -19,6 +19,17 @@ public class RoadConstruction extends Project {
         this.hasGeoChallenge= hasGeoChallenge;
         this.noOfLanes = noOfLanes;
     }
+    public RoadConstruction()
+    {
+        super(1000000, String.valueOf(java.time.LocalDate.now()), "");
+        hasBridges = false;
+        hasTunnels = false;
+        length = 0;
+        width = 0;
+        hasGeoChallenge = false;
+        noOfLanes = 0;
+
+    }
     private void setHasBridges(boolean hasBridges){
         this.hasBridges = hasBridges;
     }
