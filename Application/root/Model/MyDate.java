@@ -12,6 +12,12 @@ public class MyDate
     this.month = month;
     this.year = year;
   }
+  public MyDate(String date){
+    String[] temp = date.split("-");
+    this.year = Integer.parseInt(temp[0]);
+    this.month = Integer.parseInt(temp[1]);
+    this.day = Integer.parseInt(temp[2]);
+  }
 
   public int getDay()
   {
