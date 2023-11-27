@@ -21,7 +21,7 @@ public class RoadConstruction extends Project {
     }
     public RoadConstruction()
     {
-        super(1000000, String.valueOf(java.time.LocalDate.now()), "");
+        super(1000000, String.valueOf(java.time.LocalDate.now()), "18 months later");
         hasBridges = false;
         hasTunnels = false;
         length = 0;
