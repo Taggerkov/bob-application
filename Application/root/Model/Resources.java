@@ -3,12 +3,23 @@ package Model;
 public class Resources
 {
   private double manHours;
-  private  double expenses;
+  private double expenses;
   private double expectedManHours;
   private double expectedExpenses;
-public Resources()
-{
 
+  public Resources(double expectedExpenses, double expectedManHours)
+  {
+    this.expectedExpenses = expectedExpenses;
+    this.expectedManHours = expectedManHours;
+    expenses = 0;
+    manHours = 0;
+  }
+  public Resources()
+{
+  manHours = 0;
+  expenses = 0;
+  expectedExpenses = 0;
+  expectedManHours = 0;
 }
 
 public void setManHours(double manHours)
