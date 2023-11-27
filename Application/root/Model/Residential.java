@@ -16,10 +16,12 @@ public class Residential extends Project
     this.roomsWPlumbing = roomsWPlumbing;
     this.isRenovation = isRenovation;
     this.size = size;
+
   }
   public Residential()
   {
-   super(100000, String.valueOf(java.time.LocalDate.now()), "9 months later");
+   super(100000, String.valueOf(java.time.LocalDate.now()), String.valueOf(java.time.LocalDate.now()));
+    
    //Temporary solution. Not sure how we make the end date in this format
    noOfKitchens = 1;
    noOfBathrooms = 1;
