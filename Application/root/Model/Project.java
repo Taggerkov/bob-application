@@ -38,4 +38,15 @@ public abstract class Project {
     public boolean isActive() {
         return isActive;
     }
+
+    public MyDate getStartDate() {
+        return startDate;
+    }
+    public MyDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(MyDate endDate) {
+        this.endDate = endDate;
+    }
 }

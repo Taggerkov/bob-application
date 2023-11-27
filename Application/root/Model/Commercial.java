@@ -14,11 +14,11 @@ public class Commercial extends Project
         this.intendedUse = intendedUse;
     }
 
-    public Commercial()
-    {
+    public Commercial(){
         super(500000, String.valueOf(java.time.LocalDate.now()));
+        MyDate end = this.getStartDate();
+        this.setEndDate(this.getStartDate().endDate(18));
         this.noOfFloors = 1;
-        //end 'Date' would default 18 months.
         size = 0;
         intendedUse = "Unspecified";
     }

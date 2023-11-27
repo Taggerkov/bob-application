@@ -48,4 +48,18 @@ public class MyDate
   {
     this.year = year;
   }
+  public MyDate endDate(int months){
+     MyDate temp = this;
+     int month = temp.getMonth();
+     int year = temp.getYear();
+     month += months;
+     if (month > 12){
+       double residues = Math.floor(month/12);
+       year += (int) (1*residues);
+       month -= (int) (12*residues);
+       temp.setMonth(month);
+       temp.setYear(year);
+     }
+     return temp;
+  }
 }
