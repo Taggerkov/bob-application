@@ -37,4 +37,11 @@ public class Industrial extends Project
   {
     this.typeOfFacility = typeOfFacility;
   }
+  public boolean equals(Object obj)
+  {
+    if (obj== null || obj.getClass()!=this.getClass())
+      return false;
+    Industrial other=(Industrial) obj;
+    return super.equals(other) && size==other.size && typeOfFacility.equals(other.typeOfFacility);
+  }
 }

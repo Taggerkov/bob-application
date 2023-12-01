@@ -59,5 +59,12 @@ public void setExpenses()
   {
     this.expectedExpenses = expectedExpenses;
   }
+  public boolean equals(Object obj)
+  {
+    if (obj== null || obj.getClass()!=this.getClass())
+      return false;
+    Resources other=(Resources) obj;
+    return manHours==other.manHours && expenses==other.expenses && expectedManHours== other.expectedManHours && expectedExpenses==other.expectedExpenses ;
+  }
 }
 

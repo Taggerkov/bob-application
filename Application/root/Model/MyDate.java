@@ -56,4 +56,11 @@ public class MyDate {
         }
         return temp;
     }
+    public boolean equals(Object obj)
+    {
+        if (obj== null || obj.getClass()!=this.getClass())
+            return false;
+        MyDate other=(MyDate) obj;
+        return day==other.day && month==other.month && year== other.year;
+    }
 }
