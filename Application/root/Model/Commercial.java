@@ -1,55 +1,95 @@
 package Model;
 
-public class Commercial extends Project
-{
+/**
+ * A class for the 'Commercial' project type.
+ *
+ * @author Sergiu Chirap
+ * @version 1.0
+ */
+public class Commercial extends Project {
     private int noOfFloors;
     private double size;
     private String intendedUse;
 
-    public Commercial(double budget, String start, String end, int noOfFloors, double size, String intendedUse)
-    {
+    /**
+     * 'Commercial' full-constructor. Custom use.
+     *
+     * @param budget      custom budget
+     * @param start       custom start date
+     * @param end         custom end date
+     * @param noOfFloors  custom number of floors
+     * @param size        building's m^3 size
+     * @param intendedUse building's purpose
+     */
+    public Commercial(double budget, String start, String end, int noOfFloors, double size, String intendedUse) {
         super(budget, start, end);
         this.noOfFloors = noOfFloors;
         this.size = size;
         this.intendedUse = intendedUse;
     }
 
-    public Commercial(){
-        super(500000, String.valueOf(java.time.LocalDate.now()));
-        MyDate end = this.getStartDate();
+    /**
+     * 'Commercial' no-argument constructor. Default use.
+     */
+    public Commercial() {
+        super(500000);
         this.setEndDate(this.getStartDate().endDate(18));
         this.noOfFloors = 1;
         size = 0;
         intendedUse = "Unspecified";
     }
 
-    public int getNoOfFloors()
-    {
+    /**
+     * Gets the number of floors of the project's building.
+     *
+     * @return an integer stating the 'number of floors'
+     */
+    public int getNoOfFloors() {
         return noOfFloors;
     }
 
-    public void setNoOfFloors(int noOfFloors)
-    {
+    /**
+     * Sets the number of floors of the project's building.
+     *
+     * @param noOfFloors the 'number of floors' desired
+     */
+    public void setNoOfFloors(int noOfFloors) {
         this.noOfFloors = noOfFloors;
     }
 
-    public double getSize()
-    {
+    /**
+     * Gets the m^3 size of the project's building.
+     *
+     * @return a double stating the 'm^3 size'
+     */
+    public double getSize() {
         return size;
     }
 
-    public void setSize(double size)
-    {
+    /**
+     * Sets the m^3 size of the project's building.
+     *
+     * @param size the 'm^3 size' desired
+     */
+    public void setSize(double size) {
         this.size = size;
     }
 
-    public String getIntendedUse()
-    {
+    /**
+     * Gets the intended use of the project's building.
+     *
+     * @return a String stating the 'intended use'
+     */
+    public String getIntendedUse() {
         return intendedUse;
     }
 
-    public void setIntendedUse(String intendedUse)
-    {
+    /**
+     * Sets the intended use of the project's building.
+     *
+     * @param intendedUse the 'intended use' desired
+     */
+    public void setIntendedUse(String intendedUse) {
         this.intendedUse = intendedUse;
     }
 }
