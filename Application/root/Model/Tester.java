@@ -7,9 +7,6 @@ public class Tester {
         System.out.println(a.getEndDate().getMonth());
         System.out.println(a.getEndDate().getYear());
 
-        Residential b = new Residential();
-        System.out.println(b.getEndDate().getDay());
-        System.out.println(b.getEndDate().getMonth());
-        System.out.println(b.getEndDate().getYear());
+
     }
 }
