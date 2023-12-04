@@ -17,14 +17,17 @@ public class Residential extends Project
   /**
    * Full constructor for custom Residential projects
    *
-   * @param budget
-   * @param start
-   * @param end
-   * @param noOfKitchens
-   * @param noOfBathrooms
-   * @param roomsWPlumbing
-   * @param isRenovation
-   * @param size
+   * @param budget          Starting budget for the project
+   * @param start           Start date for the project
+   * @param end             Expected end date for the project
+   * @param title           Unique title for the project
+   * @param customer        Name of the customer attached to the project
+   * @param noOfKitchens    Number of kitchens
+   * @param noOfBathrooms   Number of bathrooms
+   * @param roomsWPlumbing  Number of rooms with plumbing excluding bathrooms and kitchens
+   * @param isRenovation    Parameter for whether the project is a renovation or a new build
+   * @param size            Size of the building in m^2
+   *
    */
   public Residential(double budget, String start, String end, String title, String customer, int noOfKitchens, int noOfBathrooms, int roomsWPlumbing, boolean isRenovation, double size)
   {
@@ -39,6 +42,9 @@ public class Residential extends Project
 
   /**
    * Constructor for Residential projects, default values
+   *
+   * @param title     Unique title for the project
+   * @param customer  Name of the customer attached to the project
    */
   public Residential(String title, String customer)
   {
@@ -54,7 +60,7 @@ public class Residential extends Project
   /**
    * Sets number of kitchens to the input value
    *
-   * @param noOfKitchens
+   * @param noOfKitchens desired number of kitchens for the building
    */
   public void setNoOfKitchens(int noOfKitchens)
   {
@@ -74,7 +80,7 @@ public class Residential extends Project
   /**
    * Sets number of bathrooms to the input value
    *
-   * @param noOfBathrooms
+   * @param noOfBathrooms  Desired number of bathrooms for the building
    */
   public void setNoOfBathrooms(int noOfBathrooms)
   {
@@ -94,7 +100,7 @@ public class Residential extends Project
   /**
    * Sets the number of rooms with plumbing in the building to the input value
    *
-   * @param roomsWPlumbing
+   * @param roomsWPlumbing  Desired number of rooms with plumbing, not counting kitchens and bathrooms
    */
   public void setRoomsWPlumbing(int roomsWPlumbing)
   {
@@ -132,9 +138,9 @@ public class Residential extends Project
   }
 
   /**
-   * Sets the size of the building in m^3 to the input value
+   * Sets the size of the building in m^2 to the input value
    *
-   * @param size
+   * @param size  Size of the building in m^2
    */
   public void setSize(double size)
   {
@@ -144,7 +150,7 @@ public class Residential extends Project
   /**
    * Gets the size of the building
    *
-   * @return the size of the building in m^3
+   * @return the size of the building in m^2
    */
   public double getSize()
   {
@@ -154,7 +160,7 @@ public class Residential extends Project
   /**
    * Override of the equals method in Object class. Checks if the input object is the same as a given Residential project
    *
-   * @param obj
+   * @param obj Object to be compared with the project
    * @return true if the input object is the same as the residential project, false if the object is null or different from the Residential project
    */
   public boolean equals(Object obj)
