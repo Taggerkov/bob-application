@@ -31,8 +31,8 @@ public class Commercial extends Project {
     /**
      * 'Commercial' no-argument constructor. Default use.
      */
-    public Commercial() {
-        super(500000);
+    public Commercial(String title, String customer) {
+        super(500000, title, customer);
         this.setEndDate(this.getStartDate().endDate(18));
         this.noOfFloors = 1;
         size = 0;

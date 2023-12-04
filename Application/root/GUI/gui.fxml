@@ -94,7 +94,7 @@
       <children>
             <HBox prefHeight="54.0" prefWidth="651.0" style="-fx-background-color: #C6C2C2;">
                <children>
-                  <Label id="Tredamark" alignment="CENTER" prefHeight="50.0" prefWidth="652.0" stylesheets="@gui.css" text="BOB'S SOFTWARE 0.1" underline="true">
+                  <Label id="Trademark" alignment="CENTER" prefHeight="50.0" prefWidth="652.0" stylesheets="@gui.css" text="BOB'S SOFTWARE 0.1" underline="true">
                      <font>
                         <Font name="Unispace-Bold" size="30.0" />
                      </font>
