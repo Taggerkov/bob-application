@@ -5,17 +5,18 @@ public class Industrial extends Project
   private double size;
   private String typeOfFacility;
 
-  public Industrial(double budget, String start, String end,double size, String typeOfFacility)
+  public Industrial(double budget, String start, String end, String title, String customer,double size, String typeOfFacility)
   {
-    super(budget, start, end);
+    super(budget, start, end, title, customer);
     this.size = size;
     this.typeOfFacility = typeOfFacility;
   }
-  public Industrial ()
+  public Industrial (String title, String customer)
   {
-    super(2000000,String.valueOf(java.time.LocalDate.now()), "30 months");
-    size=0.00;
-    typeOfFacility="Unspecified";
+    super(2000000, title, customer);
+    super.setEndDate(super.getStartDate().endDate(30));
+    size = 0.00;
+    typeOfFacility = "Unspecified";
   }
 
   public double getSize()
