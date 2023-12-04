@@ -67,5 +67,13 @@ public class RoadConstruction extends Project {
         return noOfLanes;
     }
 
+    public boolean equals(Object obj){
+        if(obj== null || obj.getClass()!= this.getClass())
+            return false;
+        RoadConstruction other = (RoadConstruction)obj;
+        return super.equals(other) && hasBridges == other.hasBridges && hasTunnels == other.hasTunnels && length == other.length
+                && width == other.width && hasGeoChallenge == other.hasGeoChallenge && noOfLanes == other.noOfLanes;
+    }
+
 
 }
