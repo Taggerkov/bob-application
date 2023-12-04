@@ -38,7 +38,7 @@ public class Residential extends Project
   }
 
   /**
-   * No-argument constructor for Residential projects, default values
+   * Constructor for Residential projects, default values
    */
   public Residential(String title, String customer)
   {

@@ -40,12 +40,14 @@ public abstract class Project {
      *
      * @param budget project's default budget
      */
-    public Project(double budget) {
+    public Project(double budget, String title, String customer) {
         this.budget = budget;
         this.resources = new Resources();
         this.startDate = new MyDate(String.valueOf(java.time.LocalDate.now()));
         this.endDate = null;
         this.isActive = true;
+        this.title = title;
+        this.customer = customer;
     }
 
     /**
