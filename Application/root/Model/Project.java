@@ -18,14 +18,13 @@ public abstract class Project {
     /**
      * Full-Constructor. Custom use.
      *
-     * @param budget project's custom budget
-     * @param start  project's custom start date
-     * @param end    project's custom end date
-     * @param title  unique title of the project
+     * @param budget   project's custom budget
+     * @param start    project's custom start date
+     * @param end      project's custom end date
+     * @param title    unique title of the project
      * @param customer customer of the project
      */
-    public Project(double budget, String start, String end, String title, String customer)
-    {
+    public Project(double budget, String start, String end, String title, String customer) {
         this.budget = budget;
         this.resources = new Resources();
         this.startDate = new MyDate(start);
