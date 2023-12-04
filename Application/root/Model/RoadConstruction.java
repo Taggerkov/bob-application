@@ -38,10 +38,13 @@ public class RoadConstruction extends Project {
     }
     /**
      * Constructor for RoadConstruction projects, default settings
+     *     @param title     Title of the project
+     *     @param customer  Name of the customer attached to the project
      */
-    public RoadConstruction()
+    public RoadConstruction(String title, String customer)
     {
-        super(1000000, String.valueOf(java.time.LocalDate.now()), "18 months later");
+        super(1000000, title, customer);
+        super.setEndDate(super.getStartDate().endDate(18));
         hasBridges = false;
         hasTunnels = false;
         length = 0;
