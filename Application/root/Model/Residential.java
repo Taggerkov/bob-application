@@ -42,8 +42,8 @@ public class Residential extends Project
    */
   public Residential(String title, String customer)
   {
-   super(100000, String.valueOf(java.time.LocalDate.now()), String.valueOf(java.time.LocalDate.now()), title, customer);
-   super.setEndDate(super.getEndDate().endDate(9));
+   super(100000, title, customer);
+   super.setEndDate(super.getStartDate().endDate(9));
    noOfKitchens = 1;
    noOfBathrooms = 1;
    roomsWPlumbing = 1;
