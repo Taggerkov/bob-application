@@ -7,5 +7,5 @@ public class ProjectList
   private ArrayList<Project> projects;
   private ArrayList<String> titles;
 
-  
+
 }
