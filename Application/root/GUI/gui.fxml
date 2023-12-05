@@ -41,8 +41,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -92,7 +90,7 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
                <children>
                   <Label id="Trademark" alignment="CENTER" stylesheets="@gui.css" text="BOB'S SOFTWARE 0.1" underline="true">
                      <font>
@@ -101,7 +99,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox layoutY="54.0" prefHeight="500.0" prefWidth="900.0">
+            <HBox layoutY="60.0" prefHeight="500.0" prefWidth="900.0">
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="200.0" style="-fx-background-color: #66FFFF;">
                      <children>
@@ -194,41 +192,33 @@
                         </Button>
                      </children>
                   </VBox>
-                  <TabPane prefHeight="500.0" prefWidth="701.0">
-                     <tabs>
-                      <Tab closable="false" style="-fx-font-size: 15px;" text="Welcome">
-                        <content>
-                          <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
-                                 <cursor>
-                                    <Cursor fx:constant="DEFAULT" />
-                                 </cursor>
-                                 <children>
-                                    <Label layoutX="97.0" layoutY="40.0" text="WELCOME BACK!">
-                                       <font>
-                                          <Font size="60.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="97.0" layoutY="178.0" text="Everything is ready for you to do your thing!">
-                                       <font>
-                                          <Font size="25.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="97.0" layoutY="229.0" text="Version 0.1 - See more about in            .">
-                                       <font>
-                                          <Font size="25.0" />
-                                       </font>
-                                    </Label>
-                                    <Hyperlink layoutX="444.0" layoutY="223.0" text="Github" underline="true">
-                                       <font>
-                                          <Font size="25.0" />
-                                       </font>
-                                    </Hyperlink>
-                                 </children>
-                              </AnchorPane>
-                        </content>
-                      </Tab>
-                     </tabs>
-                  </TabPane>
+                  <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <children>
+                        <Label layoutX="65.0" layoutY="78.0" text="WELCOME BACK!">
+                           <font>
+                              <Font size="72.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="97.0" layoutY="243.0" text="Everything is ready for you to do your thing!">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="97.0" layoutY="285.0" text="Version 0.1 - See more about in            .">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink layoutX="444.0" layoutY="279.0" text="Github" underline="true">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Hyperlink>
+                     </children>
+                  </AnchorPane>
                </children>
             </HBox>
       </children>

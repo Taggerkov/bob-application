@@ -6,7 +6,5 @@ public class Tester {
         System.out.println(a.getEndDate().getDay());
         System.out.println(a.getEndDate().getMonth());
         System.out.println(a.getEndDate().getYear());
-
-
     }
 }
