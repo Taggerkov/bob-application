@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1">
   <tabs>
     <Tab text="Analytics">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="700.0">
                <children>
-                  <VBox alignment="TOP_RIGHT" layoutY="94.0" prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="TOP_RIGHT" layoutX="14.0" layoutY="135.0" prefHeight="200.0" prefWidth="100.0">
                      <children>
                         <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="Project types:">
                            <font>
@@ -30,9 +30,9 @@
                   <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0">
                      <children>
                         <VBox prefHeight="100.0" prefWidth="132.0" />
-                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="313.0">
+                        <VBox alignment="CENTER" prefHeight="131.0" prefWidth="422.0">
                            <children>
-                              <Label text="ANALYTICS">
+                              <Label prefHeight="83.0" prefWidth="226.0" text="ANALYTICS">
                                  <font>
                                     <Font size="42.0" />
                                  </font>
@@ -59,13 +59,13 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox layoutX="4.0" layoutY="110.0" prefHeight="243.0" prefWidth="592.0">
+                  <HBox layoutX="45.0" layoutY="113.0" prefHeight="362.0" prefWidth="654.0">
                      <children>
                         <VBox alignment="CENTER_RIGHT" prefHeight="242.0" prefWidth="306.0">
                            <children>
-                              <Button id="residential" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Residential">
+                              <Button id="residential" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Residential">
                                  <font>
-                                    <Font name="ROGFonts-Regular" size="13.0" />
+                                    <Font size="20.0" />
                                  </font>
                                  <opaqueInsets>
                                     <Insets />
@@ -80,9 +80,9 @@
                                     <Insets bottom="15.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button id="industrial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Industrial">
+                              <Button id="industrial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Industrial">
                                  <font>
-                                    <Font name="ROGFonts-Regular" size="13.0" />
+                                    <Font size="20.0" />
                                  </font>
                                  <opaqueInsets>
                                     <Insets />
@@ -98,9 +98,9 @@
                         </VBox>
                         <VBox alignment="CENTER_LEFT" prefHeight="242.0" prefWidth="306.0">
                            <children>
-                              <Button id="commercial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Commercial">
+                              <Button id="commercial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Commercial">
                                  <font>
-                                    <Font name="ROGFonts-Regular" size="13.0" />
+                                    <Font size="20.0" />
                                  </font>
                                  <opaqueInsets>
                                     <Insets />
@@ -115,9 +115,9 @@
                                     <Insets bottom="15.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button id="roads" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="roads">
+                              <Button id="roads" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Road Construction">
                                  <font>
-                                    <Font name="ROGFonts-Regular" size="13.0" />
+                                    <Font size="20.0" />
                                  </font>
                                  <opaqueInsets>
                                     <Insets />
