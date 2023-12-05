@@ -78,7 +78,7 @@
                            <children>
                               <VBox alignment="CENTER_RIGHT" prefHeight="242.0" prefWidth="306.0">
                                  <children>
-                                    <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Residential">
+                                    <Button id="residential" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Residential">
                                        <font>
                                           <Font name="ROGFonts-Regular" size="13.0" />
                                        </font>
@@ -95,7 +95,7 @@
                                           <Insets bottom="15.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Industrial">
+                                    <Button id="industrial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Industrial">
                                        <font>
                                           <Font name="ROGFonts-Regular" size="13.0" />
                                        </font>
@@ -113,7 +113,7 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" prefHeight="242.0" prefWidth="306.0">
                                  <children>
-                                    <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Commercial">
+                                    <Button id="commercial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Commercial">
                                        <font>
                                           <Font name="ROGFonts-Regular" size="13.0" />
                                        </font>
@@ -130,7 +130,7 @@
                                           <Insets bottom="15.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="roads">
+                                    <Button id="roads" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="95.0" prefWidth="148.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="roads">
                                        <font>
                                           <Font name="ROGFonts-Regular" size="13.0" />
                                        </font>
