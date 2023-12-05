@@ -15,12 +15,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0">
+      <HBox prefHeight="100.0" prefWidth="700.0">
          <children>
-            <VBox prefHeight="100.0" prefWidth="142.0" />
+            <VBox prefHeight="100.0" prefWidth="220.0" />
             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="313.0">
                <children>
                   <Label text="(TITLE)" underline="true">
@@ -35,7 +34,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="138.0">
+            <VBox alignment="CENTER" prefHeight="100.0" prefWidth="218.0">
                <children>
                   <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: F42A35; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="CANCEL">
                      <font>
@@ -55,9 +54,9 @@
             </VBox>
          </children>
       </HBox>
-      <ScrollPane hbarPolicy="NEVER" layoutX="23.0" layoutY="126.0" prefHeight="267.0" prefWidth="566.0" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" layoutX="42.0" layoutY="127.0" prefHeight="201.0" prefWidth="600.0" vbarPolicy="ALWAYS">
         <content>
-          <AnchorPane style="-fx-background-color: #66FFFF;">
+          <AnchorPane prefHeight="222.0" prefWidth="566.0" style="-fx-background-color: #66FFFF;">
                <children>
                   <HBox prefWidth="566.0">
                      <children>

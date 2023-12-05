@@ -51,7 +51,7 @@
 
 <VBox prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <MenuBar style="-fx-background-color: #C6C2C2; -fx-border-color: black; -fx-border-width: 0.1em;" VBox.vgrow="ALWAYS">
+    <MenuBar prefWidth="700.0" style="-fx-background-color: #C6C2C2; -fx-border-color: black; -fx-border-width: 0.1em;" VBox.vgrow="ALWAYS">
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
@@ -103,7 +103,7 @@
             </HBox>
             <HBox layoutY="54.0" prefHeight="500.0" prefWidth="900.0">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="201.0" style="-fx-background-color: #66FFFF;">
+                  <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="200.0" style="-fx-background-color: #66FFFF;">
                      <children>
                         <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" stylesheets="@gui.css" text="QUICK MENU" underline="true">
                            <font>
@@ -129,6 +129,9 @@
                            <effect>
                               <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                            </effect>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </Button>
                         <Button id="view-project" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="View Project">
                            <font>
@@ -195,7 +198,7 @@
                      <tabs>
                       <Tab closable="false" style="-fx-font-size: 15px;" text="Welcome">
                         <content>
-                          <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="700.0">
+                          <AnchorPane minHeight="-Infinity" minWidth="-Infinity">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
