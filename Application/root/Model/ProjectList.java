@@ -42,4 +42,9 @@ public class ProjectList
   {
     projects.add(project);
   }
+
+  public String getTitle(int index)
+  {
+    return projects.get(index).getTitle();
+  }
 }

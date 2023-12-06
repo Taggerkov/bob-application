@@ -38,6 +38,9 @@ public class ModelManager
 public ProjectList getProjectType(String type)
 {
     type.toUpperCase();
+    if(type.equals("ROAD CONSTRUCTION"))
+      type = "ROADCONSTRUCTION";
+
     ProjectList projectType = new ProjectList();
     ProjectList allProjects = getAllProjects();
 
@@ -47,5 +50,42 @@ public ProjectList getProjectType(String type)
         projectType.add(allProjects.get(i));
     }
     return projectType;
+}
+public void saveProjects(ProjectList projects)
+{
+  try
+  {
+    FileHandler.convertToBinaryFile(fileName, projects);
+  }
+  catch (FileNotFoundException e)
+  {
+    System.out.println("File not found");
+  }
+  catch (IOException e)
+  {
+    System.out.println("IO Error writing to file");
+  }
+}
+public boolean titleAvailable(String title)
+{
+  ProjectList allProjects = getAllProjects();
+
+  for (int i = 0; i < allProjects.size(); i++)
+  {
+    if(allProjects.getTitle(i).equals(title))
+      return false;
+  }
+  return true;
+}
+public Project getProject(String title)
+{
+  ProjectList allProjects = getAllProjects();
+
+  for (int i = 0; i < allProjects.size(); i++)
+  {
+    if(allProjects.getTitle(i).equals(title))
+      return allProjects.get(i);
+  }
+  return null;
 }
 }
