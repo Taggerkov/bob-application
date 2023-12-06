@@ -31,7 +31,7 @@
                   <Image url="@../../../../../../Downloads/Green%20Check%20Mark%20Clipart%20Vector,%20Check%20Mark%20Icon%20Design%20Template%20Vector%20Isolated,%20Check%20Icons,%20Template%20Icons,%20Mark%20Icons%20PNG%20Image%20For%20Free%20Download.jpg" />
                </image>
             </ImageView>
-            <Button id="custom" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="162.0" style="-fx-background-color: #F7D134; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="CONFIRM" textAlignment="CENTER" textFill="#faf6f6">
+            <Button id="custom" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="162.0" style="-fx-background-color: #F7D134; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@Gui.css" text="CONFIRM" textAlignment="CENTER" textFill="#faf6f6">
                <font>
                   <Font size="16.0" />
                </font>

@@ -4,140 +4,295 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1">
-  <tabs>
-    <Tab text="Analytics">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="700.0">
+<VBox prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar prefWidth="700.0" style="-fx-background-color: #C6C2C2; -fx-border-color: black; -fx-border-width: 0.1em;" VBox.vgrow="ALWAYS">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open…" />
+                  <Menu mnemonicParsing="false" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As…" />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Undo" />
+                  <MenuItem mnemonicParsing="false" text="Redo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem mnemonicParsing="false" text="Unselect All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER" prefHeight="58.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
                <children>
-                  <VBox alignment="TOP_RIGHT" layoutX="14.0" layoutY="135.0" prefHeight="200.0" prefWidth="100.0">
+                  <Label id="Trademark" alignment="CENTER" stylesheets="@Gui.css" text="BOB'S SOFTWARE 0.1" underline="true">
+                     <font>
+                        <Font name="Unispace-Bold" size="45.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutY="60.0" prefHeight="500.0" prefWidth="900.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="438.0" prefWidth="202.0" style="-fx-background-color: #66FFFF;">
                      <children>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="Project types:">
+                        <Label alignment="CENTER" prefHeight="70.0" prefWidth="200.0" stylesheets="@Gui.css" text="QUICK MENU" underline="true">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="OCR A Extended" size="32.0" />
                            </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets bottom="100.0" />
+                           </VBox.margin>
                         </Label>
+                        <Button id="new-project" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="New Project">
+                           <font>
+                              <Font name="Britannic Bold" size="22.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                           </effect>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button id="view-project" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="View Project">
+                           <font>
+                              <Font name="Britannic Bold" size="22.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                           </effect>
+                        </Button>
+                        <Button id="analytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Analytics">
+                           <font>
+                              <Font name="Britannic Bold" size="22.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                           </effect>
+                        </Button>
+                        <Button id="publish-web" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Publish Web">
+                           <font>
+                              <Font name="Britannic Bold" size="22.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                           </effect>
+                           <VBox.margin>
+                              <Insets bottom="70.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button id="settings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Settings">
+                           <font>
+                              <Font name="Britannic Bold" size="22.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                           </effect>
+                        </Button>
                      </children>
                   </VBox>
-                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="700.0">
                      <children>
-                        <VBox prefHeight="100.0" prefWidth="132.0" />
-                        <VBox alignment="CENTER" prefHeight="131.0" prefWidth="422.0">
+                        <VBox alignment="TOP_RIGHT" layoutX="14.0" layoutY="135.0" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label prefHeight="83.0" prefWidth="226.0" text="ANALYTICS">
+                              <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="Project types:">
                                  <font>
-                                    <Font size="42.0" />
+                                    <Font size="16.0" />
                                  </font>
                               </Label>
                            </children>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="138.0">
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0">
                            <children>
-                              <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: F42A35; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="CANCEL">
-                                 <font>
-                                    <Font name="ROGFonts-Regular" size="13.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <effect>
-                                    <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                 </effect>
-                              </Button>
+                              <VBox prefHeight="100.0" prefWidth="132.0" />
+                              <VBox alignment="CENTER" prefHeight="131.0" prefWidth="422.0">
+                                 <children>
+                                    <Label prefHeight="83.0" prefWidth="226.0" text="ANALYTICS">
+                                       <font>
+                                          <Font size="42.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="100.0" prefWidth="138.0">
+                                 <children>
+                                    <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: F42A35; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@Gui.css" text="CANCEL">
+                                       <font>
+                                          <Font name="ROGFonts-Regular" size="13.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                                       </effect>
+                                    </Button>
+                                 </children>
+                              </VBox>
                            </children>
-                        </VBox>
+                        </HBox>
+                        <HBox layoutX="45.0" layoutY="113.0" prefHeight="362.0" prefWidth="654.0">
+                           <children>
+                              <VBox alignment="CENTER_RIGHT" prefHeight="242.0" prefWidth="306.0">
+                                 <children>
+                                    <Button id="residential" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@Gui.css" text="Residential">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                                       </effect>
+                                       <VBox.margin>
+                                          <Insets bottom="15.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button id="industrial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@Gui.css" text="Industrial">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                                       </effect>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="242.0" prefWidth="306.0">
+                                 <children>
+                                    <Button id="commercial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@Gui.css" text="Commercial">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                                       </effect>
+                                       <VBox.margin>
+                                          <Insets bottom="15.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button id="roads" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@Gui.css" text="Road Construction">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                                       </effect>
+                                    </Button>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="15.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <HBox layoutX="45.0" layoutY="113.0" prefHeight="362.0" prefWidth="654.0">
-                     <children>
-                        <VBox alignment="CENTER_RIGHT" prefHeight="242.0" prefWidth="306.0">
-                           <children>
-                              <Button id="residential" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Residential">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <effect>
-                                    <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                 </effect>
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button id="industrial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Industrial">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <effect>
-                                    <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                 </effect>
-                              </Button>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER_LEFT" prefHeight="242.0" prefWidth="306.0">
-                           <children>
-                              <Button id="commercial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Commercial">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <effect>
-                                    <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                 </effect>
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button id="roads" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-color: #66FFFF; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="Road Construction">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <effect>
-                                    <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                 </effect>
-                              </Button>
-                           </children>
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children></AnchorPane>
-      </content>
-    </Tab>
-  </tabs>
-</TabPane>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <HBox alignment="CENTER" prefHeight="68.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
+         <children>
+            <Label text="© 2023 Bob the Builder. All rights reserved.">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</VBox>

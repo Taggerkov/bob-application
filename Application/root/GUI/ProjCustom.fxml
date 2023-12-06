@@ -99,7 +99,7 @@
       <children>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
                <children>
-                  <Label id="Trademark" alignment="CENTER" stylesheets="@gui.css" text="BOB'S SOFTWARE 0.1" underline="true">
+                  <Label id="Trademark" alignment="CENTER" stylesheets="@Gui.css" text="BOB'S SOFTWARE 0.1" underline="true">
                      <font>
                         <Font name="Unispace-Bold" size="45.0" />
                      </font>
@@ -110,7 +110,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="200.0" style="-fx-background-color: #66FFFF;">
                      <children>
-                        <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" stylesheets="@gui.css" text="QUICK MENU" underline="true">
+                        <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" stylesheets="@Gui.css" text="QUICK MENU" underline="true">
                            <font>
                               <Font name="OCR A Extended" size="32.0" />
                            </font>
@@ -121,7 +121,7 @@
                               <Insets bottom="100.0" />
                            </VBox.margin>
                         </Label>
-                        <Button id="new-project" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="New Project">
+                        <Button id="new-project" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="New Project">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -138,7 +138,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button id="view-project" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="View Project">
+                        <Button id="view-project" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="View Project">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -152,7 +152,7 @@
                               <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                            </effect>
                         </Button>
-                        <Button id="analytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="Analytics">
+                        <Button id="analytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Analytics">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -166,7 +166,7 @@
                               <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                            </effect>
                         </Button>
-                        <Button id="publish-web" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="Publish Web">
+                        <Button id="publish-web" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Publish Web">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -183,7 +183,7 @@
                               <Insets bottom="70.0" />
                            </VBox.margin>
                         </Button>
-                        <Button id="settings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="Settings">
+                        <Button id="settings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Settings">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -223,7 +223,7 @@
                                     <Insets left="7.0" top="10.0" />
                                  </padding>
                                  <children>
-                                    <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: F42A35; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="CANCEL">
+                                    <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: F42A35; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@Gui.css" text="CANCEL">
                                        <font>
                                           <Font name="ROGFonts-Regular" size="13.0" />
                                        </font>
