@@ -155,7 +155,7 @@ public class RoadConstruction extends Project {
     }
 
     /**
-     *
+     * Checks if the given object is the same as the RoadConstruction one
      * @param obj
      * @return true if the given object is the same as the RoadConstruction object and false if the given object is different from the RoadConstruction object
      */
