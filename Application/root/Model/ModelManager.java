@@ -35,5 +35,17 @@ public class ModelManager
     }
     return allProjects;
   }
+public ProjectList getProjectType(String type)
+{
+    type.toUpperCase();
+    ProjectList projectType = new ProjectList();
+    ProjectList allProjects = getAllProjects();
 
+    for (int i = 0; i < allProjects.size(); i++)
+    {
+      if(allProjects.getType(i).equals(type))
+        projectType.add(allProjects.get(i));
+    }
+    return projectType;
+}
 }
