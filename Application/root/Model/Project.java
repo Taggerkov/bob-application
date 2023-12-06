@@ -111,4 +111,9 @@ public abstract class Project {
     public void setEndDate(MyDate endDate) {
         this.endDate = endDate;
     }
+
+    public String getTitle()
+    {
+        return title;
+    }
 }
