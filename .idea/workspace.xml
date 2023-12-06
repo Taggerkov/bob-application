@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="22947cd9-cc4d-400f-9317-bd59da3d4144" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/Application/root/Model/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Industrial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/Model/RoadConstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/RoadConstruction.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/Application/root/Model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/ModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Model/ProjectList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/ProjectList.java" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": -1
+}]]></component>
+  <component name="ProjectId" id="2ZAK3bJj7bGfQizVEXcdfSSQwxS" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
