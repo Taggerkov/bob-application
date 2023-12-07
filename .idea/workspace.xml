@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="898d65b2-fdf6-45d2-80f4-027b5bb1da1c" name="Changes" comment="" />
+=======
+    <list default="true" id="22947cd9-cc4d-400f-9317-bd59da3d4144" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/GUI/Gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/GUI/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/GuiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/StartGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/GUIController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/NewProjectController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/StartGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/StartGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/ViewHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/Model/Industrial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Model/Industrial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/Model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Model/ModelManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/Model/MyDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Model/MyDate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/Model/ProjectList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Model/ProjectList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/Utils/FileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Utils/FileHandler.class" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,10 +34,20 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+<<<<<<< Updated upstream
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 6
 }]]></component>
   <component name="ProjectId" id="2YWbkYkVMg3GKXraDOq2DleGNyG" />
+=======
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2ZALDAnJzbfegnwkFPn0AkEQzCa" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+>>>>>>> Stashed changes
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -27,11 +58,76 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "jdk.selected.JAVA_MODULE": "17"
   }
+<<<<<<< Updated upstream
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tagge\Documents\VIA\Web\Bob's Projeckt\bob-application\github" />
     </key>
+=======
+}</component>
+  <component name="RunManager" selected="Application.StartGui">
+    <configuration name="StartGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.StartGUI" />
+      <module name="Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartGui" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.StartGui" />
+      <module name="Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Model.Tester" />
+      <module name="Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="date_picker_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Model.date_picker_2" />
+      <module name="Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StartGui" />
+        <item itemvalue="Application.StartGUI" />
+        <item itemvalue="Application.date_picker_2" />
+        <item itemvalue="Application.Tester" />
+      </list>
+    </recent_temporary>
+>>>>>>> Stashed changes
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
