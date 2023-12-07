@@ -111,10 +111,10 @@ public class FileHandler
     }
 
   /**
-   * 
-   * @param fileName
-   * @return
-   * @throws FileNotFoundException
+   * Reads the first line of a text file
+   * @param fileName name and path of the file
+   * @return  a string with the line read from the file
+   * @throws FileNotFoundException exception if a file with the name and path given in FileName doesn't exist
    */
     public String readTextFile(String fileName) throws FileNotFoundException
     {
@@ -137,6 +137,12 @@ public class FileHandler
       return string;
     }
 
+  /**
+   * Reads full text file
+   * @param fileName name and path of the file
+   * @return an array containing every line from the file
+   * @throws FileNotFoundException exception if a file with the name and path given in FileName doesn't exist
+   */
     public static String[] getArrayFromTextFile(String fileName) throws FileNotFoundException
     {
       Scanner readFile = null;
@@ -164,6 +170,13 @@ public class FileHandler
       return strings.toArray(stringsArray);
     }
 
+  /**
+   * Converts object into binary file
+   * @param fileName  name and path of the file
+   * @param obj       object being converted into binary file
+   * @throws FileNotFoundException exception if a file with the name and path given in FileName doesn't exist
+   * @throws IOException           exception if there was an error converting the object
+   */
     public static void convertToBinaryFile(String fileName, Object obj) throws FileNotFoundException,
         IOException
     {
@@ -192,6 +205,13 @@ public class FileHandler
       }
     }
 
+  /**
+   * Converts an array of objects into a binary file
+   * @param fileName  name and path of the file
+   * @param objects   object array tob e converted into file
+   * @throws FileNotFoundException  exception if a file with the name and path given in FileName doesn't exist
+   * @throws IOException            exception if there was an error converting the array
+   */
     public static void convertArrayToBinaryFile(String fileName, Object[] objects) throws FileNotFoundException, IOException
     {
       ObjectOutputStream convertToFile = null;
@@ -222,6 +242,14 @@ public class FileHandler
       }
     }
 
+  /**
+   * Retrieves an object from binary file and converts to a string
+   * @param fileName name and path of the file
+   * @return the object read from the file
+   * @throws FileNotFoundException  exception if a file with the name and path given in FileName doesn't exist
+   * @throws IOException            exception if there was an error reading the file
+   * @throws ClassNotFoundException exception if the class of the objet cannot be found
+   */
     public static Object getFromBinaryFile(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException
     {
       Object obj = null;
@@ -256,6 +284,14 @@ public class FileHandler
       return obj;
     }
 
+  /**
+   * Retrieves all objects from a file and creates an object array
+   * @param fileName  name and path of the file
+   * @return          an object array with all the objects from the file
+   * @throws FileNotFoundException  exception if a file with the name and path given in FileName doesn't exist
+   * @throws IOException            exception if there was an error reading the file
+   * @throws ClassNotFoundException exception if the class of the object cannot be found
+   */
     public static Object[] getArrayFromBinaryFile(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException
     {
       ArrayList<Object> objects = new ArrayList<Object>();
