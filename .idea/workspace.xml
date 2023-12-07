@@ -6,27 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="22947cd9-cc4d-400f-9317-bd59da3d4144" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/GuiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/Publish.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Publish.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/allProjects.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/AllProjects.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/allProjectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/AllProjectsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/analytics.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Analytics.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/analyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/AnalyticsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/gui.css" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Gui.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Gui.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/manage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Manage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/manageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/newProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/NewProject.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/newProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/projCustom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ProjCustom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/projCustomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ProjCustomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/projQuick.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ProjQuick.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/projQuickController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ProjQuickController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/projectSaved.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ProjectSaved.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/projectSavedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ProjectSavedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/publishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/PublishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Model/MyDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/MyDate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +24,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2ZALDAnJzbfegnwkFPn0AkEQzCa" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />

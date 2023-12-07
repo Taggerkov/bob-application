@@ -122,4 +122,13 @@ public class MyDate {
         MyDate other=(MyDate) obj;
         return day==other.day && month==other.month && year== other.year;
     }
+
+    /**
+     * Checks if the given date is before or same as the MyDate date
+     * @param date
+     * @return true if its before or exact same date and false if its after
+     */
+    public boolean isBefore(MyDate date){
+        return this.year < date.year || (this.year == date.year && this.month < date.month )|| (this.year == date.year && this.month == date.month && this.day <= date.day);
+    }
 }
