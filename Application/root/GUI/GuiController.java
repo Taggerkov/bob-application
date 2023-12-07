@@ -1,47 +1,111 @@
 package GUI;
 
-import Model.ModelManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Region;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
-public class GuiController
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class GuiController implements Initializable
 {
-    private Scene scene;
-    private ModelManager modelManager;
+
+    @FXML
+    private VBox main;
+
+    @FXML
+    private MenuBar menuBar;
+
+    @FXML
+    private AnchorPane anchorPane;
+
+    @FXML
+    private HBox welcomeBox;
+
+    @FXML
+    private Label welcomeLabel;
+
+    @FXML
+    private Label messageLabel;
+
+    @FXML
+    private Label versionLabel;
+
+    @FXML
+    private Hyperlink githubLink;
+
+    @FXML
+    private HBox footerBox;
+
+    @FXML
+    private Label copyrightLabel;
     private ViewHandler viewHandler;
 
-    @FXML private Button newProject;
-    @FXML private Button manageProject;
-    @FXML private Button analytics;
-    @FXML private Button publishWeb;
-    @FXML private Button settings;
+    // Add more @FXML annotated fields for other UI elements as needed
 
-    public Scene getScene()
-    {
-        return scene;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // Initialize your GUI components, set listeners, etc.
     }
 
-    public void reset()
-    {
+    // You can add methods for handling button clicks or other actions
+
+    public void setViewHandler(ViewHandler viewHandler) {
+        this.viewHandler = viewHandler;
     }
 
-    public void setViewHandler(ViewHandler viewHandler)
-    {
+    @FXML
+    private void handleNewProject(ActionEvent event) {
+        viewHandler.switchView("NewProject.fxml", "New Project");
     }
 
-    public void setRoot(Region guiRegion)
-    {
+    @FXML
+    private void handleViewProject(ActionEvent event) {
+        viewHandler.switchView("AllProjects.fxml", "View Project");
     }
 
-    public Parent getRoot()
-    {
-        return null;
+    @FXML
+    private void handleAnalytics(ActionEvent event) {
+        viewHandler.switchView("Analytics.fxml", "Analytics");
     }
 
-    public void init(ViewHandler viewHandler, ModelManager modelManager, Region guiRoot)
-    {
+    @FXML
+    private void handlePublishWeb(ActionEvent event) {
+        viewHandler.switchView("Publish.fxml", "Publish Web");
     }
+
+    @FXML
+    private void handleSettings(ActionEvent event) {
+        viewHandler.switchView("Settings.fxml", "Settings");
+    }
+
+
+    // Add more methods for handling other actions as needed
+
+    private void loadFXML(String fxmlFileName, String title) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle the exception appropriately for your application
+        }
+    }
+
+    // Add more methods for handling other actions as needed
 }

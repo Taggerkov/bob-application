@@ -1,25 +1,26 @@
 package GUI;
 
-import GUI.ViewHandler;
-import Model.ModelManager;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class StartGUI extends Application {
+public class StartGUI extends Application
+{
 
-  @Override
-  public void start(Stage primaryStage) throws Exception {
-    ModelManager modelManager = new ModelManager("");
-    ViewHandler viewHandler = new ViewHandler(primaryStage, modelManager);
+  @Override public void start(Stage primaryStage) throws Exception
+  {
+    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Gui.fxml"));
+    Parent root = fxmlLoader.load();
 
-    // Open the initial view (replace "gui" with the appropriate view ID)
-    viewHandler.openView("gui");
+    GuiController guiController = fxmlLoader.getController();
+    ViewHandler viewHandler = new ViewHandler(primaryStage);
+    guiController.setViewHandler(viewHandler);
 
-    primaryStage.setTitle("Your Application Title");
+    Scene scene = new Scene(root);
+    primaryStage.setTitle("Bob construction");
+    primaryStage.setScene(scene);
     primaryStage.show();
-  }
-
-  public static void main(String[] args) {
-    launch(args);
   }
 }

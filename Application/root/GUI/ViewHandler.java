@@ -1,62 +1,33 @@
 package GUI;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import Model.ModelManager;
 
 import java.io.IOException;
 
 public class ViewHandler {
-  private Stage stage;
-  private GuiController guiController;
-  private NewProjectController newProjectController;
-  private ProjCustomController projCustomController;
-  private AllProjectsController allProjectsController;
-  private ProjQuickController projQuickController;
-  private PublishController publishController;
-  private AnalyticsController analyticsController;
-  private ManageController manageController;
-  private ModelManager modelManager;
 
-  public ViewHandler(Stage stage, ModelManager modelManager) {
-    this.stage = stage;
-    this.modelManager = modelManager;
-    initializeControllers();
+  private Stage primaryStage;
+
+  public ViewHandler(Stage primaryStage) {
+    this.primaryStage = primaryStage;
   }
 
-  private void initializeControllers() {
+  public void switchView(String fxmlFileName, String title) {
     try {
-      FXMLLoader guiLoader = new FXMLLoader();
-      guiLoader.setLocation(getClass().getResource("Gui.fxml")); // Adjust the path accordingly
-      Region guiRoot = guiLoader.load();
-      guiController = guiLoader.getController();
-      guiController.init(this, modelManager, guiRoot);
-
-      // Repeat similar steps for other controllers...
-
-      // Set the view handler after initializing controllers
-      guiController.setViewHandler(this);
-
+      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
+      Parent root = fxmlLoader.load();
+      Scene scene = new Scene(root);
+      primaryStage.setTitle(title);
+      primaryStage.setScene(scene);
     } catch (IOException e) {
-      e.printStackTrace();
-      // Handle the exception accordingly
+      e.printStackTrace(); // Handle the exception appropriately for your application
     }
   }
 
-
-  public void openView(String id) {
-    switch (id) {
-      case "gui":
-        stage.setScene(new Scene(guiController.getRoot()));
-        guiController.reset();
-        break;
-      case "newProject":
-        stage.setScene(new Scene(newProjectController.getRoot()));
-        newProjectController.reset();
-        break;
-      // Add cases for other views
-    }
+  public void show() {
+    primaryStage.show();
   }
 }

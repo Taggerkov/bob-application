@@ -130,9 +130,5 @@ public class ModelManager
   }
   return null;
 }
-public ProjectList getProjectByDate(String date)
-{
-  MyDate temp = new MyDate(date);
-  temp.isBefore()
-}
+
 }
