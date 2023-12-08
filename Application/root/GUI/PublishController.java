@@ -3,22 +3,45 @@ package GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PublishController implements Initializable
-{
+
+public class PublishController implements Initializable {
+
+  @FXML
+  private Button newProjectButton;
+
+  @FXML
+  private Button viewProjectButton;
+
+  @FXML
+  private Button analyticsButton;
+
+  @FXML
+  private Button publishWebButton;
+
+  @FXML
+  private Button settingsButton;
+
   private ViewHandler viewHandler;
 
+  public PublishController() {
+  }
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
+    // Initialization code...
 
+    // Example: Set default values or perform some actions
+    if (newProjectButton != null) {
+      newProjectButton.setDisable(false);
+      newProjectButton.setStyle("");
+    }
   }
-
-  public void setViewHandler(ViewHandler viewHandler) {
+  public PublishController(ViewHandler viewHandler) {
     this.viewHandler = viewHandler;
   }
 
@@ -46,5 +69,4 @@ public class PublishController implements Initializable
   private void handleSettings(ActionEvent event) {
     viewHandler.switchView("Settings.fxml", "Settings");
   }
-
 }

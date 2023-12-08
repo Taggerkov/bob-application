@@ -3,21 +3,30 @@ package GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AnalyticsController implements Initializable
-{
+public class AnalyticsController implements Initializable {
+
   private ViewHandler viewHandler;
 
+  // Default constructor for FXML
+  public AnalyticsController() {
+  }
+
+  // Constructor to set the viewHandler
+  public AnalyticsController(ViewHandler viewHandler) {
+    this.viewHandler = viewHandler;
+  }
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
+    // Initialization logic here
 
   }
 
+  // Setter method to set the viewHandler
   public void setViewHandler(ViewHandler viewHandler) {
     this.viewHandler = viewHandler;
   }
@@ -39,12 +48,16 @@ public class AnalyticsController implements Initializable
 
   @FXML
   private void handlePublishWeb(ActionEvent event) {
-    viewHandler.switchView("Publish.fxml", "Publish Web");
+    if (viewHandler != null) {
+      viewHandler.switchView("Publish.fxml", "Publish Web");
+    } else {
+      // Handle the case where viewHandler is null (maybe log an error or show an alert)
+      System.err.println("viewHandler is not initialized!");
+    }
   }
 
   @FXML
   private void handleSettings(ActionEvent event) {
     viewHandler.switchView("Settings.fxml", "Settings");
   }
-
 }

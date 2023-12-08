@@ -1,19 +1,18 @@
 package GUI;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AllProjectsController implements Initializable
-{
+public class AllProjectsController implements Initializable {
 
   private ViewHandler viewHandler;
 
-
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-
+    // Initialization code, if needed
   }
 
   public void setViewHandler(ViewHandler viewHandler) {
@@ -27,7 +26,8 @@ public class AllProjectsController implements Initializable
 
   @FXML
   private void handleViewProject(ActionEvent event) {
-    viewHandler.switchView("AllProjects.fxml", "View Project");
+    // This method is in the GuiController, so it's not needed here.
+    // You can remove or leave it empty.
   }
 
   @FXML
@@ -44,7 +44,4 @@ public class AllProjectsController implements Initializable
   private void handleSettings(ActionEvent event) {
     viewHandler.switchView("Settings.fxml", "Settings");
   }
-
-
-
 }

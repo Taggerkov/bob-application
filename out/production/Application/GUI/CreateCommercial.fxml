@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar prefWidth="700.0" style="-fx-background-color: #C6C2C2; -fx-border-color: black; -fx-border-width: 0.1em;" VBox.vgrow="ALWAYS">
          <menus>
@@ -147,20 +147,6 @@
                               <Insets bottom="70.0" />
                            </VBox.margin>
                         </Button>
-                        <Button id="settings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="Settings">
-                           <font>
-                              <Font name="Britannic Bold" size="22.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <effect>
-                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                           </effect>
-                        </Button>
                      </children>
                   </VBox>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0">
@@ -171,7 +157,7 @@
                                  <children>
                                     <VBox alignment="CENTER" prefHeight="133.0" prefWidth="568.0">
                                        <children>
-                                          <Label text="Residential" underline="true">
+                                          <Label text="Commercial" underline="true">
                                              <font>
                                                 <Font size="45.0" />
                                              </font>
@@ -251,9 +237,8 @@
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label text="Kitchens:" />
-                                          <Label text="Bathrooms:" GridPane.rowIndex="1" />
-                                          <Label text="Customer:" GridPane.rowIndex="3" />
+                                          <Label text="Number of floors:" />
+                                          <Label text="Intended use:" GridPane.rowIndex="1" />
                                           <Button id="custom" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: green; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@Gui.css" text="SAVE" textFill="#efebeb" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <font>
                                                 <Font size="16.0" />
@@ -272,29 +257,13 @@
                                              </GridPane.margin>
                                           </Button>
                                           <TextField GridPane.columnIndex="1" />
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <VBox alignment="CENTER_LEFT" GridPane.rowIndex="2">
                                              <children>
-                                                <Label prefHeight="18.0" prefWidth="70.0" text="Other rooms" />
-                                                <Label text="with plumbing:" />
+                                                <Label text="Customer:" />
                                              </children>
                                           </VBox>
-                                          <Button id="custom" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="110.0" style="-fx-background-color: #F7D134; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@Gui.css" text="ARCHIVE" textAlignment="CENTER" textFill="#faf6f6" GridPane.rowIndex="4">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <opaqueInsets>
-                                                <Insets />
-                                             </opaqueInsets>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <effect>
-                                                <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                             </effect>
-                                          </Button>
                                        </children>
                                        <HBox.margin>
                                           <Insets left="30.0" />

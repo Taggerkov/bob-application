@@ -1,3 +1,4 @@
+// ViewHandler.java
 package GUI;
 
 import javafx.fxml.FXMLLoader;
@@ -9,10 +10,20 @@ import java.io.IOException;
 
 public class ViewHandler {
 
+  private static ViewHandler instance;
   private Stage primaryStage;
 
-  public ViewHandler(Stage primaryStage) {
+  // Private constructor to prevent instantiation
+  private ViewHandler(Stage primaryStage) {
     this.primaryStage = primaryStage;
+  }
+
+  // Static method to get the instance
+  public static ViewHandler getInstance(Stage primaryStage) {
+    if (instance == null) {
+      instance = new ViewHandler(primaryStage);
+    }
+    return instance;
   }
 
   public void switchView(String fxmlFileName, String title) {
@@ -22,12 +33,17 @@ public class ViewHandler {
       Scene scene = new Scene(root);
       primaryStage.setTitle(title);
       primaryStage.setScene(scene);
+      primaryStage.show();
     } catch (IOException e) {
-      e.printStackTrace();
+      e.printStackTrace(); // Handle the exception appropriately for your application
     }
   }
 
   public void show() {
     primaryStage.show();
+  }
+
+  public Stage getPrimaryStage() {
+    return primaryStage;
   }
 }

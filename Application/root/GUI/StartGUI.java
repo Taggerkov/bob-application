@@ -1,3 +1,4 @@
+// StartGUI.java
 package GUI;
 
 import javafx.application.Application;
@@ -10,10 +11,30 @@ public class StartGUI extends Application {
 
   @Override
   public void start(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("Gui.fxml"));
-    primaryStage.setTitle("BOB'S SOFTWARE");
-    primaryStage.setScene(new Scene(root, 900, 600));
+    // Create an instance of ViewHandler
+    ViewHandler viewHandler = ViewHandler.getInstance(primaryStage);
+
+    // Load the GUI FXML file and set the ViewHandler for GuiController
+    FXMLLoader guiLoader = new FXMLLoader(getClass().getResource("Gui.fxml"));
+    Parent guiRoot = guiLoader.load();
+    GuiController guiController = guiLoader.getController();
+    guiController.setViewHandler(viewHandler);
+
+    // Load the NewProject FXML file and set the ViewHandler for NewProjectController
+    FXMLLoader newProjectLoader = new FXMLLoader(getClass().getResource("NewProject.fxml"));
+    Parent newProjectRoot = newProjectLoader.load();
+    NewProjectController newProjectController = newProjectLoader.getController();
+    newProjectController.setViewHandler(viewHandler);
+
+    // Set the scene
+    Scene scene = new Scene(guiRoot);
+    primaryStage.setTitle("Bob construction");
+    primaryStage.setScene(scene);
     primaryStage.show();
+
+    // Debug information
+    System.out.println("GuiController.viewHandler: " + guiController.getViewHandler());
+    System.out.println("NewProjectController.viewHandler: " + newProjectController.getViewHandler());
   }
 
   public static void main(String[] args) {

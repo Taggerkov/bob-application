@@ -44,7 +44,7 @@
                                                 <Insets bottom="100.0" />
                                             </VBox.margin>
                                         </Label>
-                                        <Button id="new-project" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"  prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button"  text="New Project">
+                                        <Button fx:id="newProjectButton"  id="new-project" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"  prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button"  text="New Project">
                                             <font>
                                                 <Font name="Britannic Bold" size="22.0" />
                                             </font>
