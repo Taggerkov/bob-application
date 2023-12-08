@@ -130,5 +130,17 @@ public class ModelManager
   }
   return null;
 }
+public ProjectList getProjectByDate(String date)
+{
+  MyDate temp = new MyDate(date);
+  ProjectList allProjects = getAllProjects();
+  ProjectList projectsBeforeDate = new ProjectList();
 
+  for (int i = 0; i < allProjects.size(); i++)
+  {
+    if(allProjects.get(i).getEndDate().isBefore(temp))
+      projectsBeforeDate.add(allProjects.get(i));
+  }
+  return projectsBeforeDate;
+}
 }
