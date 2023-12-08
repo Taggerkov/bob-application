@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="22947cd9-cc4d-400f-9317-bd59da3d4144" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/GuiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/ModelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/GUIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/StartGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/StartGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/ViewHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Application/Model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Model/ModelManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/Model/ProjectList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Model/ProjectList.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,11 +32,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="" />
