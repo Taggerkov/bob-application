@@ -281,20 +281,6 @@
                                                 <Label text="with plumbing:" />
                                              </children>
                                           </VBox>
-                                          <Button id="custom" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="46.0" prefWidth="110.0" style="-fx-background-color: #F7D134; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@Gui.css" text="ARCHIVE" textAlignment="CENTER" textFill="#faf6f6" GridPane.rowIndex="4">
-                                             <font>
-                                                <Font size="16.0" />
-                                             </font>
-                                             <opaqueInsets>
-                                                <Insets />
-                                             </opaqueInsets>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <effect>
-                                                <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                             </effect>
-                                          </Button>
                                        </children>
                                        <HBox.margin>
                                           <Insets left="30.0" />
