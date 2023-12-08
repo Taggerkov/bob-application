@@ -1,4 +1,3 @@
-// ViewHandler.java
 package GUI;
 
 import javafx.fxml.FXMLLoader;
@@ -35,7 +34,13 @@ public class ViewHandler {
       primaryStage.setScene(scene);
       primaryStage.show();
     } catch (IOException e) {
-      e.printStackTrace(); // Handle the exception appropriately for your application
+      System.err.println("Error loading FXML file: " + fxmlFileName);
+      e.printStackTrace();
+      // You can show an alert or handle the exception in a way suitable for your application
+    } catch (Exception e) {
+      System.err.println("Error switching view to " + fxmlFileName);
+      e.printStackTrace();
+      // Handle other exceptions if needed
     }
   }
 

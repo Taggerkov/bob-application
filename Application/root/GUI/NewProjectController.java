@@ -23,7 +23,7 @@ public class NewProjectController implements Initializable {
   }
 
   @FXML
-  private void handleNewProject(ActionEvent event) {
+  private void handleNewNewProject(ActionEvent event) {
     if (viewHandler != null) {
       viewHandler.switchView("NewProject.fxml", "New Project");
     } else {
@@ -33,7 +33,7 @@ public class NewProjectController implements Initializable {
   }
 
   @FXML
-  private void handleViewProject(ActionEvent event) {
+  private void handleNewViewProject(ActionEvent event) {
     if (viewHandler != null) {
       viewHandler.switchView("AllProjects.fxml", "View Project");
     } else {
@@ -43,7 +43,7 @@ public class NewProjectController implements Initializable {
   }
 
   @FXML
-  private void handleAnalytics(ActionEvent event) {
+  private void handleNewAnalytics(ActionEvent event) {
     if (viewHandler != null) {
       viewHandler.switchView("Analytics.fxml", "Analytics");
     } else {
@@ -53,7 +53,7 @@ public class NewProjectController implements Initializable {
   }
 
   @FXML
-  private void handlePublishWeb(ActionEvent event) {
+  private void handleNewPublishWeb(ActionEvent event) {
     if (viewHandler != null) {
       viewHandler.switchView("Publish.fxml", "Publish Web");
     } else {
@@ -63,7 +63,7 @@ public class NewProjectController implements Initializable {
   }
 
   @FXML
-  private void handleSettings(ActionEvent event) {
+  private void handleNewSettings(ActionEvent event) {
     if (viewHandler != null) {
       viewHandler.switchView("Settings.fxml", "Settings");
     } else {

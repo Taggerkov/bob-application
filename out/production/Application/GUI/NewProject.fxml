@@ -129,7 +129,7 @@ fx:controller="GUI.NewProjectController">
                                     </VBox.margin>
                                 </Label>
                                <Button id="new-project"
-                                       onAction="#handleNewProject"
+                                       onAction="#handleNewNewProject"
                                        alignment="CENTER"
                                        contentDisplay="CENTER"
                                        mnemonicParsing="false"
@@ -159,7 +159,7 @@ fx:controller="GUI.NewProjectController">
                                   </VBox.margin>
                                </Button>
                                <Button id="view-project"
-                                       onAction="#handleViewProject"
+                                       onAction="#handleNewViewProject"
                                        alignment="CENTER"
                                        contentDisplay="CENTER"
                                        mnemonicParsing="false"
@@ -186,7 +186,7 @@ fx:controller="GUI.NewProjectController">
                                   </effect>
                                </Button>
                                <Button id="analytics"
-                                       onAction="#handleAnalytics"
+                                       onAction="#handleNewAnalytics"
                                        alignment="CENTER"
                                        contentDisplay="CENTER"
                                        mnemonicParsing="false"
@@ -212,7 +212,7 @@ fx:controller="GUI.NewProjectController">
                                   </effect>
                                </Button>
                                <Button id="publish-web"
-                                       onAction="#handlePublishWeb"
+                                       onAction="#handleNewPublishWeb"
                                        alignment="CENTER"
                                        contentDisplay="CENTER"
                                        mnemonicParsing="false"
@@ -241,7 +241,7 @@ fx:controller="GUI.NewProjectController">
                                      <Insets bottom="70.0"/>
                                   </VBox.margin>
                                </Button>
-                               <Button id="settings" onAction="#handleSettings"
+                               <Button id="settings" onAction="#handleNewSettings"
                                        alignment="CENTER"
                                        contentDisplay="CENTER"
                                        mnemonicParsing="false"

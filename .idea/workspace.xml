@@ -4,50 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22947cd9-cc4d-400f-9317-bd59da3d4144" name="Changes" comment="">
-<<<<<<< Updated upstream
+    <list default="true" id="44c09958-d3a9-47d9-b1f6-b27f7d0abb02" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/AllProjects.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/AllProjects.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/AllProjectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/AllProjectsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/Analytics.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Analytics.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/AnalyticsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/Gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Gui.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/GuiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/GuiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/Manage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Manage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/ManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ManageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/NewProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/NewProject.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/ProjCustom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ProjCustom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/Publish.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Publish.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/PublishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/PublishController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/ModelManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/AllProjects.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/AllProjects.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/AllProjectsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/AllProjectsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/AnalyticsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/AnalyticsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/GUIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/Manage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/Manage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/ManageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/ManageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/NewProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/NewProject.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/NewProjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/NewProjectController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/ProjCustom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/ProjCustom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/Publish.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/Publish.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/PublishController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/PublishController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/StartGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/StartGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/analytics.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/analytics.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/ViewHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Application/GUI/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/GUI/gui.fxml" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/Application/root/GUI/DisplayResidential.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
-      <change beforePath="$PROJECT_DIR$/out/production/Application/Model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Model/ModelManager.class" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/out/production/Application/Model/Industrial.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Model/Industrial.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/Model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Model/ModelManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/Model/MyDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Model/MyDate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Application/Utils/FileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Application/Utils/FileHandler.class" afterDir="false" />
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -73,12 +47,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="GUI" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="" />
     </key>
@@ -135,10 +112,10 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="22947cd9-cc4d-400f-9317-bd59da3d4144" name="Changes" comment="" />
-      <created>1701970231194</created>
+      <created>1702060675614</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1701970231194</updated>
+      <updated>1702060675614</updated>
     </task>
     <servers />
   </component>

@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<VBox prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AllProjectsController">
    <children>
       <MenuBar prefWidth="700.0" style="-fx-background-color: #C6C2C2; -fx-border-color: black; -fx-border-width: 0.1em;" VBox.vgrow="ALWAYS">
          <menus>
@@ -86,7 +86,7 @@
                               <Insets bottom="100.0" />
                            </VBox.margin>
                         </Label>
-                        <Button id="new-project"  alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button"  text="New Project">
+                        <Button id="new-project" onAction="#handleAllNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button"  text="New Project">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -103,7 +103,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button id="view-project" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="View Project">
+                        <Button id="view-project" onAction="#handleAllViewProject"  alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="View Project">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -117,7 +117,7 @@
                               <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                            </effect>
                         </Button>
-                        <Button id="analytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Analytics">
+                        <Button id="analytics" onAction="#handleAllAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Analytics">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -131,7 +131,7 @@
                               <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                            </effect>
                         </Button>
-                        <Button id="publish-web" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Publish Web">
+                        <Button id="publish-web" onAction="#handleAllPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Publish Web">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -148,7 +148,7 @@
                               <Insets bottom="70.0" />
                            </VBox.margin>
                         </Button>
-                        <Button id="settings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Settings">
+                        <Button id="settings" onAction="#handleAllSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Settings">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>

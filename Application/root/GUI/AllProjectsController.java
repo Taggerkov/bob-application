@@ -3,6 +3,8 @@ package GUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,35 +15,90 @@ public class AllProjectsController implements Initializable {
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     // Initialization code, if needed
+    viewHandler = ViewHandler.getInstance(new Stage());
   }
 
+  public AllProjectsController(ViewHandler viewHandler) {
+    this.viewHandler = viewHandler;
+  }
+
+  // Alternatively, you can use a setter method
   public void setViewHandler(ViewHandler viewHandler) {
     this.viewHandler = viewHandler;
   }
 
-  @FXML
-  private void handleNewProject(ActionEvent event) {
-    viewHandler.switchView("NewProject.fxml", "New Project");
-  }
+
+
 
   @FXML
-  private void handleViewProject(ActionEvent event) {
-    // This method is in the GuiController, so it's not needed here.
+  private void handleAllNewProject(ActionEvent event)
+  {
+    if (viewHandler != null)
+    {
+      viewHandler.switchView("NewProject.fxml", "New Project");
+    }
+    else
+    {
+      // Handle the case where viewHandler is null
+      System.out.println(
+          "ViewHandler is null. Make sure to set it before calling methods.");
+    }
+  }
+  @FXML
+  private void handleAllViewProject(ActionEvent event) {
+    if (viewHandler != null)
+    {
+      viewHandler.switchView("ViewProject.fxml", "View Project");
+    }
+    else
+    {
+      // Handle the case where viewHandler is null
+      System.out.println(
+          "ViewHandler is null. Make sure to set it before calling methods.");
+    }
+  // This method is in the GuiController, so it's not needed here.
     // You can remove or leave it empty.
   }
 
   @FXML
-  private void handleAnalytics(ActionEvent event) {
-    viewHandler.switchView("Analytics.fxml", "Analytics");
+  private void handleAllAnalytics(ActionEvent event) {
+    if (viewHandler != null)
+    {
+      viewHandler.switchView("Analytics.fxml", "Analytics");
+    }
+    else
+    {
+      // Handle the case where viewHandler is null
+      System.out.println(
+          "ViewHandler is null. Make sure to set it before calling methods.");
+    }
   }
 
   @FXML
-  private void handlePublishWeb(ActionEvent event) {
-    viewHandler.switchView("Publish.fxml", "Publish Web");
+  private void handleAllPublishWeb(ActionEvent event) {
+    if (viewHandler != null)
+    {
+      viewHandler.switchView("Publish.fxml", "Publish");
+    }
+    else
+    {
+      // Handle the case where viewHandler is null
+      System.out.println(
+          "ViewHandler is null. Make sure to set it before calling methods.");
+    }
   }
 
   @FXML
-  private void handleSettings(ActionEvent event) {
-    viewHandler.switchView("Settings.fxml", "Settings");
+  private void handleAllSettings(ActionEvent event) {
+    if (viewHandler != null)
+    {
+      viewHandler.switchView("Settings.fxml", "Settings");
+    }
+    else
+    {
+      // Handle the case where viewHandler is null
+      System.out.println(
+          "ViewHandler is null. Make sure to set it before calling methods.");
+    }
   }
 }

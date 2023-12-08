@@ -1,4 +1,3 @@
-// StartGUI.java
 package GUI;
 
 import javafx.application.Application;
@@ -20,12 +19,6 @@ public class StartGUI extends Application {
     GuiController guiController = guiLoader.getController();
     guiController.setViewHandler(viewHandler);
 
-    // Load the NewProject FXML file and set the ViewHandler for NewProjectController
-    FXMLLoader newProjectLoader = new FXMLLoader(getClass().getResource("NewProject.fxml"));
-    Parent newProjectRoot = newProjectLoader.load();
-    NewProjectController newProjectController = newProjectLoader.getController();
-    newProjectController.setViewHandler(viewHandler);
-
     // Set the scene
     Scene scene = new Scene(guiRoot);
     primaryStage.setTitle("Bob construction");
@@ -34,7 +27,6 @@ public class StartGUI extends Application {
 
     // Debug information
     System.out.println("GuiController.viewHandler: " + guiController.getViewHandler());
-    System.out.println("NewProjectController.viewHandler: " + newProjectController.getViewHandler());
   }
 
   public static void main(String[] args) {
