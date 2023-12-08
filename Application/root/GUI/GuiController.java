@@ -1,111 +1,72 @@
 package GUI;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class GuiController implements Initializable
+public class GuiController
 {
 
     @FXML
-    private VBox main;
+    private TabPane tabPane;
 
     @FXML
-    private MenuBar menuBar;
+    private Button newProject;
 
     @FXML
-    private AnchorPane anchorPane;
+    private Button viewProjectButton;
 
     @FXML
-    private HBox welcomeBox;
+    private Button analyticsButton;
 
     @FXML
-    private Label welcomeLabel;
-
-    @FXML
-    private Label messageLabel;
-
-    @FXML
-    private Label versionLabel;
-
-    @FXML
-    private Hyperlink githubLink;
-
-    @FXML
-    private HBox footerBox;
-
-    @FXML
-    private Label copyrightLabel;
-    private ViewHandler viewHandler;
-
-    // Add more @FXML annotated fields for other UI elements as needed
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // Initialize your GUI components, set listeners, etc.
-    }
-
-    // You can add methods for handling button clicks or other actions
-
-    public void setViewHandler(ViewHandler viewHandler) {
-        this.viewHandler = viewHandler;
-    }
-
-    @FXML
-    private void handleNewProject(ActionEvent event) {
-        viewHandler.switchView("NewProject.fxml", "New Project");
-    }
-
-    @FXML
-    private void handleViewProject(ActionEvent event) {
-        viewHandler.switchView("AllProjects.fxml", "View Project");
-    }
-
-    @FXML
-    private void handleAnalytics(ActionEvent event) {
-        viewHandler.switchView("Analytics.fxml", "Analytics");
-    }
-
-    @FXML
-    private void handlePublishWeb(ActionEvent event) {
-        viewHandler.switchView("Publish.fxml", "Publish Web");
-    }
-
-    @FXML
-    private void handleSettings(ActionEvent event) {
-        viewHandler.switchView("Settings.fxml", "Settings");
-    }
-
-
-    // Add more methods for handling other actions as needed
-
-    private void loadFXML(String fxmlFileName, String title) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle(title);
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception appropriately for your application
+    private Button publishWebButton;
+    private void switchToTab(String tabId) {
+        for (Tab tab : tabPane.getTabs()) {
+            if (tab.getId() != null && tab.getId().equals(tabId)) {
+                tabPane.getSelectionModel().select(tab);
+                break;
+            }
         }
     }
 
-    // Add more methods for handling other actions as needed
+    @FXML
+    private void handleNewProjectButtonClick() {
+        switchToTab("newProjectTab");
+    }
+
+    @FXML
+    private void handleViewProjectButtonClick() {
+        switchToTab("viewProjectTab");
+    }
+
+    @FXML
+    private void handleAnalyticsButtonClick() {
+        switchToTab("analyticsTab");
+    }
+
+    @FXML
+    private void handlePublishWebButtonClick() {
+        switchToTab("publishWebTab");
+    }
+
+    @FXML
+    private void handleSettingsButtonClick() {
+        switchToTab("settingsTab");
+    }
+
+    @FXML
+    private void handleCancelButtonPublishClick() {
+        switchToTab("welcomeTab");
+    }
+
+    @FXML
+    private void handleConfirmButtonPublishClick() {
+        switchToTab("welcomeTab");
+    }
+
+
+
 }

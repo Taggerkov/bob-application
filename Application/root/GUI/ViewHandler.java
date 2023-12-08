@@ -23,7 +23,7 @@ public class ViewHandler {
       primaryStage.setTitle(title);
       primaryStage.setScene(scene);
     } catch (IOException e) {
-      e.printStackTrace(); // Handle the exception appropriately for your application
+      e.printStackTrace();
     }
   }
 

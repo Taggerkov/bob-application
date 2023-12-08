@@ -6,21 +6,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class StartGUI extends Application
-{
+public class StartGUI extends Application {
 
-  @Override public void start(Stage primaryStage) throws Exception
-  {
-    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Gui.fxml"));
-    Parent root = fxmlLoader.load();
-
-    GuiController guiController = fxmlLoader.getController();
-    ViewHandler viewHandler = new ViewHandler(primaryStage);
-    guiController.setViewHandler(viewHandler);
-
-    Scene scene = new Scene(root);
-    primaryStage.setTitle("Bob construction");
-    primaryStage.setScene(scene);
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    Parent root = FXMLLoader.load(getClass().getResource("Gui.fxml"));
+    primaryStage.setTitle("BOB'S SOFTWARE");
+    primaryStage.setScene(new Scene(root, 900, 600));
     primaryStage.show();
+  }
+
+  public static void main(String[] args) {
+    launch(args);
   }
 }
