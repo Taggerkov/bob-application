@@ -1,12 +1,14 @@
 package Model;
 
+import java.io.Serializable;
+
 /**
  * class for MyDate
  *
  * @author Bibek
  * @version 1.0
  */
-public class MyDate {
+public class MyDate implements Serializable {
 
     private int day;
     private int month;
@@ -126,6 +128,7 @@ public class MyDate {
      *
      * @param date
      * @return true if its before or exact same date and false if its after
+     * @author Salomeea Tricolici
      */
     public boolean isBefore(MyDate date) {
         return this.year < date.year || (this.year == date.year && this.month < date.month) || (this.year == date.year && this.month == date.month && this.day <= date.day);

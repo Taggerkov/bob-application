@@ -5,18 +5,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
+import java.net.URL;
 import java.time.LocalDate;
 
 /**
- * New Project Controller // Project Creation.
+ * New Project Controller // Project Creation class.
  *
  * @author Sergiu Chirap
- * @version 1.0
+ * @version 2.0
  */
 public class NewProjectController {
     private Scene target;
-    private ModelManager manager;
+    private ProjectManager manager;
     private ViewHandler handler;
     private boolean build;
     @FXML
@@ -81,9 +85,9 @@ public class NewProjectController {
      *
      * @param handler linked ViewHandler
      * @param target  linked scene
-     * @param manager linked ModelManager
+     * @param manager linked ProjectManager
      */
-    public void init(ViewHandler handler, Scene target, ModelManager manager) {
+    public void init(ViewHandler handler, Scene target, ProjectManager manager) {
         this.handler = handler;
         this.target = target;
         this.manager = manager;
@@ -96,25 +100,6 @@ public class NewProjectController {
         //sets StartDate preview(current) - Sergiu
         MyDate startDate = new MyDate(String.valueOf(LocalDate.now()));
         projectStartDate.setPromptText(startDate.toString());
-
-        //sets default(Residential) type - Sergiu
-        projectBudget.setPromptText("100000");
-        MyDate endDate = startDate.endDate(9);
-        projectEndDate.setPromptText(endDate.toString());
-
-        residentialKitchens.setDisable(false);
-        residentialBathrooms.setDisable(false);
-        residentialPlumbing.setDisable(false);
-
-        commercialFloors.setDisable(true);
-        commercialUse.setDisable(true);
-        industrialType.setDisable(true);
-        roadsBridges.setDisable(true);
-        roadsTunnels.setDisable(true);
-        roadsChallenges.setDisable(true);
-        roadsLanes.setDisable(true);
-        roadsLength.setDisable(true);
-        roadsWidth.setDisable(true);
 
         build = false;
     }
@@ -135,6 +120,7 @@ public class NewProjectController {
         projectSize.setStyle("");
         projectStartDate.setValue(null);
         projectEndDate.setValue(null);
+        projectEndDate.setStyle("");
         residentialKitchens.setText("");
         residentialBathrooms.setText("");
         residentialPlumbing.setText("");
@@ -156,10 +142,20 @@ public class NewProjectController {
         roadsWidth.setStyle("");
     }
 
+    /**
+     * Gets the scene from it's FXML.
+     *
+     * @return the scene of this Controller
+     */
     public Scene getScene() {
         return target;
     }
 
+    /**
+     * Group of scene changer buttons to make moving around easy and fast.
+     *
+     * @param e ActionEvent with quickActions() mostly being buttons
+     */
     public void quickActions(ActionEvent e) {
         if (e.getSource() == quickNewProject) {
             Alert alert = new Alert(Alert.AlertType.WARNING,
@@ -167,6 +163,8 @@ public class NewProjectController {
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("CLEAR NEW PROJECT?");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("NewProject");
@@ -177,9 +175,11 @@ public class NewProjectController {
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("LEAVE NEW PROJECT?");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
-                handler.openView("AllProjects");
+                handler.openView("BrowseProject");
             }
         } else if (e.getSource() == quickAnalytics) {
             Alert alert = new Alert(Alert.AlertType.WARNING,
@@ -187,6 +187,8 @@ public class NewProjectController {
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("LEAVE NEW PROJECT?");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("Analytics");
@@ -197,6 +199,8 @@ public class NewProjectController {
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("LEAVE NEW PROJECT?");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("PublishWeb");
@@ -207,6 +211,8 @@ public class NewProjectController {
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("LEAVE NEW PROJECT?");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("Settings");
@@ -217,6 +223,8 @@ public class NewProjectController {
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("CANCEL NEW PROJECT?");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("Welcome");
@@ -227,6 +235,8 @@ public class NewProjectController {
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("CONFIRM NEW PROJECT?");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 createProject();
@@ -331,8 +341,29 @@ public class NewProjectController {
      * @param e an ActionEvent with setTitle(), in this case a TextField
      */
     public void setTitle(ActionEvent e) {
-        if (!projectTitle.getText().isEmpty())
-            labelTitle.setText(projectTitle.getText());
+        if (!projectTitle.getText().isEmpty()) {
+            //checks if title is already taken - Sergiu
+            if (!checkTitle(projectTitle.getText())) {
+                labelTitle.setText(projectTitle.getText());
+                //resets Style if error corrected - Sergiu
+                projectTitle.setStyle("");
+            } else {
+                //uses Style to border the error - Sergiu
+                projectTitle.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                //pops-up ERROR alert - Sergiu
+                Alert alert = new Alert(Alert.AlertType.ERROR,
+                        "Title is already taken!",
+                        ButtonType.CLOSE);
+                alert.setTitle("ILLEGAL INPUT");
+                alert.setHeaderText(null);
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                alert.showAndWait();
+                if (alert.getResult() == ButtonType.CLOSE) {
+                    alert.close();
+                }
+            }
+        }
     }
 
     /**
@@ -376,14 +407,35 @@ public class NewProjectController {
                     ButtonType.CLOSE);
             alert.setTitle("MISSING INPUT");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.CLOSE) {
                 alert.close();
             }
         } else {
-            title = projectTitle.getText();
-            //resets Style if error corrected - Sergiu
-            projectTitle.setStyle("");
+            //checks if title is already taken - Sergiu
+            if (!checkTitle(projectTitle.getText())) {
+                title = projectTitle.getText();
+                //resets Style if error corrected - Sergiu
+                projectTitle.setStyle("");
+            } else {
+                //uses Style to border the error - Sergiu
+                projectTitle.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                mistake = true;
+                //pops-up ERROR alert - Sergiu
+                Alert alert = new Alert(Alert.AlertType.ERROR,
+                        "Title is already taken!",
+                        ButtonType.CLOSE);
+                alert.setTitle("ILLEGAL INPUT");
+                alert.setHeaderText(null);
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                alert.showAndWait();
+                if (alert.getResult() == ButtonType.CLOSE) {
+                    alert.close();
+                }
+            }
         }
 
         //extracts Customer - Sergiu
@@ -398,6 +450,8 @@ public class NewProjectController {
                     ButtonType.CLOSE);
             alert.setTitle("MISSING INPUT");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.CLOSE) {
                 alert.close();
@@ -428,10 +482,42 @@ public class NewProjectController {
                     ButtonType.CLOSE);
             alert.setTitle("INVALID INPUT");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.CLOSE) {
                 alert.close();
             }
+        }
+
+        //extracts StartDate - Sergiu
+        //if empty autocompletes with default - Sergiu
+        if (projectStartDate.getValue() == null) {
+            start = String.valueOf(LocalDate.now());
+        } else {
+            start = String.valueOf(projectStartDate.getValue());
+        }
+
+        //checks isBefore for EndDate
+        if (!new MyDate(start).isBefore(new MyDate(String.valueOf(projectEndDate.getValue())))) {
+            //uses Style to border the error - Sergiu
+            projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
+            mistake = true;
+            //pops-up isBefore alert - Sergiu
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "End Date is before Start Date!",
+                    ButtonType.CLOSE);
+            alert.setTitle("ILLEGAL INPUT");
+            alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                alert.close();
+            }
+        } else {
+            //resets Style if error corrected - Sergiu
+            projectEndDate.setStyle("");
         }
 
         //extracts Size - Sergiu
@@ -449,18 +535,12 @@ public class NewProjectController {
                     ButtonType.CLOSE);
             alert.setTitle("INVALID INPUT");
             alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.CLOSE) {
                 alert.close();
             }
-        }
-
-        //extracts StartDate - Sergiu
-        //if empty autocompletes with default - Sergiu
-        if (projectStartDate.getValue() == null) {
-            start = String.valueOf(java.time.LocalDate.now());
-        } else {
-            start = String.valueOf(projectStartDate.getValue());
         }
 
         //switches to per project-type input - Sergiu
@@ -492,6 +572,8 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("INVALID INPUT");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
                         alert.close();
@@ -518,6 +600,8 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("INVALID INPUT");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
                         alert.close();
@@ -544,9 +628,11 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("INVALID INPUT");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
-                        break;
+                        alert.close();
                     }
                 }
 
@@ -559,21 +645,28 @@ public class NewProjectController {
                 } else {
                     end = String.valueOf(projectEndDate.getValue());
                 }
-
                 //keeps track if mistakes were made - Sergiu
                 if (!mistake) {
                     //creates Residential class with the Full-Constructor - Sergiu
                     try {
                         //inputs extracted data into Full-Constructor - Sergiu
                         Residential residential = new Residential(budget, start, end, title, customer, kitchens, bathrooms, plumbing, this.build, size);
+                        //saves new project calling sub-function - Sergiu
+                        saveProject(residential);
+
+                        //final creation pop-ups - Sergiu
+                        ImageView imageView = new ImageView((new Image("file:Application/root/Utils/created.gif", 75, 75, true, true)));
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                                "Project has been successfully added!",
+                                "CREATED!",
                                 ButtonType.CLOSE);
-                        alert.setTitle("PROJECT SAVED");
-                        alert.setHeaderText(null);
+                        alert.setTitle("PROJECT CREATED");
+                        alert.setHeaderText("Project has been successfully added!");
+                        alert.setGraphic(imageView);
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.getIcons().add(new Image("file:Application/root/Utils/created.gif"));
                         alert.showAndWait();
                         if (alert.getResult() == ButtonType.CLOSE) {
-                            break;
+                            handler.openView("Welcome");
                         }
                     } catch (Exception e) {
                         Alert alert = new Alert(Alert.AlertType.ERROR,
@@ -581,9 +674,11 @@ public class NewProjectController {
                                 ButtonType.CLOSE);
                         alert.setTitle("PROJECT NOT SAVED");
                         alert.setHeaderText(null);
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                         alert.showAndWait();
                         if (alert.getResult() == ButtonType.CLOSE) {
-                            break;
+                            reset();
                         }
                     }
                 } else {
@@ -592,9 +687,11 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("PROJECT NOT SAVED");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
-                        break;
+                        alert.close();
                     }
                 }
                 break;
@@ -623,6 +720,8 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("INVALID INPUT");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
                         alert.close();
@@ -653,14 +752,22 @@ public class NewProjectController {
                     try {
                         //inputs extracted data into Full-Constructor - Sergiu
                         Commercial commercial = new Commercial(budget, start, end, floors, size, use, title, customer, this.build);
+                        //saves new project calling sub-function - Sergiu
+                        saveProject(commercial);
+
+                        //final creation pop-ups - Sergiu
+                        ImageView imageView = new ImageView((new Image("file:Application/root/Utils/created.gif", 75, 75, true, true)));
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                                "Project has been successfully added!",
+                                "CREATED!",
                                 ButtonType.CLOSE);
-                        alert.setTitle("PROJECT SAVED");
-                        alert.setHeaderText(null);
+                        alert.setTitle("PROJECT CREATED");
+                        alert.setHeaderText("Project has been successfully added!");
+                        alert.setGraphic(imageView);
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.getIcons().add(new Image("file:Application/root/Utils/created.gif"));
                         alert.showAndWait();
                         if (alert.getResult() == ButtonType.CLOSE) {
-                            break;
+                            handler.openView("Welcome");
                         }
                     } catch (Exception e) {
                         Alert alert = new Alert(Alert.AlertType.ERROR,
@@ -668,9 +775,11 @@ public class NewProjectController {
                                 ButtonType.CLOSE);
                         alert.setTitle("PROJECT NOT SAVED");
                         alert.setHeaderText(null);
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                         alert.showAndWait();
                         if (alert.getResult() == ButtonType.CLOSE) {
-                            break;
+                            reset();
                         }
                     }
                 } else {
@@ -679,9 +788,11 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("PROJECT NOT SAVED");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
-                        break;
+                        alert.close();
                     }
                 }
                 break;
@@ -713,14 +824,22 @@ public class NewProjectController {
                     try {
                         //inputs extracted data into Full-Constructor - Sergiu
                         Industrial industrial = new Industrial(budget, start, end, title, customer, size, facilityType, this.build);
+                        //saves new project calling sub-function - Sergiu
+                        saveProject(industrial);
+
+                        //final creation pop-ups - Sergiu
+                        ImageView imageView = new ImageView((new Image("file:Application/root/Utils/created.gif", 75, 75, true, true)));
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                                "Project has been successfully added!",
+                                "CREATED!",
                                 ButtonType.CLOSE);
-                        alert.setTitle("PROJECT SAVED");
-                        alert.setHeaderText(null);
+                        alert.setTitle("PROJECT CREATED");
+                        alert.setHeaderText("Project has been successfully added!");
+                        alert.setGraphic(imageView);
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.getIcons().add(new Image("file:Application/root/Utils/created.gif"));
                         alert.showAndWait();
                         if (alert.getResult() == ButtonType.CLOSE) {
-                            break;
+                            handler.openView("Welcome");
                         }
                     } catch (Exception e) {
                         Alert alert = new Alert(Alert.AlertType.ERROR,
@@ -728,9 +847,11 @@ public class NewProjectController {
                                 ButtonType.CLOSE);
                         alert.setTitle("PROJECT NOT SAVED");
                         alert.setHeaderText(null);
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                         alert.showAndWait();
                         if (alert.getResult() == ButtonType.CLOSE) {
-                            break;
+                            reset();
                         }
                     }
                 } else {
@@ -739,9 +860,11 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("PROJECT NOT SAVED");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
-                        break;
+                        alert.close();
                     }
                 }
                 break;
@@ -768,6 +891,8 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("INVALID INPUT");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
                         alert.close();
@@ -791,6 +916,8 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("INVALID INPUT");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
                         alert.close();
@@ -814,6 +941,8 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("INVALID INPUT");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
                         alert.close();
@@ -829,7 +958,7 @@ public class NewProjectController {
                 } else {
                     end = String.valueOf(projectEndDate.getValue());
                 }
-                System.out.println(roadsBridges.isSelected());
+
                 //keeps track if mistakes were made - Sergiu
                 if (!mistake) {
                     //creates Industrial class with the Full-Constructor - Sergiu
@@ -837,25 +966,35 @@ public class NewProjectController {
                         //inputs extracted data into Full-Constructor - Sergiu
                         RoadConstruction roadConstruction = new RoadConstruction(budget, start, end, title, customer, size, this.build,
                                 roadsBridges.isSelected(), roadsTunnels.isSelected(), length, width, roadsChallenges.isSelected(), lanes);
+                        //saves new project calling sub-function - Sergiu
+                        saveProject(roadConstruction);
 
+                        //final creation pop-ups - Sergiu
+                        ImageView imageView = new ImageView((new Image("file:Application/root/Utils/created.gif", 75, 75, true, true)));
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                                "Project has been successfully added!",
+                                "CREATED!",
                                 ButtonType.CLOSE);
-                        alert.setTitle("PROJECT SAVED");
-                        alert.setHeaderText(null);
+                        alert.setTitle("PROJECT CREATED");
+                        alert.setHeaderText("Project has been successfully added!");
+                        alert.setGraphic(imageView);
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.getIcons().add(new Image("file:Application/root/Utils/created.gif"));
                         alert.showAndWait();
                         if (alert.getResult() == ButtonType.CLOSE) {
-                            break;
+                            handler.openView("Welcome");
                         }
                     } catch (Exception e) {
+                        e.printStackTrace();
                         Alert alert = new Alert(Alert.AlertType.ERROR,
                                 "Unknown Exception Found!",
                                 ButtonType.CLOSE);
                         alert.setTitle("PROJECT NOT SAVED");
                         alert.setHeaderText(null);
+                        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                        stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                         alert.showAndWait();
                         if (alert.getResult() == ButtonType.CLOSE) {
-                            break;
+                            reset();
                         }
                     }
                 } else {
@@ -864,12 +1003,70 @@ public class NewProjectController {
                             ButtonType.CLOSE);
                     alert.setTitle("PROJECT NOT SAVED");
                     alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
                     alert.showAndWait();
                     if (alert.getResult() == ButtonType.CLOSE) {
-                        break;
+                        alert.close();
                     }
                 }
                 break;
         }
+    }
+
+    /**
+     * Saves the projects created by the Controller into the binary file. This is done by linking this class with the ProjectManager.
+     */
+    private void saveProject(Project project) {
+        try {
+            //checks if the file is empty
+            ProjectList allProjects = manager.readAllProjects();
+            if (allProjects == null) {
+                allProjects = new ProjectList();
+                allProjects.add(project);
+                manager.saveProjects(allProjects);
+            } else {
+                allProjects.add(project);
+                manager.saveProjects(allProjects);
+            }
+            //saving error pop-up
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Unable to save to file!",
+                    ButtonType.CLOSE);
+            alert.setTitle("WRITING ERROR");
+            alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                reset();
+            }
+        }
+    }
+
+    private boolean checkTitle(String title) {
+        boolean check = false;
+        try {
+            //checks if the file is empty
+            ProjectList allProjects = manager.readAllProjects();
+            if (!(allProjects == null) && !(manager.getProject(title) == null)) {
+                check = true;
+            }
+            //reading error pop-up
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Unable to check to title!",
+                    ButtonType.CLOSE);
+            alert.setTitle("READING ERROR");
+            alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                reset();
+            }
+        }
+        return check;
     }
 }

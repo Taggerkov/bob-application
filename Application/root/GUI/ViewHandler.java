@@ -1,9 +1,11 @@
 package GUI;
 
-import Model.ModelManager;
 import Model.ProjectManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
@@ -14,11 +16,12 @@ public class ViewHandler {
     private Stage target;
     private WelcomeController WelcomeController;
     private NewProjectController NewProjectController;
+    private BrowseProjectsController BrowseProjectsController;
     private AnalyticsController AnalyticsController;
     private PublishWebController PublishWebController;
-    private ModelManager manager;
+    private ProjectManager manager;
 
-    public ViewHandler(Stage target, ModelManager manager) {
+    public ViewHandler(Stage target, ProjectManager manager) {
         this.target = target;
         this.manager = manager;
     }
@@ -26,8 +29,11 @@ public class ViewHandler {
     public void start() {
         loadWelcome();
         loadNewProject();
+        loadBrowseProjects();
         loadAnalytics();
         loadPublishWebController();
+        target.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+        target.setResizable(false);
         openView("Welcome");
     }
 
@@ -44,6 +50,11 @@ public class ViewHandler {
                 NewProjectController.reset();
                 title += "New Project";
                 break;
+            case "BrowseProject":
+                target.setScene(BrowseProjectsController.getScene());
+                BrowseProjectsController.reset();
+                title += "Browse Projects";
+                break;
             case "Analytics":
                 target.setScene(AnalyticsController.getScene());
                 AnalyticsController.reset();
@@ -52,7 +63,7 @@ public class ViewHandler {
             case "PublishWeb":
                 target.setScene(PublishWebController.getScene());
                 PublishWebController.reset();
-                title += "Publish Web?";
+                title += "Publish Web";
                 break;
         }
 
@@ -72,8 +83,17 @@ public class ViewHandler {
             WelcomeController = loader.getController();
             WelcomeController.init(this, new Scene(root), manager);
         } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("SEX");
+            //displays I/O error for FXML - Sergiu
+            System.out.println("FXML not found!");
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "FXML (Welcome.fxml) not found!",
+                    ButtonType.CLOSE);
+            alert.setTitle("CRITICAL ERROR");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                System.exit(0);
+            }
         }
     }
 
@@ -85,10 +105,41 @@ public class ViewHandler {
             NewProjectController = loader.getController();
             NewProjectController.init(this, new Scene(root), manager);
         } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("SEX");
+            //displays I/O error for FXML - Sergiu
+            System.out.println("FXML not found!");
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "FXML (NewProject.fxml) not found!",
+                    ButtonType.CLOSE);
+            alert.setTitle("CRITICAL ERROR");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                System.exit(0);
+            }
         }
 
+    }
+
+    private void loadBrowseProjects() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("BrowseProjects.fxml"));
+            Region root = loader.load();
+            BrowseProjectsController = loader.getController();
+            BrowseProjectsController.init(this, new Scene(root), manager);
+        } catch (IOException e) {
+            //displays I/O error for FXML - Sergiu
+            System.out.println("FXML not found!");
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "FXML (BrowseProjects.fxml) not found!",
+                    ButtonType.CLOSE);
+            alert.setTitle("CRITICAL ERROR");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                System.exit(0);
+            }
+        }
     }
 
     private void loadAnalytics() {
@@ -99,8 +150,17 @@ public class ViewHandler {
             AnalyticsController = loader.getController();
             AnalyticsController.init(this, new Scene(root), manager);
         } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("SEX");
+            //displays I/O error for FXML - Sergiu
+            System.out.println("FXML not found!");
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "FXML (Analytics.fxml) not found!",
+                    ButtonType.CLOSE);
+            alert.setTitle("CRITICAL ERROR");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                System.exit(0);
+            }
         }
     }
     private void loadPublishWebController() {
@@ -111,8 +171,17 @@ public class ViewHandler {
             PublishWebController = loader.getController();
             PublishWebController.init(this, new Scene(root), manager);
         } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("SEX");
+            //displays I/O error for FXML - Sergiu
+            System.out.println("FXML not found!");
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "FXML (PublishWeb.fxml) not found!",
+                    ButtonType.CLOSE);
+            alert.setTitle("CRITICAL ERROR");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                System.exit(0);
+            }
         }
     }
 }

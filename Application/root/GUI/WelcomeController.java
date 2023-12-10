@@ -1,6 +1,5 @@
 package GUI;
 
-import Model.ModelManager;
 import Model.ProjectManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +9,7 @@ import javafx.scene.control.Button;
 public class WelcomeController {
 
     private Scene target;
-    private ModelManager manager;
+    private ProjectManager manager;
     private ViewHandler handler;
     @FXML
     public Button quickNewProject;
@@ -23,7 +22,7 @@ public class WelcomeController {
     @FXML
     public Button quickSettings;
 
-    public void init(ViewHandler handler, Scene target, ModelManager manager) {
+    public void init(ViewHandler handler, Scene target, ProjectManager manager) {
         this.handler = handler;
         this.target = target;
         this.manager = manager;
@@ -40,7 +39,7 @@ public class WelcomeController {
         if (e.getSource() == quickNewProject) {
             handler.openView("NewProject");
         } else if (e.getSource() == quickViewProject) {
-            handler.openView("AllProjects");
+            handler.openView("BrowseProject");
         } else if (e.getSource() == quickAnalytics) {
             handler.openView("Analytics");
         } else if (e.getSource() == quickPublishWeb) {

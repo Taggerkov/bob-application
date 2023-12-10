@@ -1,19 +1,21 @@
 package Model;
 
+import java.io.Serializable;
+
 /**
  * An abstract class parent to all other project classes.
  *
  * @author Sergiu Chirap
  * @version 1.2
  */
-public abstract class Project {
+public abstract class Project implements Serializable {
+    private String title;
+    private String customer;
     private double budget;
     private Resources resources;
     private final MyDate startDate;
     private MyDate endDate;
     private boolean isActive;
-    private String title;
-    private String customer;
 
     /**
      * Full-Constructor. Custom use.

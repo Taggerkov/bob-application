@@ -382,7 +382,7 @@
                                                 </GridPane>
                                             </children>
                                         </VBox>
-                                        <ScrollPane hbarPolicy="NEVER" pannable="true" style="-fx-background-color: #66FFFF;" vbarPolicy="ALWAYS">
+                                        <ScrollPane hbarPolicy="NEVER" style="-fx-background-color: #66FFFF;" vbarPolicy="ALWAYS">
                                             <HBox.margin>
                                                 <Insets />
                                             </HBox.margin>
