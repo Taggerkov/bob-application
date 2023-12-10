@@ -1,54 +1,141 @@
 package GUI;
 
+import Model.ProjectManager;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class ViewHandler {
 
-  private static ViewHandler instance;
-  private Stage primaryStage;
+    private Stage target;
+    private WelcomeController WelcomeController;
+    private NewProjectController NewProjectController;
+    private AnalyticsController AnalyticsController;
+    private PublishWebController PublishWebController;
+    private ProjectManager manager;
 
-  // Private constructor to prevent instantiation
-  private ViewHandler(Stage primaryStage) {
-    this.primaryStage = primaryStage;
-  }
-
-  // Static method to get the instance
-  public static ViewHandler getInstance(Stage primaryStage) {
-    if (instance == null) {
-      instance = new ViewHandler(primaryStage);
+    public ViewHandler(Stage target/*, ProjectManager manager*/) {
+        this.target = target;
+        /*this.manager = manager;*/
     }
-    return instance;
-  }
 
-  public void switchView(String fxmlFileName, String title) {
-    try {
-      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFileName));
-      Parent root = fxmlLoader.load();
-      Scene scene = new Scene(root);
-      primaryStage.setTitle(title);
-      primaryStage.setScene(scene);
-      primaryStage.show();
-    } catch (IOException e) {
-      System.err.println("Error loading FXML file: " + fxmlFileName);
-      e.printStackTrace();
-      // You can show an alert or handle the exception in a way suitable for your application
-    } catch (Exception e) {
-      System.err.println("Error switching view to " + fxmlFileName);
-      e.printStackTrace();
-      // Handle other exceptions if needed
+    public void start() {
+        loadWelcome();
+        loadNewProject();
+        loadAnalytics();
+        loadPublishWebController();
+        openView("Welcome");
     }
-  }
 
-  public void show() {
-    primaryStage.show();
-  }
+    /*
+    public void setView(String id) {
+        String controller = id + "Controller";
 
-  public Stage getPrimaryStage() {
-    return primaryStage;
-  }
+        target.setScene(controller.getScene());
+        WelcomeController.reset();
+        String title = "";
+        target.setTitle(title);
+        target.show();
+    }
+    private void loadView(String id){
+        String controller = id + "Controller";
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(id + ".fxml"));
+            Region root = loader.load();
+            controller = loader.getController();
+            controller.init(this, new Scene(root), modelManager);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+*/
+    public void openView(String id) {
+        String title = "BOB'S SOFTWARE - ";
+        switch (id) {
+            case "Welcome":
+                target.setScene(WelcomeController.getScene());
+                WelcomeController.reset();
+                title += "Welcome!";
+                break;
+            case "NewProject":
+                target.setScene(NewProjectController.getScene());
+                NewProjectController.reset();
+                title += "New Project";
+                break;
+            case "Analytics":
+                target.setScene(AnalyticsController.getScene());
+                AnalyticsController.reset();
+                title += "Analytics";
+                break;
+            case "PublishWeb":
+                target.setScene(PublishWebController.getScene());
+                PublishWebController.reset();
+                title += "Publish Web?";
+                break;
+        }
+
+        if (target.getScene().getRoot().getUserData() != null) {
+            title = target.getScene().getRoot().getUserData().toString();
+        }
+
+        target.setTitle(title);
+        target.show();
+    }
+
+    private void loadWelcome() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("Welcome.fxml"));
+            Region root = loader.load();
+            WelcomeController = loader.getController();
+            WelcomeController.init(this, new Scene(root), manager);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("SEX");
+        }
+    }
+
+    private void loadNewProject() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("NewProject.fxml"));
+            Region root = loader.load();
+            NewProjectController = loader.getController();
+            NewProjectController.init(this, new Scene(root), manager);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("SEX");
+        }
+
+    }
+
+    private void loadAnalytics() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("Analytics.fxml"));
+            Region root = loader.load();
+            AnalyticsController = loader.getController();
+            AnalyticsController.init(this, new Scene(root), manager);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("SEX");
+        }
+    }
+    private void loadPublishWebController() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("PublishWeb.fxml"));
+            Region root = loader.load();
+            PublishWebController = loader.getController();
+            PublishWebController.init(this, new Scene(root), manager);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("SEX");
+        }
+    }
 }

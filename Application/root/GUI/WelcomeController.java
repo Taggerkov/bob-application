@@ -6,7 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-public class AnalyticsController {
+public class WelcomeController {
+
     private Scene target;
     private ProjectManager manager;
     private ViewHandler handler;
@@ -20,8 +21,6 @@ public class AnalyticsController {
     public Button quickPublishWeb;
     @FXML
     public Button quickSettings;
-    @FXML
-    public Button quickCancel;
 
     public void init(ViewHandler handler, Scene target, ProjectManager manager) {
         this.handler = handler;
@@ -47,8 +46,6 @@ public class AnalyticsController {
             handler.openView("PublishWeb");
         } else if (e.getSource() == quickSettings) {
             handler.openView("Settings");
-        } else if (e.getSource() == quickCancel) {
-            handler.openView("Welcome");
         }
     }
 }

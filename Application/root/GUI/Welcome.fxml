@@ -47,8 +47,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="main" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="GUI.GuiController">
+<VBox fx:id="main" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.WelcomeController">
     <children>
         <MenuBar prefWidth="700.0" style="-fx-background-color: #C6C2C2; -fx-border-color: black; -fx-border-width: 0.1em;" VBox.vgrow="ALWAYS">
             <menus>
@@ -89,23 +88,22 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <AnchorPane   maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <children>
                 <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
                     <children>
-                        <Label id="Trademark" alignment="CENTER" stylesheets="@Gui.css" text="BOB'S SOFTWARE 0.1" underline="true">
+                        <Label id="Trademark" alignment="CENTER" stylesheets="@gui.css" text="BOB'S SOFTWARE 0.1" underline="true">
                             <font>
                                 <Font name="Unispace-Bold" size="45.0" />
                             </font>
                         </Label>
                     </children>
                 </HBox>
-                <HBox layoutY="60.0" prefHeight="500.0" prefWidth="900.0">
+                <HBox layoutY="66.0" prefHeight="494.0" prefWidth="900.0">
                     <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="200.0" style="-fx-background-color: #66FFFF;">
+                        <VBox alignment="TOP_CENTER" prefWidth="200.0" style="-fx-background-color: #66FFFF;">
                             <children>
-                                <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" stylesheets="@Gui.css" text="QUICK MENU" underline="true">
+                                <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" stylesheets="@gui.css" text="QUICK MENU" underline="true">
                                     <font>
                                         <Font name="OCR A Extended" size="32.0" />
                                     </font>
@@ -116,7 +114,7 @@
                                         <Insets bottom="100.0" />
                                     </VBox.margin>
                                 </Label>
-                                <Button id="new-project" onAction="#handlemainNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="New Project">
+                                <Button id="quick-newproject" fx:id="quickNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" text="New Project">
                                     <font>
                                         <Font name="Britannic Bold" size="22.0" />
                                     </font>
@@ -133,7 +131,7 @@
                                         <Insets />
                                     </VBox.margin>
                                 </Button>
-                                <Button id="view-project" onAction="#handlemainViewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="View Project">
+                                <Button id="quick-viewproject" fx:id="quickViewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" text="View Project">
                                     <font>
                                         <Font name="Britannic Bold" size="22.0" />
                                     </font>
@@ -147,7 +145,7 @@
                                         <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                                     </effect>
                                 </Button>
-                                <Button id="analytics" onAction="#handlemainAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button"  text="Analytics">
+                                <Button id="quick-analytics" fx:id="quickAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" text="Analytics">
                                     <font>
                                         <Font name="Britannic Bold" size="22.0" />
                                     </font>
@@ -161,7 +159,7 @@
                                         <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                                     </effect>
                                 </Button>
-                                <Button id="publish-web"  onAction="#handlemainPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Publish Web">
+                                <Button id="quick-publish" fx:id="quickPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" text="Publish Web">
                                     <font>
                                         <Font name="Britannic Bold" size="22.0" />
                                     </font>
@@ -178,7 +176,7 @@
                                         <Insets bottom="70.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button id="settings" onAction="#handlemainSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@Gui.css" text="Settings">
+                                <Button id="settings" fx:id="quickSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="Settings">
                                     <font>
                                         <Font name="Britannic Bold" size="22.0" />
                                     </font>
@@ -214,7 +212,7 @@
                                         <Font size="25.0" />
                                     </font>
                                 </Label>
-                                <Hyperlink layoutX="444.0" layoutY="279.0" text="Github" underline="true">
+                                <Hyperlink id="github-link" layoutX="444.0" layoutY="279.0" text="Github" underline="true">
                                     <font>
                                         <Font size="25.0" />
                                     </font>
@@ -230,7 +228,8 @@
                 <Label text="© 2023 Bob the Builder. All rights reserved.">
                     <font>
                         <Font size="15.0" />
-                    </font></Label>
+                    </font>
+                </Label>
             </children>
         </HBox>
     </children>

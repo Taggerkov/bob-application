@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-public class AnalyticsController {
+public class PublishWebController {
     private Scene target;
     private ProjectManager manager;
     private ViewHandler handler;

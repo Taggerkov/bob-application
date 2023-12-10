@@ -1,17 +1,20 @@
 package Model;
 
+/**
+ * class for MyDate
+ *
+ * @author Bibek
+ * @version 1.0
+ */
 public class MyDate {
-    /**
-     * class for MyDate
-     * @author Sergiu Chirap
-     * @version 1.0
-     */
+
     private int day;
     private int month;
     private int year;
 
     /**
      * Full constructor for MyDate class
+     *
      * @param day
      * @param month
      * @param year
@@ -23,7 +26,8 @@ public class MyDate {
         this.year = year;
     }
 
-    /**constructor for MyDate class, default values
+    /**
+     * constructor for MyDate class, default values
      *
      * @param date
      */
@@ -37,6 +41,7 @@ public class MyDate {
 
     /**
      * gets the day of the start of end day of the project
+     *
      * @return day
      */
 
@@ -45,7 +50,8 @@ public class MyDate {
     }
 
     /**
-     *sets the start or end day of a project
+     * sets the start or end day of a project
+     *
      * @param day
      */
 
@@ -55,6 +61,7 @@ public class MyDate {
 
     /**
      * gets the start on end month of a project
+     *
      * @return month
      */
 
@@ -64,6 +71,7 @@ public class MyDate {
 
     /**
      * sets the start or end month of a project
+     *
      * @param month
      */
 
@@ -73,6 +81,7 @@ public class MyDate {
 
     /**
      * gets the start or end year of a project
+     *
      * @return year
      */
 
@@ -82,6 +91,7 @@ public class MyDate {
 
     /**
      * sets the start or end year of a project
+     *
      * @param year
      */
 
@@ -90,11 +100,12 @@ public class MyDate {
     }
 
     /**
-     * calculates the end date by adding the expected amount of time needed to finalize the project
-     * @param months
-     * @return end date
+     * Calculates the EndDate
+     *
+     * @param months the 'months' expected
+     * @return a MyDate stating the 'EndDate'
+     * @author Sergiu Chirap
      */
-
     public MyDate endDate(int months) {
         MyDate temp = this;
         int month = temp.getMonth();
@@ -112,10 +123,21 @@ public class MyDate {
 
     /**
      * Checks if the given date is before or same as the MyDate date
+     *
      * @param date
      * @return true if its before or exact same date and false if its after
      */
-    public boolean isBefore(MyDate date){
-        return this.year < date.year || (this.year == date.year && this.month < date.month )|| (this.year == date.year && this.month == date.month && this.day <= date.day);
+    public boolean isBefore(MyDate date) {
+        return this.year < date.year || (this.year == date.year && this.month < date.month) || (this.year == date.year && this.month == date.month && this.day <= date.day);
+    }
+
+    /**
+     * Returns MyDate as a String.
+     *
+     * @return a String stating the 'date'
+     * @author Sergiu Chirap
+     */
+    public String toString() {
+        return month + "/" + day + "/" + year;
     }
 }
