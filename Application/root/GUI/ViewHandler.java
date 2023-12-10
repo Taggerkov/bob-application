@@ -18,9 +18,9 @@ public class ViewHandler {
     private PublishWebController PublishWebController;
     private ModelManager manager;
 
-    public ViewHandler(Stage target/*, ProjectManager manager*/) {
+    public ViewHandler(Stage target, ModelManager manager) {
         this.target = target;
-        /*this.manager = manager;*/
+        this.manager = manager;
     }
 
     public void start() {
@@ -31,30 +31,6 @@ public class ViewHandler {
         openView("Welcome");
     }
 
-    /*
-    public void setView(String id) {
-        String controller = id + "Controller";
-
-        target.setScene(controller.getScene());
-        WelcomeController.reset();
-        String title = "";
-        target.setTitle(title);
-        target.show();
-    }
-    private void loadView(String id){
-        String controller = id + "Controller";
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource(id + ".fxml"));
-            Region root = loader.load();
-            controller = loader.getController();
-            controller.init(this, new Scene(root), modelManager);
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-*/
     public void openView(String id) {
         String title = "BOB'S SOFTWARE - ";
         switch (id) {

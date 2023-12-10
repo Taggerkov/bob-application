@@ -1,9 +1,6 @@
 package GUI;
 
-import Model.ModelManager;
-import Model.MyDate;
-import Model.ProjectManager;
-import Model.Residential;
+import Model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -126,16 +123,27 @@ public class NewProjectController {
      * Resets all inputs, making it look like a freshly opened scene.
      */
     public void reset() {
+        projectType.setValue("Residential");
+        labelTitle.setText("NEW PROJECT");
         projectTitle.setText("");
         projectCustomer.setText("");
         projectBudget.setText("");
+        projectSize.setText("");
+        projectTitle.setStyle("");
+        projectCustomer.setStyle("");
+        projectBudget.setStyle("");
+        projectSize.setStyle("");
         projectStartDate.setValue(null);
         projectEndDate.setValue(null);
         residentialKitchens.setText("");
         residentialBathrooms.setText("");
         residentialPlumbing.setText("");
+        residentialKitchens.setStyle("");
+        residentialBathrooms.setStyle("");
+        residentialPlumbing.setStyle("");
         commercialFloors.setText("");
         commercialUse.setText("");
+        commercialFloors.setStyle("");
         industrialType.setText("");
         roadsBridges.setSelected(false);
         roadsTunnels.setSelected(false);
@@ -143,6 +151,9 @@ public class NewProjectController {
         roadsLanes.setText("");
         roadsLength.setText("");
         roadsWidth.setText("");
+        roadsLanes.setStyle("");
+        roadsLength.setStyle("");
+        roadsWidth.setStyle("");
     }
 
     public Scene getScene() {
@@ -352,6 +363,7 @@ public class NewProjectController {
         String end;
         double budget = 0;
         double size = 0;
+
         //extracts Title - Sergiu
         //checks empty inputs - Sergiu
         if (projectTitle.getText().isEmpty()) {
@@ -373,6 +385,7 @@ public class NewProjectController {
             //resets Style if error corrected - Sergiu
             projectTitle.setStyle("");
         }
+
         //extracts Customer - Sergiu
         //checks empty inputs - Sergiu
         if (projectCustomer.getText().isEmpty()) {
@@ -420,6 +433,7 @@ public class NewProjectController {
                 alert.close();
             }
         }
+
         //extracts Size - Sergiu
         try {
             size = Double.parseDouble(projectSize.getText());
@@ -431,7 +445,7 @@ public class NewProjectController {
             mistake = true;
             //pops-up ERROR alert - Sergiu
             Alert alert = new Alert(Alert.AlertType.ERROR,
-                    "Size input is not a number(int)!",
+                    "Size input is not a number(double)!",
                     ButtonType.CLOSE);
             alert.setTitle("INVALID INPUT");
             alert.setHeaderText(null);
@@ -440,6 +454,7 @@ public class NewProjectController {
                 alert.close();
             }
         }
+
         //extracts StartDate - Sergiu
         //if empty autocompletes with default - Sergiu
         if (projectStartDate.getValue() == null) {
@@ -447,14 +462,17 @@ public class NewProjectController {
         } else {
             start = String.valueOf(projectStartDate.getValue());
         }
+
         //switches to per project-type input - Sergiu
         String type = projectType.getValue();
         switch (type) {
+            //residential branch - Sergiu
             case "Residential":
                 int kitchens = 0;
                 int bathrooms = 0;
                 int plumbing = 0;
-                //extracts No. Kitchens - Sergiu
+
+                //extracts Kitchens - Sergiu
                 try {
                     //if empty autocompletes with default - Sergiu
                     if (residentialKitchens.getText().isEmpty()) {
@@ -462,7 +480,6 @@ public class NewProjectController {
                     } else {
                         kitchens = Integer.parseInt(residentialKitchens.getText());
                     }
-                    System.out.println(kitchens);
                     //resets Style if error corrected - Sergiu
                     residentialKitchens.setStyle("");
                 } catch (Exception e) {
@@ -480,6 +497,7 @@ public class NewProjectController {
                         alert.close();
                     }
                 }
+
                 //extracts Bathrooms - Sergiu
                 try {
                     //if empty autocompletes with default - Sergiu
@@ -505,6 +523,7 @@ public class NewProjectController {
                         alert.close();
                     }
                 }
+
                 //extracts Other Plumbing - Sergiu
                 try {
                     //if empty autocompletes with default - Sergiu
@@ -530,6 +549,7 @@ public class NewProjectController {
                         break;
                     }
                 }
+
                 //extracts EndDate - Sergiu
                 //if empty autocompletes with default - Sergiu
                 if (projectEndDate.getValue() == null) {
@@ -568,7 +588,7 @@ public class NewProjectController {
                     }
                 } else {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION,
-                            "Solve the mistakes and try again!",
+                            "Solve the mistakes and try again.",
                             ButtonType.CLOSE);
                     alert.setTitle("PROJECT NOT SAVED");
                     alert.setHeaderText(null);
@@ -578,14 +598,277 @@ public class NewProjectController {
                     }
                 }
                 break;
+            //commercial branch - Sergiu
             case "Commercial":
+                int floors = 0;
+                String use;
 
+                //extracts No. Floors - Sergiu
+                try {
+                    //if empty autocompletes with default - Sergiu
+                    if (commercialFloors.getText().isEmpty()) {
+                        floors = 1;
+                    } else {
+                        floors = Integer.parseInt(commercialFloors.getText());
+                    }
+                    //resets Style if error corrected - Sergiu
+                    commercialFloors.setStyle("");
+                } catch (Exception e) {
+                    //uses Style to border the error - Sergiu
+                    commercialFloors.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    mistake = true;
+                    //pops-up ERROR alert - Sergiu
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "No. Floors input is not a number(int)!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("INVALID INPUT");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                }
+
+                //extracts Intended Use - Sergiu
+                //if empty autocompletes with default - Sergiu
+                if (commercialUse.getText().isEmpty()) {
+                    use = "Unspecified";
+                } else {
+                    use = commercialUse.getText();
+                }
+
+                //extracts EndDate - Sergiu
+                //if empty autocompletes with default - Sergiu
+                if (projectEndDate.getValue() == null) {
+                    MyDate temp = new MyDate(start);
+                    temp = temp.endDate(18);
+                    end = temp.toStringDate();
+                } else {
+                    end = String.valueOf(projectEndDate.getValue());
+                }
+
+                //keeps track if mistakes were made - Sergiu
+                if (!mistake) {
+                    //creates Commercial class with the Full-Constructor - Sergiu
+                    try {
+                        //inputs extracted data into Full-Constructor - Sergiu
+                        Commercial commercial = new Commercial(budget, start, end, floors, size, use, title, customer, this.build);
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                                "Project has been successfully added!",
+                                ButtonType.CLOSE);
+                        alert.setTitle("PROJECT SAVED");
+                        alert.setHeaderText(null);
+                        alert.showAndWait();
+                        if (alert.getResult() == ButtonType.CLOSE) {
+                            break;
+                        }
+                    } catch (Exception e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR,
+                                "Unknown Exception Found!",
+                                ButtonType.CLOSE);
+                        alert.setTitle("PROJECT NOT SAVED");
+                        alert.setHeaderText(null);
+                        alert.showAndWait();
+                        if (alert.getResult() == ButtonType.CLOSE) {
+                            break;
+                        }
+                    }
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                            "Solve the mistakes and try again.",
+                            ButtonType.CLOSE);
+                    alert.setTitle("PROJECT NOT SAVED");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        break;
+                    }
+                }
                 break;
+            //industrial branch - Sergiu
             case "Industrial":
+                String facilityType;
 
+                //extracts Intended Use - Sergiu
+                //if empty autocompletes with default - Sergiu
+                if (industrialType.getText().isEmpty()) {
+                    facilityType = "Unspecified";
+                } else {
+                    facilityType = industrialType.getText();
+                }
+
+                //extracts EndDate - Sergiu
+                //if empty autocompletes with default - Sergiu
+                if (projectEndDate.getValue() == null) {
+                    MyDate temp = new MyDate(start);
+                    temp = temp.endDate(30);
+                    end = temp.toStringDate();
+                } else {
+                    end = String.valueOf(projectEndDate.getValue());
+                }
+
+                //keeps track if mistakes were made - Sergiu
+                if (!mistake) {
+                    //creates Industrial class with the Full-Constructor - Sergiu
+                    try {
+                        //inputs extracted data into Full-Constructor - Sergiu
+                        Industrial industrial = new Industrial(budget, start, end, title, customer, size, facilityType, this.build);
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                                "Project has been successfully added!",
+                                ButtonType.CLOSE);
+                        alert.setTitle("PROJECT SAVED");
+                        alert.setHeaderText(null);
+                        alert.showAndWait();
+                        if (alert.getResult() == ButtonType.CLOSE) {
+                            break;
+                        }
+                    } catch (Exception e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR,
+                                "Unknown Exception Found!",
+                                ButtonType.CLOSE);
+                        alert.setTitle("PROJECT NOT SAVED");
+                        alert.setHeaderText(null);
+                        alert.showAndWait();
+                        if (alert.getResult() == ButtonType.CLOSE) {
+                            break;
+                        }
+                    }
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                            "Solve the mistakes and try again.",
+                            ButtonType.CLOSE);
+                    alert.setTitle("PROJECT NOT SAVED");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        break;
+                    }
+                }
                 break;
+            //road construction branch - Sergiu
             case "Roads":
+                int lanes = 0;
+                double length = 0;
+                double width = 0;
 
+                //extracts No. Lanes - Sergiu
+                try {
+                    //if empty autocompletes with default - Sergiu
+                    if (!roadsLanes.getText().isEmpty())
+                        lanes = Integer.parseInt(roadsLanes.getText());
+                    //resets Style if error corrected - Sergiu
+                    roadsLanes.setStyle("");
+                } catch (Exception e) {
+                    //uses Style to border the error - Sergiu
+                    roadsLanes.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    mistake = true;
+                    //pops-up ERROR alert - Sergiu
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "No. Lanes input is not a number(int)!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("INVALID INPUT");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                }
+
+                //extracts Length - Sergiu
+                try {
+                    //if empty autocompletes with default - Sergiu
+                    if (!roadsLength.getText().isEmpty())
+                        length = Double.parseDouble(roadsLength.getText());
+                    //resets Style if error corrected - Sergiu
+                    roadsLength.setStyle("");
+                } catch (Exception e) {
+                    //uses Style to border the error - Sergiu
+                    roadsLength.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    mistake = true;
+                    //pops-up ERROR alert - Sergiu
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "Length input is not a number(double)!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("INVALID INPUT");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                }
+
+                //extracts Width - Sergiu
+                try {
+                    //if empty autocompletes with default - Sergiu
+                    if (!roadsWidth.getText().isEmpty())
+                        width = Double.parseDouble(roadsWidth.getText());
+                    //resets Style if error corrected - Sergiu
+                    roadsWidth.setStyle("");
+                } catch (Exception e) {
+                    //uses Style to border the error - Sergiu
+                    roadsWidth.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    mistake = true;
+                    //pops-up ERROR alert - Sergiu
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "Width input is not a number(double)!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("INVALID INPUT");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                }
+
+                //extracts EndDate - Sergiu
+                //if empty autocompletes with default - Sergiu
+                if (projectEndDate.getValue() == null) {
+                    MyDate temp = new MyDate(start);
+                    temp = temp.endDate(30);
+                    end = temp.toStringDate();
+                } else {
+                    end = String.valueOf(projectEndDate.getValue());
+                }
+                System.out.println(roadsBridges.isSelected());
+                //keeps track if mistakes were made - Sergiu
+                if (!mistake) {
+                    //creates Industrial class with the Full-Constructor - Sergiu
+                    try {
+                        //inputs extracted data into Full-Constructor - Sergiu
+                        RoadConstruction roadConstruction = new RoadConstruction(budget, start, end, title, customer, size, this.build,
+                                roadsBridges.isSelected(), roadsTunnels.isSelected(), length, width, roadsChallenges.isSelected(), lanes);
+
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                                "Project has been successfully added!",
+                                ButtonType.CLOSE);
+                        alert.setTitle("PROJECT SAVED");
+                        alert.setHeaderText(null);
+                        alert.showAndWait();
+                        if (alert.getResult() == ButtonType.CLOSE) {
+                            break;
+                        }
+                    } catch (Exception e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR,
+                                "Unknown Exception Found!",
+                                ButtonType.CLOSE);
+                        alert.setTitle("PROJECT NOT SAVED");
+                        alert.setHeaderText(null);
+                        alert.showAndWait();
+                        if (alert.getResult() == ButtonType.CLOSE) {
+                            break;
+                        }
+                    }
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                            "Solve the mistakes and try again.",
+                            ButtonType.CLOSE);
+                    alert.setTitle("PROJECT NOT SAVED");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        break;
+                    }
+                }
                 break;
         }
     }

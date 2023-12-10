@@ -21,7 +21,7 @@ public class Commercial extends Project {
      * @param size        building's m^3 size
      * @param intendedUse building's purpose
      */
-    public Commercial(double budget, String start, String end, int noOfFloors, double size, String intendedUse) {
+    public Commercial(double budget, String start, String end, int noOfFloors, double size, String intendedUse, String title, String customer, boolean isRenovation) {
         super(budget, start, end);
         this.noOfFloors = noOfFloors;
         this.size = size;

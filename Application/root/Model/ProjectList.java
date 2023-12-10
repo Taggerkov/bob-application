@@ -9,13 +9,13 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class ProjectList {
-    private ArrayList<Project> projects;
+    private final ArrayList<Project> projects;
 
     /**
      * No-argument constructor initialising the ProjectList
      */
     public ProjectList() {
-        projects = new ArrayList<Project>();
+        projects = new ArrayList<>();
     }
 
     /**
@@ -49,15 +49,15 @@ public class ProjectList {
      */
     public String getType(int index) {
         if (projects.get(index) instanceof Residential)
-            return "RESIDENTIAL";
+            return "Residential";
         else if (projects.get(index) instanceof Commercial)
-            return "COMMERCIAL";
+            return "Commercial";
         else if (projects.get(index) instanceof Industrial)
-            return "INDUSTRIAL";
+            return "Industrial";
         else if (projects.get(index) instanceof RoadConstruction)
-            return "ROADCONSTRUCTION";
-        else
-            return "OTHER";
+            return "RoadConstruction";
+        //return case if illegal type - Sergiu
+        else return "-1";
     }
 
     /**

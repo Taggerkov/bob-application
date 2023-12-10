@@ -21,7 +21,7 @@ public class Industrial extends Project
    * @param typeOfFacility
    */
 
-  public Industrial(double budget, String start, String end, String title, String customer,double size, String typeOfFacility)
+  public Industrial(double budget, String start, String end, String title, String customer,double size, String typeOfFacility, boolean isRenovation)
   {
     super(budget, start, end, title, customer);
     this.size = size;

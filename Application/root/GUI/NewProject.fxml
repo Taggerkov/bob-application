@@ -206,7 +206,7 @@
                                         <VBox prefHeight="150.0" prefWidth="161.0" />
                                         <VBox alignment="CENTER" prefHeight="150.0" prefWidth="370.0">
                                             <children>
-                                                <Label id="title" fx:id="labelTitle" style="-fx-background-color: aqua;" text="NEW PROJECT">
+                                                <Label id="title" fx:id="labelTitle" style="-fx-background-color: aqua;">
                                                     <font>
                                                         <Font name="System Bold Italic" size="50.0" />
                                                     </font>

@@ -4,11 +4,12 @@ import Utils.FileHandler;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Model manager connecting the model with the file handler
  *
- * @author Alexandria Hansen
+ * @author Alexandria Hansen, Sergiu Chirap
  * @version 1.0
  * */
 public class ModelManager
@@ -16,13 +17,12 @@ public class ModelManager
   private String fileName;
 
   /**
-   * One-argument constructor setting the filename
+   * No-argument constructor setting the filename
    *
-   * @param fileName file name and path where the projects will be saved
    */
-  public ModelManager(String fileName)
+  public ModelManager()
   {
-    this.fileName = fileName;
+    this.fileName = "..\\..\\saves\\main.bin";
   }
 
   /**
@@ -60,10 +60,6 @@ public class ModelManager
    */
   public ProjectList getProjectType(String type)
 {
-    type.toUpperCase();
-    if(type.equals("ROAD CONSTRUCTION"))
-      type = "ROADCONSTRUCTION";
-
     ProjectList projectType = new ProjectList();
     ProjectList allProjects = getAllProjects();
 
