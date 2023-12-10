@@ -1,5 +1,6 @@
 package GUI;
 
+import Model.ModelManager;
 import Model.ProjectManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +9,7 @@ import javafx.scene.control.Button;
 
 public class PublishWebController {
     private Scene target;
-    private ProjectManager manager;
+    private ModelManager manager;
     private ViewHandler handler;
     @FXML
     public Button quickNewProject;
@@ -23,7 +24,7 @@ public class PublishWebController {
     @FXML
     public Button quickCancel;
 
-    public void init(ViewHandler handler, Scene target, ProjectManager manager) {
+    public void init(ViewHandler handler, Scene target, ModelManager manager) {
         this.handler = handler;
         this.target = target;
         this.manager = manager;

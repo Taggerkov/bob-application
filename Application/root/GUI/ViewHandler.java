@@ -1,5 +1,6 @@
 package GUI;
 
+import Model.ModelManager;
 import Model.ProjectManager;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,7 +16,7 @@ public class ViewHandler {
     private NewProjectController NewProjectController;
     private AnalyticsController AnalyticsController;
     private PublishWebController PublishWebController;
-    private ProjectManager manager;
+    private ModelManager manager;
 
     public ViewHandler(Stage target/*, ProjectManager manager*/) {
         this.target = target;

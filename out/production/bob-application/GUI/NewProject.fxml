@@ -243,6 +243,20 @@
                                                         <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                                                     </effect>
                                                 </Button>
+                                    <Button id="cancel" fx:id="quickConfirm" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: orange; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="CONFIRM">
+                                       <font>
+                                          <Font name="ROGFonts-Regular" size="13.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <effect>
+                                          <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
+                                       </effect>
+                                    </Button>
                                             </children>
                                         </VBox>
                                     </children>
@@ -284,7 +298,6 @@
                                                         <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
                                                         <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
                                                         <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
                                           <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     </rowConstraints>
                                                     <children>
@@ -297,13 +310,7 @@
                                                             </font>
                                                         </Label>
                                                         <TextField fx:id="projectBudget" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                        <TextField fx:id="projectTimeline" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                                         <Label contentDisplay="CENTER" text="Start Date:" GridPane.rowIndex="3">
-                                                            <font>
-                                                                <Font name="System Bold" size="15.0" />
-                                                            </font>
-                                                        </Label>
-                                                        <Label contentDisplay="CENTER" text="Timeline:" GridPane.rowIndex="4">
                                                             <font>
                                                                 <Font name="System Bold" size="15.0" />
                                                             </font>
@@ -320,17 +327,17 @@
                                                         </Label>
                                                         <TextField fx:id="projectTitle" onAction="#setTitle" GridPane.columnIndex="1" />
                                                         <TextField fx:id="projectCustomer" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                        <DatePicker fx:id="projectStartDate" editable="false" onAction="#setDate" prefHeight="26.0" prefWidth="190.0" promptText="(CURRENT)" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                        <DatePicker fx:id="projectStartDate" editable="false" prefHeight="26.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                             <cursor>
                                                                 <Cursor fx:constant="HAND" />
                                                             </cursor>
                                                         </DatePicker>
-                                          <Label contentDisplay="CENTER" text="End Date:" GridPane.rowIndex="5">
+                                          <Label contentDisplay="CENTER" text="End Date:" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
                                           </Label>
-                                          <DatePicker fx:id="projectEndDate" editable="false" prefHeight="26.0" prefWidth="190.0" promptText="(Default)" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                          <DatePicker fx:id="projectEndDate" editable="false" prefHeight="26.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
@@ -364,7 +371,7 @@
                                                                 <Font name="System Bold" size="15.0" />
                                                             </font>
                                                         </Label>
-                                                        <ComboBox fx:id="projectBuild" prefWidth="200.0" promptText="New Building" visibleRowCount="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                        <ComboBox fx:id="projectBuild" onAction="#setBuild" prefWidth="200.0" promptText="New Building" visibleRowCount="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                     </children>
                                                     <padding>
                                                         <Insets left="15.0" top="20.0" />

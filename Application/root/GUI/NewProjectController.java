@@ -1,18 +1,27 @@
 package GUI;
 
+import Model.ModelManager;
 import Model.MyDate;
 import Model.ProjectManager;
+import Model.Residential;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import java.time.LocalDate;
+
+/**
+ * New Project Controller // Project Creation.
+ *
+ * @author Sergiu Chirap
+ * @version 1.0
+ */
 public class NewProjectController {
     private Scene target;
-    private ProjectManager manager;
+    private ModelManager manager;
     private ViewHandler handler;
-    private MyDate startDate;
-    private MyDate endDate;
+    private boolean build;
     @FXML
     private Button quickNewProject;
     @FXML
@@ -39,8 +48,6 @@ public class NewProjectController {
     private DatePicker projectStartDate;
     @FXML
     private DatePicker projectEndDate;
-    @FXML
-    private TextField projectTimeline;
     @FXML
     private TextField projectSize;
     @FXML
@@ -72,22 +79,29 @@ public class NewProjectController {
     @FXML
     private ComboBox<String> projectBuild;
 
-    public void init(ViewHandler handler, Scene target, ProjectManager manager) {
+    /**
+     * Sets up the first view.
+     *
+     * @param handler linked ViewHandler
+     * @param target  linked scene
+     * @param manager linked ModelManager
+     */
+    public void init(ViewHandler handler, Scene target, ModelManager manager) {
         this.handler = handler;
         this.target = target;
         this.manager = manager;
 
         //sets ComboBoxes - Sergiu
         projectType.getItems().setAll("Residential", "Commercial", "Industrial", "Roads");
+        projectType.setValue("Residential");
         projectBuild.getItems().setAll("New Build", "Renovation");
 
         //sets StartDate preview(current) - Sergiu
-        this.startDate = new MyDate(String.valueOf(java.time.LocalDate.now()));
-        projectStartDate.setPromptText(this.startDate.toString());
+        MyDate startDate = new MyDate(String.valueOf(LocalDate.now()));
+        projectStartDate.setPromptText(startDate.toString());
 
         //sets default(Residential) type - Sergiu
         projectBudget.setPromptText("100000");
-        projectTimeline.setPromptText("9");
         MyDate endDate = startDate.endDate(9);
         projectEndDate.setPromptText(endDate.toString());
 
@@ -104,9 +118,31 @@ public class NewProjectController {
         roadsLanes.setDisable(true);
         roadsLength.setDisable(true);
         roadsWidth.setDisable(true);
+
+        build = false;
     }
 
+    /**
+     * Resets all inputs, making it look like a freshly opened scene.
+     */
     public void reset() {
+        projectTitle.setText("");
+        projectCustomer.setText("");
+        projectBudget.setText("");
+        projectStartDate.setValue(null);
+        projectEndDate.setValue(null);
+        residentialKitchens.setText("");
+        residentialBathrooms.setText("");
+        residentialPlumbing.setText("");
+        commercialFloors.setText("");
+        commercialUse.setText("");
+        industrialType.setText("");
+        roadsBridges.setSelected(false);
+        roadsTunnels.setSelected(false);
+        roadsChallenges.setSelected(false);
+        roadsLanes.setText("");
+        roadsLength.setText("");
+        roadsWidth.setText("");
     }
 
     public Scene getScene() {
@@ -115,7 +151,7 @@ public class NewProjectController {
 
     public void quickActions(ActionEvent e) {
         if (e.getSource() == quickNewProject) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+            Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("CLEAR NEW PROJECT?");
@@ -125,7 +161,7 @@ public class NewProjectController {
                 handler.openView("NewProject");
             }
         } else if (e.getSource() == quickViewProject) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+            Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("LEAVE NEW PROJECT?");
@@ -135,7 +171,7 @@ public class NewProjectController {
                 handler.openView("AllProjects");
             }
         } else if (e.getSource() == quickAnalytics) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+            Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("LEAVE NEW PROJECT?");
@@ -145,7 +181,7 @@ public class NewProjectController {
                 handler.openView("Analytics");
             }
         } else if (e.getSource() == quickPublishWeb) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+            Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("LEAVE NEW PROJECT?");
@@ -155,7 +191,7 @@ public class NewProjectController {
                 handler.openView("PublishWeb");
             }
         } else if (e.getSource() == quickSettings) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+            Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("LEAVE NEW PROJECT?");
@@ -165,7 +201,7 @@ public class NewProjectController {
                 handler.openView("Settings");
             }
         } else if (e.getSource() == quickCancel) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+            Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("CANCEL NEW PROJECT?");
@@ -195,13 +231,14 @@ public class NewProjectController {
     public void setType(ActionEvent e) {
         //extracts the chosen type from ComboBox - Sergiu
         String type = projectType.getValue();
+        MyDate endDate;
+        MyDate startDate = new MyDate(String.valueOf(LocalDate.now()));
         //sets, disables & enables inputs based on extracted type - Sergiu
         switch (type) {
             case "Residential":
                 projectBudget.setPromptText("100000");
-                projectTimeline.setPromptText("9");
-                this.endDate = startDate.endDate(9);
-                projectEndDate.setPromptText(this.endDate.toString());
+                endDate = startDate.endDate(9);
+                projectEndDate.setPromptText(endDate.toString());
 
                 residentialKitchens.setDisable(false);
                 residentialBathrooms.setDisable(false);
@@ -219,9 +256,8 @@ public class NewProjectController {
                 break;
             case "Commercial":
                 projectBudget.setPromptText("500000");
-                projectTimeline.setPromptText("18");
-                this.endDate = startDate.endDate(18);
-                projectEndDate.setPromptText(this.endDate.toString());
+                endDate = startDate.endDate(18);
+                projectEndDate.setPromptText(endDate.toString());
 
                 commercialFloors.setDisable(false);
                 commercialUse.setDisable(false);
@@ -239,9 +275,8 @@ public class NewProjectController {
                 break;
             case "Industrial":
                 projectBudget.setPromptText("2000000");
-                projectTimeline.setPromptText("30");
-                this.endDate = startDate.endDate(30);
-                projectEndDate.setPromptText(this.endDate.toString());
+                endDate = startDate.endDate(30);
+                projectEndDate.setPromptText(endDate.toString());
 
                 industrialType.setDisable(false);
 
@@ -259,9 +294,8 @@ public class NewProjectController {
                 break;
             case "Roads":
                 projectBudget.setPromptText("1000000");
-                projectTimeline.setPromptText("18");
-                this.endDate = startDate.endDate(18);
-                projectEndDate.setPromptText(this.endDate.toString());
+                endDate = startDate.endDate(18);
+                projectEndDate.setPromptText(endDate.toString());
 
                 roadsBridges.setDisable(false);
                 roadsTunnels.setDisable(false);
@@ -280,11 +314,279 @@ public class NewProjectController {
         }
     }
 
+    /**
+     * Modifies Title's label based on the project's Title input.
+     *
+     * @param e an ActionEvent with setTitle(), in this case a TextField
+     */
     public void setTitle(ActionEvent e) {
-        labelTitle.setText(projectTitle.getText());
+        if (!projectTitle.getText().isEmpty())
+            labelTitle.setText(projectTitle.getText());
     }
 
-    public void createProject(){
+    /**
+     * Sets project's build. 'New Build' / 'Renovation' are the available options.
+     *
+     * @param e an ActionEvent with setBuild(), in this case a ComboBox
+     */
+    public void setBuild(ActionEvent e) {
+        String choice = projectBuild.getValue();
+        switch (choice) {
+            case "New Build":
+                this.build = false;
+                break;
+            case "Renovation":
+                this.build = true;
+                break;
+        }
+    }
 
+    /**
+     * Creates & Saves new project. Contains various input checks and per type branches.
+     */
+    public void createProject() {
+        boolean mistake = false;
+        String title = "";
+        String customer = "";
+        String start;
+        String end;
+        double budget = 0;
+        double size = 0;
+        //extracts Title - Sergiu
+        //checks empty inputs - Sergiu
+        if (projectTitle.getText().isEmpty()) {
+            //uses Style to border the error - Sergiu
+            projectTitle.setStyle("-fx-border-color:red; -fx-border-width:2px");
+            mistake = true;
+            //pops-up ERROR alert - Sergiu
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Title is missing!",
+                    ButtonType.CLOSE);
+            alert.setTitle("MISSING INPUT");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                alert.close();
+            }
+        } else {
+            title = projectTitle.getText();
+            //resets Style if error corrected - Sergiu
+            projectTitle.setStyle("");
+        }
+        //extracts Customer - Sergiu
+        //checks empty inputs - Sergiu
+        if (projectCustomer.getText().isEmpty()) {
+            //uses Style to border the error - Sergiu
+            projectCustomer.setStyle("-fx-border-color:red; -fx-border-width:2px");
+            mistake = true;
+            //pops-up ERROR alert - Sergiu
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Customer is missing!",
+                    ButtonType.CLOSE);
+            alert.setTitle("MISSING INPUT");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                alert.close();
+            }
+        } else {
+            customer = projectCustomer.getText();
+            //resets Style if error corrected - Sergiu
+            projectCustomer.setStyle("");
+        }
+
+        //extracts Budget - Sergiu
+        try {
+            //if empty autocompletes with default - Sergiu
+            if (projectBudget.getText().isEmpty()) {
+                budget = 100000;
+            } else {
+                budget = Double.parseDouble(projectBudget.getText());
+            }
+            //resets Style if error corrected - Sergiu
+            projectBudget.setStyle("");
+        } catch (Exception e) {
+            //uses Style to border the error - Sergiu
+            projectBudget.setStyle("-fx-border-color:red; -fx-border-width:2px");
+            mistake = true;
+            //pops-up ERROR alert - Sergiu
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Budget input is not a number(double)!",
+                    ButtonType.CLOSE);
+            alert.setTitle("INVALID INPUT");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                alert.close();
+            }
+        }
+        //extracts Size - Sergiu
+        try {
+            size = Double.parseDouble(projectSize.getText());
+            //resets Style if error corrected - Sergiu
+            projectSize.setStyle("");
+        } catch (Exception e) {
+            //uses Style to border the error - Sergiu
+            projectSize.setStyle("-fx-border-color:red; -fx-border-width:2px");
+            mistake = true;
+            //pops-up ERROR alert - Sergiu
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Size input is not a number(int)!",
+                    ButtonType.CLOSE);
+            alert.setTitle("INVALID INPUT");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                alert.close();
+            }
+        }
+        //extracts StartDate - Sergiu
+        //if empty autocompletes with default - Sergiu
+        if (projectStartDate.getValue() == null) {
+            start = String.valueOf(java.time.LocalDate.now());
+        } else {
+            start = String.valueOf(projectStartDate.getValue());
+        }
+        //switches to per project-type input - Sergiu
+        String type = projectType.getValue();
+        switch (type) {
+            case "Residential":
+                int kitchens = 0;
+                int bathrooms = 0;
+                int plumbing = 0;
+                //extracts No. Kitchens - Sergiu
+                try {
+                    //if empty autocompletes with default - Sergiu
+                    if (residentialKitchens.getText().isEmpty()) {
+                        kitchens = 1;
+                    } else {
+                        kitchens = Integer.parseInt(residentialKitchens.getText());
+                    }
+                    System.out.println(kitchens);
+                    //resets Style if error corrected - Sergiu
+                    residentialKitchens.setStyle("");
+                } catch (Exception e) {
+                    //uses Style to border the error - Sergiu
+                    residentialKitchens.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    mistake = true;
+                    //pops-up ERROR alert - Sergiu
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "Kitchens input is not a number(int)!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("INVALID INPUT");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                }
+                //extracts Bathrooms - Sergiu
+                try {
+                    //if empty autocompletes with default - Sergiu
+                    if (residentialBathrooms.getText().isEmpty()) {
+                        bathrooms = 1;
+                    } else {
+                        bathrooms = Integer.parseInt(residentialBathrooms.getText());
+                    }
+                    //resets Style if error corrected - Sergiu
+                    residentialBathrooms.setStyle("");
+                } catch (Exception e) {
+                    //uses Style to border the error - Sergiu
+                    residentialBathrooms.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    mistake = true;
+                    //pops-up ERROR alert - Sergiu
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "Bathrooms input is not a number(int)!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("INVALID INPUT");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                }
+                //extracts Other Plumbing - Sergiu
+                try {
+                    //if empty autocompletes with default - Sergiu
+                    if (residentialPlumbing.getText().isEmpty()) {
+                        plumbing = 1;
+                    } else {
+                        plumbing = Integer.parseInt(residentialPlumbing.getText());
+                    }
+                    //resets Style if error corrected - Sergiu
+                    residentialPlumbing.setStyle("");
+                } catch (Exception e) {
+                    //uses Style to border the error - Sergiu
+                    residentialPlumbing.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    mistake = true;
+                    //pops-up ERROR alert - Sergiu
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "Plumbing input is not a number(int)!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("INVALID INPUT");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        break;
+                    }
+                }
+                //extracts EndDate - Sergiu
+                //if empty autocompletes with default - Sergiu
+                if (projectEndDate.getValue() == null) {
+                    MyDate temp = new MyDate(start);
+                    temp = temp.endDate(9);
+                    end = temp.toStringDate();
+                } else {
+                    end = String.valueOf(projectEndDate.getValue());
+                }
+
+                //keeps track if mistakes were made - Sergiu
+                if (!mistake) {
+                    //creates Residential class with the Full-Constructor - Sergiu
+                    try {
+                        //inputs extracted data into Full-Constructor - Sergiu
+                        Residential residential = new Residential(budget, start, end, title, customer, kitchens, bathrooms, plumbing, this.build, size);
+                        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                                "Project has been successfully added!",
+                                ButtonType.CLOSE);
+                        alert.setTitle("PROJECT SAVED");
+                        alert.setHeaderText(null);
+                        alert.showAndWait();
+                        if (alert.getResult() == ButtonType.CLOSE) {
+                            break;
+                        }
+                    } catch (Exception e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR,
+                                "Unknown Exception Found!",
+                                ButtonType.CLOSE);
+                        alert.setTitle("PROJECT NOT SAVED");
+                        alert.setHeaderText(null);
+                        alert.showAndWait();
+                        if (alert.getResult() == ButtonType.CLOSE) {
+                            break;
+                        }
+                    }
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION,
+                            "Solve the mistakes and try again!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("PROJECT NOT SAVED");
+                    alert.setHeaderText(null);
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        break;
+                    }
+                }
+                break;
+            case "Commercial":
+
+                break;
+            case "Industrial":
+
+                break;
+            case "Roads":
+
+                break;
+        }
     }
 }

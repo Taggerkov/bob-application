@@ -140,4 +140,13 @@ public class MyDate {
     public String toString() {
         return month + "/" + day + "/" + year;
     }
+    /**
+     * Returns a String of MyDate with LocalDate's style.
+     *
+     * @return another String stating the 'date'
+     * @author Sergiu Chirap
+     */
+    public String toStringDate() {
+        return String.format("%d-%02d-%02d",year,month,day);
+    }
 }
