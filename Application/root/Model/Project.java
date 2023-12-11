@@ -6,49 +6,43 @@ import java.io.Serializable;
  * An abstract class parent to all other project classes.
  *
  * @author Sergiu Chirap
- * @version 1.2
+ * @version 1.5
  */
 public abstract class Project implements Serializable {
+    private final String type;
     private String title;
     private String customer;
     private double budget;
-    private Resources resources;
+
+    private double size;
     private final MyDate startDate;
     private MyDate endDate;
     private boolean isActive;
+    private final boolean isRenovation;
+    private Resources resources;
 
     /**
-     * Full-Constructor. Custom use.
+     * Project's parent constructor. Sets up values every project type include.
      *
-     * @param budget   project's custom budget
-     * @param start    project's custom start date
-     * @param end      project's custom end date
-     * @param title    unique title of the project
-     * @param customer customer of the project
+     * @param type         which type of project is.
+     * @param budget       available budget for this project.
+     * @param start        project's custom start date.
+     * @param end          project's custom end date.
+     * @param title        unique title of the project.
+     * @param customer     customer of the project.
+     * @param isRenovation if this construction is a 'New Build' or a 'Renovation'.
      */
-    public Project(double budget, String start, String end, String title, String customer) {
+    public Project(String type, double budget, String start, String end, String title, String customer, double size, boolean isRenovation) {
+        this.type = type;
         this.budget = budget;
-        this.resources = new Resources();
         this.startDate = new MyDate(start);
         this.endDate = new MyDate(end);
         this.isActive = true;
         this.title = title;
         this.customer = customer;
-    }
-
-    /**
-     * Short-Constructor. Default use.
-     *
-     * @param budget project's default budget
-     */
-    public Project(double budget, String title, String customer) {
-        this.budget = budget;
+        this.size = size;
+        this.isRenovation = isRenovation;
         this.resources = new Resources();
-        this.startDate = new MyDate(String.valueOf(java.time.LocalDate.now()));
-        this.endDate = null;
-        this.isActive = true;
-        this.title = title;
-        this.customer = customer;
     }
 
     /**
@@ -114,8 +108,43 @@ public abstract class Project implements Serializable {
         this.endDate = endDate;
     }
 
-    public String getTitle()
-    {
+    /**
+     * Gets project's title.
+     * @return a String stating project's title.
+     */
+    public String getTitle() {
         return title;
+    }
+
+    /**
+     * Gets project's type.
+     * @return a String stating project's type.
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * Gets project;s customer.
+     * @return a String stating project's customer.
+     */
+    public String getCustomer() {
+        return customer;
+    }
+
+    /**
+     * Gets project's size.
+     * @return a double stating project's size.
+     */
+    public double getSize() {
+        return size;
+    }
+
+    /**
+     * Checks if the project is a renovation.
+     * @return a boolean stating true if it is a renovation & false if it is a new build.
+     */
+    public boolean isRenovation() {
+        return isRenovation;
     }
 }

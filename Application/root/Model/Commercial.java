@@ -1,14 +1,15 @@
 package Model;
 
+import java.time.LocalDate;
+
 /**
  * A class for the 'Commercial' project type.
  *
  * @author Sergiu Chirap
- * @version 1.0
+ * @version 1.5
  */
 public class Commercial extends Project {
     private int noOfFloors;
-    private double size;
     private String intendedUse;
 
     /**
@@ -21,10 +22,9 @@ public class Commercial extends Project {
      * @param size        building's m^3 size
      * @param intendedUse building's purpose
      */
-    public Commercial(double budget, String start, String end, int noOfFloors, double size, String intendedUse, String title, String customer, boolean isRenovation) {
-        super(budget, start, end);
+    public Commercial(double budget, String start, String end, String title, String customer, double size, int noOfFloors, String intendedUse, boolean isRenovation) {
+        super("Commercial", budget, start, end, title, customer, size, isRenovation);
         this.noOfFloors = noOfFloors;
-        this.size = size;
         this.intendedUse = intendedUse;
     }
 
@@ -32,10 +32,9 @@ public class Commercial extends Project {
      * 'Commercial' no-argument constructor. Default use.
      */
     public Commercial(String title, String customer) {
-        super(500000, title, customer);
+        super("Commercial", 500000, String.valueOf(LocalDate.now()), new MyDate(new MyDate(String.valueOf(LocalDate.now())).endDate(18).toStringDate()).toStringDate(), title, customer, -1, false);
         this.setEndDate(this.getStartDate().endDate(18));
         this.noOfFloors = 1;
-        size = 0;
         intendedUse = "Unspecified";
     }
 
@@ -57,29 +56,6 @@ public class Commercial extends Project {
         this.noOfFloors = noOfFloors;
     }
 
-    /**
-     * Gets the m^3 size of the project's building.
-     *
-     * @return a double stating the 'm^3 size'
-     */
-    public double getSize() {
-        return size;
-    }
-
-    /**
-     * Sets the m^3 size of the project's building.
-     *
-     * @param size the 'm^3 size' desired
-     */
-    public void setSize(double size) {
-        this.size = size;
-    }
-
-    /**
-     * Gets the intended use of the project's building.
-     *
-     * @return a String stating the 'intended use'
-     */
     public String getIntendedUse() {
         return intendedUse;
     }

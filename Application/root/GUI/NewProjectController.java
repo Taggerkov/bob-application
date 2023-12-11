@@ -363,12 +363,31 @@ public class NewProjectController {
      * @param e an ActionEvent with setTitle(), in this case a TextField
      */
     public void setTitle(ActionEvent e) {
-        if (!projectTitle.getText().isEmpty()) {
+        String title = projectTitle.getText();
+        if (!title.isEmpty()) {
             //checks if title is already taken - Sergiu
-            if (!checkTitle(projectTitle.getText())) {
-                labelTitle.setText(projectTitle.getText());
-                //resets Style if error corrected - Sergiu
-                projectTitle.setStyle("");
+            if (!checkTitle(title)) {
+                //checks input max length - Sergiu
+                if (title.length() > 17) {
+                    //uses Style to border the error - Sergiu
+                    projectTitle.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    //pops-up ERROR alert - Sergiu
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "Max. 17 characters but used " + title.length() + " instead.",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText("Title is too large!");
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                } else {
+                    labelTitle.setText(title);
+                    //resets Style if error corrected - Sergiu
+                    projectTitle.setStyle("");
+                }
             } else {
                 //uses Style to border the error - Sergiu
                 projectTitle.setStyle("-fx-border-color:red; -fx-border-width:2px");
@@ -439,16 +458,17 @@ public class NewProjectController {
      */
     public void createProject() {
         boolean mistake = false;
-        String title = "";
-        String customer = "";
+        String title;
+        String customer;
         String start;
         String end;
         double budget = 0;
         double size = 0;
 
         //extracts Title - Sergiu
+        title = projectTitle.getText();
         //checks empty inputs - Sergiu
-        if (projectTitle.getText().isEmpty()) {
+        if (title.isEmpty()) {
             //uses Style to border the error - Sergiu
             projectTitle.setStyle("-fx-border-color:red; -fx-border-width:2px");
             mistake = true;
@@ -466,10 +486,29 @@ public class NewProjectController {
             }
         } else {
             //checks if title is already taken - Sergiu
-            if (!checkTitle(projectTitle.getText())) {
-                title = projectTitle.getText();
-                //resets Style if error corrected - Sergiu
-                projectTitle.setStyle("");
+            if (!checkTitle(title)) {
+                //checks input max length - Sergiu
+                if (title.length() > 17) {
+                    //uses Style to border the error - Sergiu
+                    projectTitle.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    mistake = true;
+                    //pops-up ERROR alert - Sergiu
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "Max. 17 characters but used " + title.length() + " instead.",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText("Title is too large!");
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                } else {
+                    labelTitle.setText(title);
+                    //resets Style if error corrected - Sergiu
+                    projectTitle.setStyle("");
+                }
             } else {
                 //uses Style to border the error - Sergiu
                 projectTitle.setStyle("-fx-border-color:red; -fx-border-width:2px");
@@ -490,8 +529,9 @@ public class NewProjectController {
         }
 
         //extracts Customer - Sergiu
+        customer = projectCustomer.getText();
         //checks empty inputs - Sergiu
-        if (projectCustomer.getText().isEmpty()) {
+        if (customer.isEmpty()) {
             //uses Style to border the error - Sergiu
             projectCustomer.setStyle("-fx-border-color:red; -fx-border-width:2px");
             mistake = true;
@@ -508,9 +548,27 @@ public class NewProjectController {
                 alert.close();
             }
         } else {
-            customer = projectCustomer.getText();
-            //resets Style if error corrected - Sergiu
-            projectCustomer.setStyle("");
+            //checks input max length - Sergiu
+            if (customer.length() > 21) {
+                //uses Style to border the error - Sergiu
+                projectTitle.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                mistake = true;
+                //pops-up ERROR alert - Sergiu
+                Alert alert = new Alert(Alert.AlertType.ERROR,
+                        "Max. 21 characters but used " + customer.length() + " instead.",
+                        ButtonType.CLOSE);
+                alert.setTitle("ILLEGAL INPUT");
+                alert.setHeaderText("Customer is too large!");
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                alert.showAndWait();
+                if (alert.getResult() == ButtonType.CLOSE) {
+                    alert.close();
+                }
+            } else {
+                //resets Style if error corrected - Sergiu
+                projectCustomer.setStyle("");
+            }
         }
 
         //extracts Budget - Sergiu
@@ -571,7 +629,7 @@ public class NewProjectController {
                 }
             }
         }
-        System.out.println("Pass");
+
         //extracts Size - Sergiu
         try {
             size = Double.parseDouble(projectSize.getText());
@@ -702,7 +760,7 @@ public class NewProjectController {
                     //creates Residential class with the Full-Constructor - Sergiu
                     try {
                         //inputs extracted data into Full-Constructor - Sergiu
-                        Residential residential = new Residential(budget, start, end, title, customer, kitchens, bathrooms, plumbing, this.build, size);
+                        Residential residential = new Residential(budget, start, end, title, customer, size, this.build, kitchens, bathrooms, plumbing);
                         //saves new project calling sub-function - Sergiu
                         saveProject(residential);
 
@@ -803,7 +861,7 @@ public class NewProjectController {
                     //creates Commercial class with the Full-Constructor - Sergiu
                     try {
                         //inputs extracted data into Full-Constructor - Sergiu
-                        Commercial commercial = new Commercial(budget, start, end, floors, size, use, title, customer, this.build);
+                        Commercial commercial = new Commercial(budget, start, end, title, customer, size, floors, use, this.build);
                         //saves new project calling sub-function - Sergiu
                         saveProject(commercial);
 
@@ -869,13 +927,14 @@ public class NewProjectController {
                 } else {
                     end = String.valueOf(projectEndDate.getValue());
                 }
+                System.out.println(end);
 
                 //keeps track if mistakes were made - Sergiu
                 if (!mistake) {
                     //creates Industrial class with the Full-Constructor - Sergiu
                     try {
                         //inputs extracted data into Full-Constructor - Sergiu
-                        Industrial industrial = new Industrial(budget, start, end, title, customer, size, facilityType, this.build);
+                        Industrial industrial = new Industrial(budget, start, end, title, customer, size, this.build, facilityType);
                         //saves new project calling sub-function - Sergiu
                         saveProject(industrial);
 
@@ -1005,19 +1064,19 @@ public class NewProjectController {
                 //if empty autocompletes with default - Sergiu
                 if (projectEndDate.getValue() == null) {
                     MyDate temp = new MyDate(start);
-                    temp = temp.endDate(30);
+                    temp = temp.endDate(18);
                     end = temp.toStringDate();
                 } else {
                     end = String.valueOf(projectEndDate.getValue());
                 }
-
+                System.out.println(end);
                 //keeps track if mistakes were made - Sergiu
                 if (!mistake) {
-                    //creates Industrial class with the Full-Constructor - Sergiu
+                    //creates Road Construction class with the Full-Constructor - Sergiu
                     try {
                         //inputs extracted data into Full-Constructor - Sergiu
-                        RoadConstruction roadConstruction = new RoadConstruction(budget, start, end, title, customer, size, this.build,
-                                roadsBridges.isSelected(), roadsTunnels.isSelected(), length, width, roadsChallenges.isSelected(), lanes);
+                        RoadConstruction roadConstruction = new RoadConstruction(budget, start, end, title, customer, size, this.build, lanes,
+                                length, width, roadsChallenges.isSelected(), roadsBridges.isSelected(), roadsTunnels.isSelected());
                         //saves new project calling sub-function - Sergiu
                         saveProject(roadConstruction);
 

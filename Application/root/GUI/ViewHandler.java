@@ -75,6 +75,10 @@ public class ViewHandler {
         target.show();
     }
 
+    public void openProject(int index){
+
+    }
+
     private void loadWelcome() {
         try {
             FXMLLoader loader = new FXMLLoader();

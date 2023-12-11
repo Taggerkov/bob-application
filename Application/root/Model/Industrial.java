@@ -1,95 +1,69 @@
 package Model;
 
-public class Industrial extends Project
-{
-  /**
-   * Class for Industrial, extension of the class "Project"
-   * @author Bibek
-   * @version 1.0
-   */
-  private double size;
-  private String typeOfFacility;
+import java.time.LocalDate;
 
-  /**
-   * Full constructor for Industrial class
-   * @param budget
-   * @param start
-   * @param end
-   * @param title
-   * @param customer
-   * @param size
-   * @param typeOfFacility
-   */
+/**
+ * Class for Industrial, extension of the class "Project"
+ *
+ * @author Bibek, Sergiu Chirap
+ * @version 1.0
+ */
+public class Industrial extends Project {
+    private String typeOfFacility;
 
-  public Industrial(double budget, String start, String end, String title, String customer,double size, String typeOfFacility, boolean isRenovation)
-  {
-    super(budget, start, end, title, customer);
-    this.size = size;
-    this.typeOfFacility = typeOfFacility;
-  }
+    /**
+     * Full constructor for Industrial class
+     *
+     * @param budget
+     * @param start
+     * @param end
+     * @param title
+     * @param customer
+     * @param size
+     * @param typeOfFacility
+     */
 
-  /**
-   * constructor for Industrial class, default values
-   * @param title         title of the project
-   * @param customer      name of the customer attached to the project
-   */
-  public Industrial (String title, String customer)
-  {
-    super(2000000, title, customer);
-    super.setEndDate(super.getStartDate().endDate(30));
-    size = 0.00;
-    typeOfFacility = "Unspecified";
-  }
+    public Industrial(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, String typeOfFacility) {
+        super("Industrial", budget, start, end, title, customer, size, isRenovation);
+        this.typeOfFacility = typeOfFacility;
+    }
 
-  /**
-   * gets the size of the building
-   * @return size
-   */
+    /**
+     * constructor for Industrial class, default values
+     *
+     * @param title    title of the project
+     * @param customer name of the customer attached to the project
+     */
+    public Industrial(String title, String customer) {
+        super("Industrial", 2000000, String.valueOf(LocalDate.now()), new MyDate(new MyDate(String.valueOf(LocalDate.now())).endDate(30).toStringDate()).toStringDate(), title, customer, -1, false);
+        super.setEndDate(super.getStartDate().endDate(30));
+        typeOfFacility = "Unspecified";
+    }
 
-  public double getSize()
-  {
-    return size;
-  }
+    public String getTypeOfFacility() {
+        return typeOfFacility;
+    }
 
-  /**
-   * sets the size of the building
-   * @param size
-   */
-  public void setSize(double size)
-  {
-    this.size = size;
-  }
+    /**
+     * sets the type of facility
+     *
+     * @param typeOfFacility
+     */
 
-  /**
-   * gets the type of facility the building will provide
-   * @return type of facility
-   */
+    public void setTypeOfFacility(String typeOfFacility) {
+        this.typeOfFacility = typeOfFacility;
+    }
 
-  public String getTypeOfFacility()
-  {
-    return typeOfFacility;
-  }
-
-  /**
-   * sets the type of facility
-   * @param typeOfFacility
-   */
-
-  public void setTypeOfFacility(String typeOfFacility)
-  {
-    this.typeOfFacility = typeOfFacility;
-  }
-
-  /**
-   * Checks if the given object is the same as the Industrial one
-   * @param obj
-   * @return true if the given object is the same as the Industrial object and false if it is not
-   */
-  public boolean equals(Object obj)
-  {
-    if (obj== null || obj.getClass()!=this.getClass())
-      return false;
-    Industrial other=(Industrial) obj;
-    return super.equals(other) && size==other.size && typeOfFacility.equals(other.typeOfFacility);
-  }
+    /**
+     * Checks if the given object is the same as the Industrial one
+     *
+     * @param obj
+     * @return true if the given object is the same as the Industrial object and false if it is not
+     */
+    public boolean equals(Object obj) {
+        if (obj == null || obj.getClass() != this.getClass())
+            return false;
+        Industrial other = (Industrial) obj;
+        return super.equals(other) && typeOfFacility.equals(other.typeOfFacility);
+    }
 }

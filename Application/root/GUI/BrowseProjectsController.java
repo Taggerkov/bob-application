@@ -1,5 +1,7 @@
 package GUI;
 
+import Model.MyDate;
+import Model.Project;
 import Model.ProjectList;
 import Model.ProjectManager;
 import javafx.event.ActionEvent;
@@ -12,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -27,19 +30,11 @@ public class BrowseProjectsController {
     private ProjectManager manager;
     private ViewHandler handler;
     @FXML
-    private Button quickNewProject;
+    private Button quickNewProject, quickViewProject, quickAnalytics, quickPublishWeb, quickSettings, quickCancel;
     @FXML
-    private Button quickViewProject;
+    private Label labelTitle, isEmpty, labelStart, labelEnd, labelType, labelCustomer;
     @FXML
-    private Button quickAnalytics;
-    @FXML
-    private Button quickPublishWeb;
-    @FXML
-    private Button quickSettings;
-    @FXML
-    private Button quickCancel;
-    @FXML
-    private Label isEmpty;
+    VBox labelBox;
     @FXML
     private FlowPane flowPane;
 
@@ -56,36 +51,37 @@ public class BrowseProjectsController {
         this.manager = manager;
 
         //checks if file is empty
-        VBox vBox = null;
-        VBox b = null;
-        VBox c = null;
-
         ProjectList allProjects = manager.readAllProjects();
         if (allProjects == null) {
             isEmpty.setVisible(true);
         } else {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("ProjectLabel.fxml"));
-            loader.setController(this);
-            FXMLLoader loaderB = new FXMLLoader();
-            loaderB.setLocation(getClass().getResource("ProjectLabel.fxml"));
-            loader.setController(this);
-            FXMLLoader loaderC = new FXMLLoader();
-            loaderC.setLocation(getClass().getResource("ProjectLabel.fxml"));
-            loader.setController(this);
-            try {
-                vBox = loader.load();
-                b = loaderB.load();
-                c = loaderC.load();
-            } catch (Exception e){
-                e.printStackTrace();
+            for (int i = 0; i < allProjects.size(); i++) {
+                Project temp = allProjects.get(i);
+                String type = temp.getType();
+                String title = temp.getTitle();
+                String customer = "-" + temp.getCustomer() + "-";
+                MyDate start = temp.getStartDate();
+                MyDate end = temp.getEndDate();
+                VBox x = new VBox();
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("ProjectLabel.fxml"));
+                loader.setController(this);
+                try {
+                    x = loader.load();
+                } catch (Exception ignore) {
+                    ignore.printStackTrace();
+                }
+                flowPane.getChildren().add(x);
+                FlowPane.setMargin(x, new Insets(10, 10, 10, 5));
+                labelTitle.setText(title);
+                labelStart.setText(start.toString());
+                labelEnd.setText(end.toString());
+                labelType.setText(type.toUpperCase());
+                labelCustomer.setText(customer);
+                int index = i;
+                labelBox.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> handler.openProject(index));
             }
-            flowPane.getChildren().add(vBox);
-            flowPane.getChildren().add(b);
-            flowPane.getChildren().add(c);
-            FlowPane.setMargin(vBox,new Insets(10,5,10,10));
-            FlowPane.setMargin(b,new Insets(10,5,10,10));
-            FlowPane.setMargin(c,new Insets(10,5,10,10));
+
         }
     }
 
@@ -93,7 +89,6 @@ public class BrowseProjectsController {
      * Resets all inputs, making it look like a freshly opened scene.
      */
     public void reset() {
-        isEmpty.setVisible(false);
     }
 
     /**
@@ -124,5 +119,9 @@ public class BrowseProjectsController {
         } else if (e.getSource() == quickCancel) {
             handler.openView("Welcome");
         }
+    }
+
+    public void labelLink(ActionEvent e) {
+        handler.openView("Welcome");
     }
 }

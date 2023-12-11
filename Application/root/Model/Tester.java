@@ -14,19 +14,12 @@ import java.util.Scanner;
 
 public class Tester {
     public static void main(String[] args) {
-        try {
-            FileInputStream fileIn = new FileInputStream("Saves/projects.bin");
-            ObjectInputStream read = new ObjectInputStream(fileIn);
-            ProjectList a = (ProjectList) read.readObject();
-            System.out.println(a.get(0).getTitle());
-        } catch (Exception e) {
-            System.out.println("Error");
-            e.printStackTrace();
-        }
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        ImageView customImage = new ImageView(new Image("/home/mani/Desktop/img.jpg", 100, 80, false, true));
-        alert.setGraphic(customImage);
-        alert.showAndWait();
-        FlowPane a = new FlowPane();
+        String a = "dsadasdasdasdasda";
+        System.out.println(a.length());
+
+        String customer = "21";
+        String customer2 = "Christina Johansen";
+
+        System.out.println(customer2.length());
     }
 }

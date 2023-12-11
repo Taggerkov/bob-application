@@ -1,18 +1,20 @@
 package Model;
 
+import java.time.LocalDate;
+
 public class RoadConstruction extends Project {
     /**
      * Class for RoadConstruction, extension of the class Project
      *
-     * @author Salomeea Tricolici
+     * @author Salomeea Tricolici, Sergiu Chirap
      * @version 1.0
      */
-    private boolean hasBridges;
-    private boolean hasTunnels;
+    private int noOfLanes;
     private double length;
     private double width;
     private boolean hasGeoChallenge;
-    private int noOfLanes;
+    private boolean hasBridges;
+    private boolean hasTunnels;
 
     /**
      * Full constructor for RoadConstruction class
@@ -28,15 +30,15 @@ public class RoadConstruction extends Project {
      * @param noOfLanes
      */
 
-    public RoadConstruction(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, boolean hasBridges,
-                            boolean hasTunnels, double length, double width, boolean hasGeoChallenge, int noOfLanes) {
-        super(budget, start, end);
-        this.hasBridges = hasBridges;
-        this.hasTunnels = hasTunnels;
+    public RoadConstruction(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, int noOfLanes, double length, double width, boolean hasGeoChallenge, boolean hasBridges,
+                            boolean hasTunnels) {
+        super("Roads", budget, start, end, title, customer, size, isRenovation);
+        this.noOfLanes = noOfLanes;
         this.length = length;
         this.width = width;
         this.hasGeoChallenge = hasGeoChallenge;
-        this.noOfLanes = noOfLanes;
+        this.hasBridges = hasBridges;
+        this.hasTunnels = hasTunnels;
     }
 
     /**
@@ -46,14 +48,14 @@ public class RoadConstruction extends Project {
      * @param customer Name of the customer attached to the project
      */
     public RoadConstruction(String title, String customer) {
-        super(1000000, title, customer);
+        super("Roads", 1000000, String.valueOf(LocalDate.now()), new MyDate(new MyDate(String.valueOf(LocalDate.now())).endDate(18).toStringDate()).toStringDate(), title, customer, -1, false);
         super.setEndDate(super.getStartDate().endDate(18));
-        hasBridges = false;
-        hasTunnels = false;
+        noOfLanes = 0;
         length = 0;
         width = 0;
         hasGeoChallenge = false;
-        noOfLanes = 0;
+        hasBridges = false;
+        hasTunnels = false;
 
     }
 

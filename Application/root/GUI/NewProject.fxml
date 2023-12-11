@@ -208,7 +208,7 @@
                                             <children>
                                                 <Label id="title" fx:id="labelTitle" style="-fx-background-color: aqua;">
                                                     <font>
-                                                        <Font name="System Bold Italic" size="50.0" />
+                                                        <Font name="System Bold Italic" size="35.0" />
                                                     </font>
                                        <VBox.margin>
                                           <Insets />
@@ -221,6 +221,9 @@
                                                     <font>
                                                         <Font size="30.0" />
                                                     </font>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
                                                 </Label>
                                             </children>
                                         </VBox>
