@@ -22,6 +22,7 @@ public class NewProjectController {
     private Scene target;
     private ProjectManager manager;
     private ViewHandler handler;
+    private String type;
     private boolean build;
     @FXML
     private Button quickNewProject;
@@ -101,6 +102,26 @@ public class NewProjectController {
         MyDate startDate = new MyDate(String.valueOf(LocalDate.now()));
         projectStartDate.setPromptText(startDate.toString());
 
+        //sets default(Residential) type - Sergiu
+        this.type = "Residential";
+        projectBudget.setPromptText("100000");
+        MyDate endDate = startDate.endDate(9);
+        projectEndDate.setPromptText(endDate.toString());
+
+        residentialKitchens.setDisable(false);
+        residentialBathrooms.setDisable(false);
+        residentialPlumbing.setDisable(false);
+
+        commercialFloors.setDisable(true);
+        commercialUse.setDisable(true);
+        industrialType.setDisable(true);
+        roadsBridges.setDisable(true);
+        roadsTunnels.setDisable(true);
+        roadsChallenges.setDisable(true);
+        roadsLanes.setDisable(true);
+        roadsLength.setDisable(true);
+        roadsWidth.setDisable(true);
+
         build = false;
     }
 
@@ -120,6 +141,7 @@ public class NewProjectController {
         projectSize.setStyle("");
         projectStartDate.setValue(null);
         projectEndDate.setValue(null);
+        projectEndDate.setStyle(null);
         projectEndDate.setStyle("");
         residentialKitchens.setText("");
         residentialBathrooms.setText("");
@@ -251,11 +273,11 @@ public class NewProjectController {
      */
     public void setType(ActionEvent e) {
         //extracts the chosen type from ComboBox - Sergiu
-        String type = projectType.getValue();
+        this.type = projectType.getValue();
         MyDate endDate;
         MyDate startDate = new MyDate(String.valueOf(LocalDate.now()));
         //sets, disables & enables inputs based on extracted type - Sergiu
-        switch (type) {
+        switch (this.type) {
             case "Residential":
                 projectBudget.setPromptText("100000");
                 endDate = startDate.endDate(9);
@@ -362,6 +384,35 @@ public class NewProjectController {
                 if (alert.getResult() == ButtonType.CLOSE) {
                     alert.close();
                 }
+            }
+        }
+    }
+
+    /**
+     * Sets EndDate prompt text based on picked date and selected type.
+     *
+     * @param e a ActionEvent with setEndDate(), in this case a DatePicker.
+     */
+    public void setEndDate(ActionEvent e) {
+        if (!(projectStartDate.getValue() == null)) {
+            MyDate temp = new MyDate(String.valueOf(projectStartDate.getValue()));
+            switch (this.type) {
+                case "Residential":
+                    temp = temp.endDate(9);
+                    projectEndDate.setPromptText(temp.toString());
+                    break;
+                case "Commercial":
+                    temp = temp.endDate(18);
+                    projectEndDate.setPromptText(temp.toString());
+                    break;
+                case "Industrial":
+                    temp = temp.endDate(30);
+                    projectEndDate.setPromptText(temp.toString());
+                    break;
+                case "Roads":
+                    temp = temp.endDate(18);
+                    projectEndDate.setPromptText(temp.toString());
+                    break;
             }
         }
     }
@@ -496,30 +547,31 @@ public class NewProjectController {
             start = String.valueOf(LocalDate.now());
         } else {
             start = String.valueOf(projectStartDate.getValue());
-        }
-
-        //checks isBefore for EndDate
-        if (!new MyDate(start).isBefore(new MyDate(String.valueOf(projectEndDate.getValue())))) {
-            //uses Style to border the error - Sergiu
-            projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
-            mistake = true;
-            //pops-up isBefore alert - Sergiu
-            Alert alert = new Alert(Alert.AlertType.ERROR,
-                    "End Date is before Start Date!",
-                    ButtonType.CLOSE);
-            alert.setTitle("ILLEGAL INPUT");
-            alert.setHeaderText(null);
-            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
-            alert.showAndWait();
-            if (alert.getResult() == ButtonType.CLOSE) {
-                alert.close();
+            //checks isBefore for EndDate
+            if (!(projectEndDate.getValue() == null)) {
+                if (!new MyDate(start).isBefore(new MyDate(String.valueOf(projectEndDate.getValue())))) {
+                    //uses Style to border the error - Sergiu
+                    projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    mistake = true;
+                    //pops-up isBefore alert - Sergiu
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "End Date is before Start Date!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                } else {
+                    //resets Style if error corrected - Sergiu
+                    projectEndDate.setStyle("");
+                }
             }
-        } else {
-            //resets Style if error corrected - Sergiu
-            projectEndDate.setStyle("");
         }
-
+        System.out.println("Pass");
         //extracts Size - Sergiu
         try {
             size = Double.parseDouble(projectSize.getText());
