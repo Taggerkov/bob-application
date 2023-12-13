@@ -25,8 +25,8 @@ public class Residential extends Project {
      * @param noOfBathrooms  Number of bathrooms
      * @param roomsWPlumbing Number of rooms with plumbing excluding bathrooms and kitchens
      */
-    public Residential(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, int noOfKitchens, int noOfBathrooms, int roomsWPlumbing) {
-        super("Residential", budget, start, end, title, customer, size, isRenovation);
+    public Residential(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, int noOfKitchens, int noOfBathrooms, int roomsWPlumbing, String isPublished) {
+        super("Residential", budget, start, end, title, customer, size, isRenovation, isPublished);
         this.noOfKitchens = noOfKitchens;
         this.noOfBathrooms = noOfBathrooms;
         this.roomsWPlumbing = roomsWPlumbing;
@@ -39,7 +39,7 @@ public class Residential extends Project {
      * @param customer Name of the customer attached to the project
      */
     public Residential(String title, String customer) {
-        super("Residential", 100000, String.valueOf(LocalDate.now()), new MyDate(new MyDate(String.valueOf(LocalDate.now())).endDate(9).toStringDate()).toStringDate(), title, customer, -1, false);
+        super("Residential", 100000, String.valueOf(LocalDate.now()), new MyDate(new MyDate(String.valueOf(LocalDate.now())).endDate(9).toStringDate()).toStringDate(), title, customer, -1, false, "Local");
         noOfKitchens = 1;
         noOfBathrooms = 1;
         roomsWPlumbing = 1;

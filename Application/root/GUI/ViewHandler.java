@@ -17,6 +17,7 @@ public class ViewHandler {
     private WelcomeController WelcomeController;
     private NewProjectController NewProjectController;
     private BrowseProjectsController BrowseProjectsController;
+    private EditProjectController EditProjectController;
     private AnalyticsController AnalyticsController;
     private PublishWebController PublishWebController;
     private ProjectManager manager;
@@ -38,45 +39,54 @@ public class ViewHandler {
     }
 
     public void openView(String id) {
-        String title = "BOB'S SOFTWARE - ";
+        String sceneTitle = "BOB'S SOFTWARE - ";
         switch (id) {
             case "Welcome":
                 target.setScene(WelcomeController.getScene());
                 WelcomeController.reset();
-                title += "Welcome!";
+                sceneTitle += "Welcome!";
                 break;
             case "NewProject":
                 target.setScene(NewProjectController.getScene());
                 NewProjectController.reset();
-                title += "New Project";
+                sceneTitle += "New Project";
                 break;
             case "BrowseProject":
                 target.setScene(BrowseProjectsController.getScene());
                 BrowseProjectsController.reset();
-                title += "Browse Projects";
+                sceneTitle += "Browse Projects";
                 break;
             case "Analytics":
                 target.setScene(AnalyticsController.getScene());
                 AnalyticsController.reset();
-                title += "Analytics";
+                sceneTitle += "Analytics";
                 break;
             case "PublishWeb":
                 target.setScene(PublishWebController.getScene());
                 PublishWebController.reset();
-                title += "Publish Web";
+                sceneTitle += "Publish Web";
                 break;
         }
 
         if (target.getScene().getRoot().getUserData() != null) {
-            title = target.getScene().getRoot().getUserData().toString();
+            sceneTitle = target.getScene().getRoot().getUserData().toString();
         }
 
-        target.setTitle(title);
+        target.setTitle(sceneTitle);
         target.show();
     }
 
-    public void openProject(int index){
-
+    public void openProject(String title, String type) {
+        loadEditProject();
+        String sceneTitle = "BOB'S SOFTWARE - ";
+        target.setScene(EditProjectController.getScene());
+        EditProjectController.loadProject(title);
+        sceneTitle += type + ": " + title;
+        if (target.getScene().getRoot().getUserData() != null) {
+            sceneTitle = target.getScene().getRoot().getUserData().toString();
+        }
+        target.setTitle(sceneTitle);
+        target.show();
     }
 
     private void loadWelcome() {
@@ -146,6 +156,29 @@ public class ViewHandler {
         }
     }
 
+    private void loadEditProject() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("EditProject.fxml"));
+            Region root = loader.load();
+            EditProjectController = loader.getController();
+            EditProjectController.init(this, new Scene(root), manager);
+        } catch (IOException e) {
+            //displays I/O error for FXML - Sergiu
+            System.out.println("FXML not found!");
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "FXML (EditProject.fxml) not found!",
+                    ButtonType.CLOSE);
+            alert.setTitle("CRITICAL ERROR");
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                System.exit(0);
+            }
+        }
+
+    }
+
     private void loadAnalytics() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -167,6 +200,7 @@ public class ViewHandler {
             }
         }
     }
+
     private void loadPublishWebController() {
         try {
             FXMLLoader loader = new FXMLLoader();

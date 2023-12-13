@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class Tester {
     public static void main(String[] args) {
-        String a = "dsadasdasdasdasda";
+        String a = "MMMMMMMMM";
         System.out.println(a.length());
 
         String customer = "21";

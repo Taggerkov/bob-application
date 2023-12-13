@@ -57,7 +57,7 @@ public class ProjectList implements Serializable {
             return "Industrial";
         else if (projects.get(index) instanceof RoadConstruction)
             return "RoadConstruction";
-        //return case if illegal type - Sergiu
+            //return case if illegal type - Sergiu
         else return "-1";
     }
 
@@ -78,5 +78,26 @@ public class ProjectList implements Serializable {
      */
     public String getTitle(int index) {
         return projects.get(index).getTitle();
+    }
+
+    /**
+     * Deletes the chosen project from the ProjectList.
+     *
+     * @param index int stating project's position in the ProjectList.
+     * @author Sergiu Chirap
+     */
+    public void delete(int index) {
+        projects.remove(index);
+    }
+
+    /**
+     * Replaces project inside the project with another one.
+     *
+     * @param index   an int stating where in the ProjectList should be done.
+     * @param project the project that will be replacing.
+     * @author Sergiu Chirap
+     */
+    public void set(int index, Project project) {
+        projects.set(index, project);
     }
 }

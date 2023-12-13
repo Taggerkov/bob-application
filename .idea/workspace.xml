@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0a04f51-a630-4d97-9ba1-d2ef7e414e8d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_8_40_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controlsfx-8.40.14.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bob-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bob-application.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/root/GUI/EditProject.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/root/GUI/EditProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/BrowseProjects.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/BrowseProjects.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/BrowseProjectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/BrowseProjectsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/NewProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/NewProject.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/ProjectLabel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ProjectLabel.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/Model/Commercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Commercial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/Model/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Industrial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/Model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Model/ProjectList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/ProjectList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/Model/Residential.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Residential.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/Model/RoadConstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/RoadConstruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/Model/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Tester.java" afterDir="false" />
@@ -28,6 +26,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -35,12 +40,16 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2ZOTqdyIoSQWyKfHCZdXIFjB3wm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Application.PowerUp!.executor": "Run",
     "Application.RunApp.executor": "Run",
     "Application.Tester.executor": "Run",
@@ -99,5 +108,8 @@
       <updated>1702292319093</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

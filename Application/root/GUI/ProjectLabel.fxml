@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -52,7 +54,24 @@
                   <Font name="System Italic" size="15.0" />
                </font>
             </Label>
+            <VBox fx:id="labelActive" layoutX="90.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="15.0" prefWidth="15.0" />
+            <Label fx:id="labelPublish" layoutX="148.0" layoutY="62.0">
+               <font>
+                  <Font name="Monospaced Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelBuild" alignment="CENTER" layoutX="137.0" layoutY="85.0" prefWidth="40.0">
+               <font>
+                  <Font name="Monospaced Bold" size="25.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
+   <cursor>
+      <Cursor fx:constant="CROSSHAIR" />
+   </cursor>
+   <effect>
+      <DropShadow height="35.66" offsetX="2.0" offsetY="3.0" radius="20.9925" width="50.31" />
+   </effect>
 </VBox>

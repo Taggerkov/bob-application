@@ -23,8 +23,8 @@ public class Industrial extends Project {
      * @param typeOfFacility
      */
 
-    public Industrial(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, String typeOfFacility) {
-        super("Industrial", budget, start, end, title, customer, size, isRenovation);
+    public Industrial(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, String typeOfFacility, String isPublished) {
+        super("Industrial", budget, start, end, title, customer, size, isRenovation, isPublished);
         this.typeOfFacility = typeOfFacility;
     }
 
@@ -35,7 +35,7 @@ public class Industrial extends Project {
      * @param customer name of the customer attached to the project
      */
     public Industrial(String title, String customer) {
-        super("Industrial", 2000000, String.valueOf(LocalDate.now()), new MyDate(new MyDate(String.valueOf(LocalDate.now())).endDate(30).toStringDate()).toStringDate(), title, customer, -1, false);
+        super("Industrial", 2000000, String.valueOf(LocalDate.now()), new MyDate(new MyDate(String.valueOf(LocalDate.now())).endDate(30).toStringDate()).toStringDate(), title, customer, -1, false, "Local");
         super.setEndDate(super.getStartDate().endDate(30));
         typeOfFacility = "Unspecified";
     }

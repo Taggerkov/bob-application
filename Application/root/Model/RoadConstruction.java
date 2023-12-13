@@ -30,9 +30,9 @@ public class RoadConstruction extends Project {
      * @param noOfLanes
      */
 
-    public RoadConstruction(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, int noOfLanes, double length, double width, boolean hasGeoChallenge, boolean hasBridges,
-                            boolean hasTunnels) {
-        super("Roads", budget, start, end, title, customer, size, isRenovation);
+    public RoadConstruction(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, int noOfLanes, double length, double width,
+                            boolean hasGeoChallenge, boolean hasBridges, boolean hasTunnels, String isPublished) {
+        super("Roads", budget, start, end, title, customer, size, isRenovation, isPublished);
         this.noOfLanes = noOfLanes;
         this.length = length;
         this.width = width;
@@ -48,7 +48,8 @@ public class RoadConstruction extends Project {
      * @param customer Name of the customer attached to the project
      */
     public RoadConstruction(String title, String customer) {
-        super("Roads", 1000000, String.valueOf(LocalDate.now()), new MyDate(new MyDate(String.valueOf(LocalDate.now())).endDate(18).toStringDate()).toStringDate(), title, customer, -1, false);
+        super("Roads", 1000000, String.valueOf(LocalDate.now()), new MyDate(new MyDate(String.valueOf(LocalDate.now())).endDate(18).toStringDate()).toStringDate(),
+                title, customer, -1, false, "Local");
         super.setEndDate(super.getStartDate().endDate(18));
         noOfLanes = 0;
         length = 0;
@@ -65,7 +66,7 @@ public class RoadConstruction extends Project {
      *
      * @param hasBridges
      */
-    private void setHasBridges(boolean hasBridges) {
+    public void setHasBridges(boolean hasBridges) {
         this.hasBridges = hasBridges;
     }
 
@@ -74,7 +75,7 @@ public class RoadConstruction extends Project {
      *
      * @return true if the project has bridges and false if it doesn't
      */
-    private boolean getHasBridges() {
+    public boolean getHasBridges() {
         return hasBridges;
     }
 
@@ -83,7 +84,7 @@ public class RoadConstruction extends Project {
      *
      * @param hasTunnels no tunnels by default
      */
-    private void setHasTunnels(boolean hasTunnels) {
+    public void setHasTunnels(boolean hasTunnels) {
         this.hasTunnels = hasTunnels;
     }
 
@@ -92,7 +93,7 @@ public class RoadConstruction extends Project {
      *
      * @return true if the project has tunnels and flase if it doesn't
      */
-    private boolean getHasTunnels() {
+    public boolean getHasTunnels() {
         return hasTunnels;
     }
 
@@ -102,7 +103,7 @@ public class RoadConstruction extends Project {
      * @param length
      */
 
-    private void setLength(double length) {
+    public void setLength(double length) {
         this.length = length;
     }
 
@@ -111,7 +112,7 @@ public class RoadConstruction extends Project {
      *
      * @return length
      */
-    private double getLength() {
+    public double getLength() {
         return length;
     }
 
@@ -120,7 +121,7 @@ public class RoadConstruction extends Project {
      *
      * @param width
      */
-    private void setWidth(double width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
@@ -129,7 +130,7 @@ public class RoadConstruction extends Project {
      *
      * @return width
      */
-    private double getWidth() {
+    public double getWidth() {
         return width;
     }
 
@@ -139,7 +140,7 @@ public class RoadConstruction extends Project {
      *
      * @param hasGeoChallenge
      */
-    private void setHasGeoChallenge(boolean hasGeoChallenge) {
+    public void setHasGeoChallenge(boolean hasGeoChallenge) {
         this.hasGeoChallenge = hasGeoChallenge;
     }
 
@@ -148,7 +149,7 @@ public class RoadConstruction extends Project {
      *
      * @return true if the project has any geographical challenges and false if it does not
      */
-    private boolean getHasGeoChallenge() {
+    public boolean getHasGeoChallenge() {
         return hasGeoChallenge;
     }
 
@@ -157,7 +158,7 @@ public class RoadConstruction extends Project {
      *
      * @param noOfLanes
      */
-    private void setNoOfLanes(int noOfLanes) {
+    public void setNoOfLanes(int noOfLanes) {
         this.noOfLanes = noOfLanes;
     }
 
@@ -166,7 +167,7 @@ public class RoadConstruction extends Project {
      *
      * @return number of Lanes
      */
-    private int getNoOfLanes() {
+    public int getNoOfLanes() {
         return noOfLanes;
     }
 

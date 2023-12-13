@@ -32,9 +32,9 @@ public class BrowseProjectsController {
     @FXML
     private Button quickNewProject, quickViewProject, quickAnalytics, quickPublishWeb, quickSettings, quickCancel;
     @FXML
-    private Label labelTitle, isEmpty, labelStart, labelEnd, labelType, labelCustomer;
+    private Label labelTitle, isEmpty, labelStart, labelEnd, labelType, labelCustomer, labelBuild, labelPublish;
     @FXML
-    VBox labelBox;
+    private VBox labelBox, labelActive;
     @FXML
     private FlowPane flowPane;
 
@@ -49,19 +49,32 @@ public class BrowseProjectsController {
         this.handler = handler;
         this.target = target;
         this.manager = manager;
+    }
 
+    /**
+     * Resets all inputs, making it look like a freshly opened scene.
+     */
+    public void reset() {
+        flowPane.getChildren().clear();
         //checks if file is empty
         ProjectList allProjects = manager.readAllProjects();
         if (allProjects == null) {
             isEmpty.setVisible(true);
         } else {
-            for (int i = 0; i < allProjects.size(); i++) {
-                Project temp = allProjects.get(i);
+            isEmpty.setVisible(false);
+            for (int i = allProjects.size(); i > 0; i--) {
+                Project temp = allProjects.get(i - 1);
+
                 String type = temp.getType();
                 String title = temp.getTitle();
                 String customer = "-" + temp.getCustomer() + "-";
                 MyDate start = temp.getStartDate();
                 MyDate end = temp.getEndDate();
+                boolean active = temp.isActive();
+                System.out.println(active);
+                boolean isRenovation = temp.isRenovation();
+                String isPublished = temp.getIsPublished();
+
                 VBox x = new VBox();
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("ProjectLabel.fxml"));
@@ -78,17 +91,29 @@ public class BrowseProjectsController {
                 labelEnd.setText(end.toString());
                 labelType.setText(type.toUpperCase());
                 labelCustomer.setText(customer);
-                int index = i;
-                labelBox.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> handler.openProject(index));
+                if (isRenovation) labelBuild.setText("R");
+                else labelBuild.setText("NB");
+                switch (isPublished) {
+                    case "Local":
+                        labelPublish.setText("L");
+                        break;
+                    case "Publish":
+                        labelPublish.setText("P");
+                        break;
+                    case "Online":
+                        labelPublish.setText("O");
+                        break;
+                }
+                if (active) {
+                    labelActive.setStyle("-fx-background-color:lightgreen; -fx-background-radius:15px; " +
+                            "-fx-border-color:black; -fx-border-radius:15px; -fx-border-width:1px");
+                } else {
+                    labelActive.setStyle("-fx-background-color:red; -fx-background-radius:15px; " +
+                            "-fx-border-color:black; -fx-border-radius:15px; -fx-border-width:1px");
+                }
+                labelBox.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> handler.openProject(title, type));
             }
-
         }
-    }
-
-    /**
-     * Resets all inputs, making it look like a freshly opened scene.
-     */
-    public void reset() {
     }
 
     /**

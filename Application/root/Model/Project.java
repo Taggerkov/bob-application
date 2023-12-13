@@ -19,6 +19,8 @@ public abstract class Project implements Serializable {
     private MyDate endDate;
     private boolean isActive;
     private final boolean isRenovation;
+    private String isPublished;
+
     private Resources resources;
 
     /**
@@ -32,7 +34,7 @@ public abstract class Project implements Serializable {
      * @param customer     customer of the project.
      * @param isRenovation if this construction is a 'New Build' or a 'Renovation'.
      */
-    public Project(String type, double budget, String start, String end, String title, String customer, double size, boolean isRenovation) {
+    public Project(String type, double budget, String start, String end, String title, String customer, double size, boolean isRenovation, String isPublished) {
         this.type = type;
         this.budget = budget;
         this.startDate = new MyDate(start);
@@ -43,6 +45,7 @@ public abstract class Project implements Serializable {
         this.size = size;
         this.isRenovation = isRenovation;
         this.resources = new Resources();
+        this.isPublished = isPublished;
     }
 
     /**
@@ -146,5 +149,33 @@ public abstract class Project implements Serializable {
      */
     public boolean isRenovation() {
         return isRenovation;
+    }
+
+    /**
+     * Gets project's publish status.
+     * @return a String stating project's status.
+     */
+    public String getIsPublished() {
+        return isPublished;
+    }
+
+    /**
+     * Gets project's size.
+     * @return a double stating project's size.
+     */
+    public void setIsPublished(String isPublished) {
+        this.isPublished = isPublished;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    public void setSize(double size) {
+        this.size = size;
     }
 }
