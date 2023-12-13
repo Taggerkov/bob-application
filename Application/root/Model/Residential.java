@@ -25,7 +25,8 @@ public class Residential extends Project {
      * @param noOfBathrooms  Number of bathrooms
      * @param roomsWPlumbing Number of rooms with plumbing excluding bathrooms and kitchens
      */
-    public Residential(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, int noOfKitchens, int noOfBathrooms, int roomsWPlumbing, String isPublished) {
+    public Residential(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, int noOfKitchens, int noOfBathrooms, int roomsWPlumbing, String isPublished)
+    {
         super("Residential", budget, start, end, title, customer, size, isRenovation, isPublished);
         this.noOfKitchens = noOfKitchens;
         this.noOfBathrooms = noOfBathrooms;
@@ -38,7 +39,8 @@ public class Residential extends Project {
      * @param title    Unique title for the project
      * @param customer Name of the customer attached to the project
      */
-    public Residential(String title, String customer) {
+    public Residential(String title, String customer)
+    {
         super("Residential", 100000, String.valueOf(LocalDate.now()), new MyDate(new MyDate(String.valueOf(LocalDate.now())).endDate(9).toStringDate()).toStringDate(), title, customer, -1, false, "Local");
         noOfKitchens = 1;
         noOfBathrooms = 1;
@@ -50,7 +52,8 @@ public class Residential extends Project {
      *
      * @param noOfKitchens desired number of kitchens for the building
      */
-    public void setNoOfKitchens(int noOfKitchens) {
+    public void setNoOfKitchens(int noOfKitchens)
+    {
         this.noOfKitchens = noOfKitchens;
     }
 
@@ -59,7 +62,8 @@ public class Residential extends Project {
      *
      * @return number of kitchens
      */
-    public int getNoOfKitchens() {
+    public int getNoOfKitchens()
+    {
         return noOfKitchens;
     }
 
@@ -68,7 +72,8 @@ public class Residential extends Project {
      *
      * @param noOfBathrooms Desired number of bathrooms for the building
      */
-    public void setNoOfBathrooms(int noOfBathrooms) {
+    public void setNoOfBathrooms(int noOfBathrooms)
+    {
         this.noOfBathrooms = noOfBathrooms;
     }
 
@@ -77,7 +82,8 @@ public class Residential extends Project {
      *
      * @return number of bathrooms
      */
-    public int getNoOfBathrooms() {
+    public int getNoOfBathrooms()
+    {
         return noOfBathrooms;
     }
 
@@ -86,7 +92,8 @@ public class Residential extends Project {
      *
      * @param roomsWPlumbing Desired number of rooms with plumbing, not counting kitchens and bathrooms
      */
-    public void setRoomsWPlumbing(int roomsWPlumbing) {
+    public void setRoomsWPlumbing(int roomsWPlumbing)
+    {
         this.roomsWPlumbing = roomsWPlumbing;
     }
 
@@ -95,7 +102,8 @@ public class Residential extends Project {
      *
      * @return the number of rooms with plumbing in the building, not counting bathrooms and kitchens
      */
-    public int getRoomsWPlumbing() {
+    public int getRoomsWPlumbing()
+    {
         return roomsWPlumbing;
     }
 
@@ -105,7 +113,8 @@ public class Residential extends Project {
      * @param obj Object to be compared with the project
      * @return true if the input object is the same as the residential project, false if the object is null or different from the Residential project
      */
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj)
+    {
         if (obj == null || obj.getClass() != this.getClass())
             return false;
         Residential other = (Residential) obj;
