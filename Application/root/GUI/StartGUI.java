@@ -4,36 +4,29 @@ import Model.ProjectManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class StartGUI extends Application {
 
-    public void start(Stage window) {
-        try {
-            // Check if the directory exists, create it if not
-            File savesDirectory = new File("Saves");
-            if (!savesDirectory.exists()) {
-                savesDirectory.mkdir();
-            }
-
-            // Now, try to open the file
+    public void start(Stage window)
+    {
+        try{
             FileInputStream fileIn = new FileInputStream("Saves/projects.bin");
-            fileIn.close();  // Close the input stream
+            ObjectInputStream read = new ObjectInputStream(fileIn);
             System.out.println(".bin file detected.");
-        } catch (FileNotFoundException e) {
-            try {
-                // If the file doesn't exist, create it
+        } catch (Exception e){
+            try{
                 FileOutputStream fileOut = new FileOutputStream("Saves/projects.bin");
-                fileOut.close();  // Close the output stream
+                ObjectOutputStream write = new ObjectOutputStream(fileOut);
                 System.out.println(".bin file created.");
-            } catch (IOException ex) {
+            } catch (Exception E){
                 System.out.println("Unable to I/O!");
-                ex.printStackTrace();
+                E.printStackTrace();
                 System.exit(0);
             }
-        } catch (IOException e) {
-            // Handle other IOExceptions if needed
-            e.printStackTrace();
         }
 
         ProjectManager manager = new ProjectManager("Saves/projects.bin");
