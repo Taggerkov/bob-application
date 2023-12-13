@@ -21,7 +21,6 @@ public abstract class Project implements Serializable {
     private final boolean isRenovation;
     private String isPublished;
 
-    private Resources resources;
 
     /**
      * Project's parent constructor. Sets up values every project type include.
@@ -44,7 +43,6 @@ public abstract class Project implements Serializable {
         this.customer = customer;
         this.size = size;
         this.isRenovation = isRenovation;
-        this.resources = new Resources();
         this.isPublished = isPublished;
     }
 
