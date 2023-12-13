@@ -9,13 +9,15 @@ import java.util.ArrayList;
  * @author Alexandria Hansen
  * @version 1.0
  */
-public class ProjectList implements Serializable {
+public class ProjectList implements Serializable
+{
     private final ArrayList<Project> projects;
 
     /**
      * No-argument constructor initialising the ProjectList
      */
-    public ProjectList() {
+    public ProjectList()
+    {
         projects = new ArrayList<>();
     }
 
@@ -25,10 +27,14 @@ public class ProjectList implements Serializable {
      * @param index position in the list
      * @return Project at the given position in the list
      */
-    public Project get(int index) {
-        if (index < projects.size()) {
+    public Project get(int index)
+    {
+        if (index < projects.size())
+        {
             return projects.get(index);
-        } else {
+        }
+        else
+        {
             return null;
         }
     }
@@ -38,7 +44,8 @@ public class ProjectList implements Serializable {
      *
      * @return number of projects in the list
      */
-    public int size() {
+    public int size()
+    {
         return projects.size();
     }
 
@@ -48,7 +55,8 @@ public class ProjectList implements Serializable {
      * @param index position of the project in the lis
      * @return String with the type of the Project at the given index
      */
-    public String getType(int index) {
+    public String getType(int index)
+    {
         if (projects.get(index) instanceof Residential)
             return "Residential";
         else if (projects.get(index) instanceof Commercial)
@@ -66,7 +74,8 @@ public class ProjectList implements Serializable {
      *
      * @param project the project to be added to the list
      */
-    public void add(Project project) {
+    public void add(Project project)
+    {
         projects.add(project);
     }
 
@@ -76,7 +85,8 @@ public class ProjectList implements Serializable {
      * @param index the position of the project in the list
      * @return the title of the project at the given index
      */
-    public String getTitle(int index) {
+    public String getTitle(int index)
+    {
         return projects.get(index).getTitle();
     }
 
@@ -86,7 +96,8 @@ public class ProjectList implements Serializable {
      * @param index int stating project's position in the ProjectList.
      * @author Sergiu Chirap
      */
-    public void delete(int index) {
+    public void delete(int index)
+    {
         projects.remove(index);
     }
 
@@ -97,7 +108,8 @@ public class ProjectList implements Serializable {
      * @param project the project that will be replacing.
      * @author Sergiu Chirap
      */
-    public void set(int index, Project project) {
+    public void set(int index, Project project)
+    {
         projects.set(index, project);
     }
 }
