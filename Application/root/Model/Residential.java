@@ -16,14 +16,17 @@ public class Residential extends Project {
     /**
      * Full constructor for custom Residential projects.
      *
-     * @param budget         Starting budget for the project
-     * @param start          Start date for the project
-     * @param end            Expected end date for the project
-     * @param title          Unique title for the project
-     * @param customer       Name of the customer attached to the project
-     * @param noOfKitchens   Number of kitchens
-     * @param noOfBathrooms  Number of bathrooms
+     * @param budget        Starting budget for the project
+     * @param start         Start date for the project
+     * @param end           Expected end date for the project
+     * @param title         Unique title for the project
+     * @param customer      Name of the customer attached to the project
+     * @param size          Size of the building
+     * @param isRenovation  Parameter for whether the build is renovation or new build
+     * @param noOfKitchens  Number of kitchens
+     * @param noOfBathrooms Number of bathrooms
      * @param roomsWPlumbing Number of rooms with plumbing excluding bathrooms and kitchens
+     * @param isPublished   Parameter for whether the latest changed information has been published to website
      */
     public Residential(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, int noOfKitchens, int noOfBathrooms, int roomsWPlumbing, String isPublished)
     {
