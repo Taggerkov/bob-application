@@ -4,7 +4,12 @@ import Model.ProjectManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 public class WelcomeController {
 
@@ -21,6 +26,8 @@ public class WelcomeController {
     public Button quickPublishWeb;
     @FXML
     public Button quickSettings;
+    @FXML
+    private MenuItem menuNew, menuSettings, menuQuit;
 
     public void init(ViewHandler handler, Scene target, ProjectManager manager) {
         this.handler = handler;
@@ -36,7 +43,7 @@ public class WelcomeController {
     }
 
     public void quickActions(ActionEvent e) {
-        if (e.getSource() == quickNewProject) {
+        if (e.getSource() == quickNewProject || e.getSource() == menuNew) {
             handler.openView("NewProject");
         } else if (e.getSource() == quickViewProject) {
             handler.openView("BrowseProject");
@@ -44,8 +51,20 @@ public class WelcomeController {
             handler.openView("Analytics");
         } else if (e.getSource() == quickPublishWeb) {
             handler.openView("PublishWeb");
-        } else if (e.getSource() == quickSettings) {
+        } else if (e.getSource() == quickSettings || e.getSource() == menuSettings) {
             handler.openView("Settings");
+        } else if (e.getSource() == menuQuit) {
+            Alert alert = new Alert(Alert.AlertType.WARNING,
+                    "Are you sure?", ButtonType.YES,
+                    ButtonType.NO);
+            alert.setTitle("QUIT");
+            alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.YES) {
+                System.exit(0);
+            }
         }
     }
 }

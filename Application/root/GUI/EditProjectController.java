@@ -43,7 +43,7 @@ public class EditProjectController {
     @FXML
     private ComboBox<String> projectPublished;
     @FXML
-    private MenuItem menuNew, menuSettings;
+    private MenuItem menuNew, menuSave, menuReturn, menuSettings, menuQuit, menuArchive, menuDelete;
 
     /**
      * Sets up the Controller.
@@ -281,7 +281,7 @@ public class EditProjectController {
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("Settings");
             }
-        } else if (e.getSource() == quickReturn) {
+        } else if (e.getSource() == quickReturn || e.getSource() == menuReturn) {
             Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
@@ -293,7 +293,7 @@ public class EditProjectController {
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("BrowseProject");
             }
-        } else if (e.getSource() == quickSave) {
+        } else if (e.getSource() == quickSave || e.getSource() == menuSave) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                     "Changes will be saved!",
                     ButtonType.YES, ButtonType.NO);
@@ -305,7 +305,7 @@ public class EditProjectController {
             if (alert.getResult() == ButtonType.YES) {
                 saveProject();
             }
-        } else if (e.getSource() == quickArchive) {
+        } else if (e.getSource() == quickArchive || e.getSource() == menuArchive) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                     "Modify later to reactivate.",
                     ButtonType.YES, ButtonType.NO);
@@ -317,7 +317,7 @@ public class EditProjectController {
             if (alert.getResult() == ButtonType.YES) {
                 archiveProject();
             }
-        } else if (e.getSource() == quickDelete) {
+        } else if (e.getSource() == quickDelete || e.getSource() == menuDelete) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                     "This action is not reversible.",
                     ButtonType.YES, ButtonType.NO);
@@ -328,8 +328,22 @@ public class EditProjectController {
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 deleteProject();
+                handler.openView("BrowseProject");
+            }
+        } else if (e.getSource() == menuQuit) {
+            Alert alert = new Alert(Alert.AlertType.WARNING,
+                    "Are you sure?", ButtonType.YES,
+                    ButtonType.NO);
+            alert.setTitle("QUIT");
+            alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.YES) {
+                System.exit(0);
             }
         }
+
     }
 
     /**

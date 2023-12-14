@@ -4,7 +4,6 @@ import Model.MyDate;
 import Model.Project;
 import Model.ProjectList;
 import Model.ProjectManager;
-import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,7 +33,6 @@ public class BrowseProjectsController {
     private Scene target;
     private ProjectManager manager;
     private ViewHandler handler;
-    private ArrayList<String> autoTitles;
     @FXML
     public TextField autoComplete;
     @FXML
@@ -45,6 +43,8 @@ public class BrowseProjectsController {
     private VBox labelBox, labelActive;
     @FXML
     private FlowPane flowPane;
+    @FXML
+    private MenuItem menuNew, menuCancel, menuSettings, menuQuit, menuReset;
 
     /**
      * Sets up the first view.
@@ -65,6 +65,7 @@ public class BrowseProjectsController {
     public void set() {
         flowPane.getChildren().clear();
         ProjectList allProjects = null;
+        autoComplete.setText("");
 
         //checks if the file has been deleted and creates one if needed - Sergiu
         try {
@@ -92,7 +93,7 @@ public class BrowseProjectsController {
             isEmpty.setVisible(true);
         } else {
             isEmpty.setVisible(false);
-            autoTitles = new ArrayList<>();
+            ArrayList<String> autoTitles = new ArrayList<>();
             for (int i = allProjects.size(); i > 0; i--) {
                 Project temp = allProjects.get(i - 1);
 
@@ -164,18 +165,30 @@ public class BrowseProjectsController {
      * @param e ActionEvent with quickActions() mostly being buttons
      */
     public void quickActions(ActionEvent e) {
-        if (e.getSource() == quickNewProject) {
+        if (e.getSource() == quickNewProject || e.getSource() == menuNew) {
             handler.openView("NewProject");
-        } else if (e.getSource() == quickViewProject) {
+        } else if (e.getSource() == quickViewProject || e.getSource() == menuReset) {
             handler.openView("BrowseProject");
         } else if (e.getSource() == quickAnalytics) {
             handler.openView("Analytics");
         } else if (e.getSource() == quickPublishWeb) {
             handler.openView("PublishWeb");
-        } else if (e.getSource() == quickSettings) {
+        } else if (e.getSource() == quickSettings || e.getSource() == menuSettings) {
             handler.openView("Settings");
-        } else if (e.getSource() == quickCancel) {
+        } else if (e.getSource() == quickCancel || e.getSource() == menuCancel) {
             handler.openView("Welcome");
+        } else if (e.getSource() == menuQuit) {
+            Alert alert = new Alert(Alert.AlertType.WARNING,
+                    "Are you sure?", ButtonType.YES,
+                    ButtonType.NO);
+            alert.setTitle("QUIT");
+            alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.YES) {
+                System.exit(0);
+            }
         }
     }
 
@@ -185,11 +198,11 @@ public class BrowseProjectsController {
      * @param e an ActionEvent with openProject(), in this case the autocompleting TextField.
      */
     public void openProject(ActionEvent e) {
-        if (!autoComplete.getText().isEmpty()){
+        if (!autoComplete.getText().isEmpty()) {
             try {
                 Project project = manager.getProject(autoComplete.getText());
                 handler.openProject(project.getTitle(), project.getType());
-            } catch (Exception k){
+            } catch (Exception k) {
                 Alert alert = new Alert(Alert.AlertType.ERROR,
                         "Project doesn't exist!",
                         ButtonType.CLOSE);

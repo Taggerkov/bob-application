@@ -60,32 +60,22 @@
                 <Menu mnemonicParsing="false" text="File">
                     <items>
                         <MenuItem fx:id="menuNew" mnemonicParsing="false" onAction="#quickActions" text="New" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Cancel" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="menuReturn" mnemonicParsing="false" onAction="#quickActions" text="Return" />
                         <MenuItem fx:id="menuSettings" mnemonicParsing="false" onAction="#quickActions" text="Settings" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
+                        <MenuItem fx:id="menuQuit" mnemonicParsing="false" onAction="#quickActions" text="Quit" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Undo" />
-                        <MenuItem mnemonicParsing="false" text="Redo" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cut" />
-                        <MenuItem mnemonicParsing="false" text="Copy" />
-                        <MenuItem mnemonicParsing="false" text="Paste" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Select All" />
-                        <MenuItem mnemonicParsing="false" text="Unselect All" />
+                        <MenuItem fx:id="menuSave" mnemonicParsing="false" onAction="#quickActions" text="Save" />
+                        <MenuItem fx:id="menuArchive" mnemonicParsing="false" onAction="#quickActions" text="Archive" />
+                        <MenuItem fx:id="menuDelete" mnemonicParsing="false" onAction="#quickActions" text="Delete" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+                        <MenuItem mnemonicParsing="false" text="User Guide" />
                     </items>
                 </Menu>
             </menus>

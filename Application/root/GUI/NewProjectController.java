@@ -36,6 +36,8 @@ public class NewProjectController {
     private CheckBox roadsBridges, roadsTunnels, roadsChallenges;
     @FXML
     private ComboBox<String> projectType, projectBuild;
+    @FXML
+    private MenuItem menuNew, menuCancel, menuSettings, menuConfirm, menuReset, menuQuit;
 
     /**
      * Sets up the first view.
@@ -136,7 +138,7 @@ public class NewProjectController {
      * @param e ActionEvent with quickActions() mostly being buttons
      */
     public void quickActions(ActionEvent e) {
-        if (e.getSource() == quickNewProject) {
+        if (e.getSource() == quickNewProject || e.getSource() == menuNew || e.getSource() == menuReset) {
             Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
@@ -184,7 +186,7 @@ public class NewProjectController {
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("PublishWeb");
             }
-        } else if (e.getSource() == quickSettings) {
+        } else if (e.getSource() == quickSettings || e.getSource() == menuSettings) {
             Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
@@ -196,7 +198,7 @@ public class NewProjectController {
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("Settings");
             }
-        } else if (e.getSource() == quickCancel) {
+        } else if (e.getSource() == quickCancel || e.getSource() == menuCancel) {
             Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
@@ -208,7 +210,7 @@ public class NewProjectController {
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("Welcome");
             }
-        } else if (e.getSource() == quickConfirm) {
+        } else if (e.getSource() == quickConfirm || e.getSource() == menuConfirm) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                     "Changes will be saved!",
                     ButtonType.YES, ButtonType.NO);
@@ -219,6 +221,18 @@ public class NewProjectController {
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 createProject();
+            }
+        } else if (e.getSource() == menuQuit) {
+            Alert alert = new Alert(Alert.AlertType.WARNING,
+                    "Are you sure?", ButtonType.YES,
+                    ButtonType.NO);
+            alert.setTitle("QUIT");
+            alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.YES) {
+                System.exit(0);
             }
         }
     }
