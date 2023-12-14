@@ -4,25 +4,25 @@ import Model.MyDate;
 import Model.Project;
 import Model.ProjectList;
 import Model.ProjectManager;
+import impl.org.controlsfx.autocompletion.AutoCompletionTextFieldBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 /**
  * Browse Projects Controller // Project Browser class.
@@ -34,6 +34,9 @@ public class BrowseProjectsController {
     private Scene target;
     private ProjectManager manager;
     private ViewHandler handler;
+    private ArrayList<String> autoTitles;
+    @FXML
+    public TextField autoComplete;
     @FXML
     private Button quickNewProject, quickViewProject, quickAnalytics, quickPublishWeb, quickSettings, quickCancel;
     @FXML
@@ -69,13 +72,13 @@ public class BrowseProjectsController {
             ObjectInputStream read = new ObjectInputStream(fileIn);
             fileIn.close();
             read.close();
-        } catch (Exception e){
+        } catch (Exception e) {
             try {
                 FileOutputStream fileOut = new FileOutputStream("Saves/projects.bin");
                 ObjectOutputStream write = new ObjectOutputStream(fileOut);
                 fileOut.close();
                 write.close();
-            } catch (Exception k){
+            } catch (Exception k) {
                 System.out.println("Unable to I/O!");
                 k.printStackTrace();
                 System.exit(0);
@@ -89,11 +92,13 @@ public class BrowseProjectsController {
             isEmpty.setVisible(true);
         } else {
             isEmpty.setVisible(false);
+            autoTitles = new ArrayList<>();
             for (int i = allProjects.size(); i > 0; i--) {
                 Project temp = allProjects.get(i - 1);
 
                 String type = temp.getType();
                 String title = temp.getTitle();
+                autoTitles.add(title);
                 String customer = "-" + temp.getCustomer() + "-";
                 MyDate start = temp.getStartDate();
                 MyDate end = temp.getEndDate();
@@ -139,6 +144,7 @@ public class BrowseProjectsController {
                 }
                 labelBox.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> handler.openProject(title, type));
             }
+            TextFields.bindAutoCompletion(autoComplete, autoTitles);
         }
     }
 

@@ -60,16 +60,16 @@
       </MenuBar>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: lightblue;">
                <children>
-                  <Label id="Trademark" alignment="CENTER" stylesheets="@light.css" text="BOB'S SOFTWARE 0.1" underline="true">
+                  <Label id="Trademark" alignment="CENTER" stylesheets="@light.css" text="Z - MANAGER 1.0" textFill="WHITE" underline="true">
                      <font>
-                        <Font name="Unispace-Bold" size="45.0" />
+                        <Font name="Consolas Bold Italic" size="45.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <HBox layoutY="66.0" prefHeight="497.0" prefWidth="900.0">
+            <HBox layoutY="60.0" prefHeight="509.0" prefWidth="900.0">
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="200.0" style="-fx-background-color: #66FFFF;">
                      <children>
@@ -166,7 +166,7 @@
                      <children>
                         <VBox layoutX="-1.0" layoutY="3.0" prefHeight="500.0" prefWidth="700.0">
                            <children>
-                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="700.0">
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="275.0">
                                        <children>
@@ -185,9 +185,9 @@
                                     </HBox>
                                     <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="392.0">
                                        <children>
-                                          <Button id="cancel" fx:id="quickCancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: F42A35; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@light.css" text="CANCEL">
+                                          <Button id="cancel" fx:id="quickCancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: F42A35; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: F42A35; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@light.css" text="CANCEL" textFill="WHITE">
                                              <font>
-                                                <Font name="ROGFonts-Regular" size="13.0" />
+                                                <Font name="System Bold" size="13.0" />
                                              </font>
                                              <opaqueInsets>
                                                 <Insets />
@@ -218,14 +218,20 @@
                                        </children>
                                     </VBox>
                                  </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
                               </HBox>
-                              <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-border-color: #66FFFF; -fx-border-width: 4px;">
+                              <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="707.0" style="-fx-border-color: #66FFFF; -fx-border-width: 4px;">
                                  <content>
                                     <FlowPane fx:id="flowPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="681.0">
                                        <padding>
                                           <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                        </padding></FlowPane>
                                  </content>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
                               </ScrollPane>
                            </children>
                         </VBox>
@@ -240,9 +246,9 @@
             </HBox>
          </children>
       </AnchorPane>
-      <HBox alignment="CENTER" prefHeight="68.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
+      <HBox alignment="CENTER" prefHeight="68.0" prefWidth="900.0" style="-fx-background-color: black;">
          <children>
-            <Label text="© 2023 Bob the Builder. All rights reserved.">
+            <Label text="© 2023 Bob the Builder. All rights reserved." textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>

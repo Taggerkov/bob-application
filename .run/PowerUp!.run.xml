@@ -2,6 +2,7 @@
   <configuration default="false" name="PowerUp!" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="Main.RunApp" />
     <module name="bob-application" />
+    <option name="VM_PARAMETERS" value="--add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="Main.*" />
