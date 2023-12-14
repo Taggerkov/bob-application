@@ -1,6 +1,6 @@
 #GITHUB SETTINGS - Sergiu
 /self/
 #Always use PowerUp!
-.idea/workspace.xml
+.idea/
 #Keep cache empty to avoid old errors!
 out/production
