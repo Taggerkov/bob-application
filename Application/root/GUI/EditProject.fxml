@@ -55,20 +55,16 @@
 
 <VBox prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EditProjectController">
     <children>
-        <MenuBar prefWidth="700.0" style="-fx-background-color: #C6C2C2; -fx-border-color: black; -fx-border-width: 0.1em;" VBox.vgrow="ALWAYS">
+        <MenuBar focusTraversable="false" prefWidth="700.0" style="-fx-background-color: #C6C2C2;" useSystemMenuBar="true" VBox.vgrow="ALWAYS">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Open…" />
-                        <Menu mnemonicParsing="false" text="Open Recent" />
+                        <MenuItem fx:id="menuNew" mnemonicParsing="false" onAction="#quickActions" text="New" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close" />
                         <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save As…" />
-                        <MenuItem mnemonicParsing="false" text="Revert" />
+                        <MenuItem mnemonicParsing="false" text="Cancel" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Preferences…" />
+                        <MenuItem fx:id="menuSettings" mnemonicParsing="false" onAction="#quickActions" text="Settings" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem mnemonicParsing="false" text="Quit" />
                     </items>
@@ -96,20 +92,20 @@
         </MenuBar>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <children>
-                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
+                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: lightblue;">
                     <children>
-                        <Label id="Trademark" alignment="CENTER" stylesheets="@gui.css" text="BOB'S SOFTWARE 0.1" underline="true">
+                        <Label id="Trademark" alignment="CENTER" stylesheets="@light.css" text="Z - MANAGER 1.0" textFill="WHITE" underline="true">
                             <font>
-                                <Font name="Unispace-Bold" size="45.0" />
+                                <Font name="Consolas Bold Italic" size="45.0" />
                             </font>
                         </Label>
                     </children>
                 </HBox>
-                <HBox layoutY="66.0" prefHeight="501.0" prefWidth="900.0">
+                <HBox layoutY="60.0" prefHeight="507.0" prefWidth="900.0">
                     <children>
                         <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="200.0" style="-fx-background-color: #66FFFF;">
                             <children>
-                                <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" stylesheets="@gui.css" text="QUICK MENU" underline="true">
+                                <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" stylesheets="@light.css" text="QUICK MENU" underline="true">
                                     <font>
                                         <Font name="OCR A Extended" size="32.0" />
                                     </font>
@@ -120,7 +116,7 @@
                                         <Insets bottom="100.0" />
                                     </VBox.margin>
                                 </Label>
-                               <Button id="new-project" fx:id="quickNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="New Project">
+                               <Button id="new-project" fx:id="quickNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="New Project">
                                   <font>
                                      <Font name="Britannic Bold" size="22.0" />
                                   </font>
@@ -137,7 +133,7 @@
                                      <Insets />
                                   </VBox.margin>
                                </Button>
-                               <Button id="view-project" fx:id="quickViewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="View Project">
+                               <Button id="view-project" fx:id="quickViewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="View Project">
                                   <font>
                                      <Font name="Britannic Bold" size="22.0" />
                                   </font>
@@ -151,7 +147,7 @@
                                      <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                                   </effect>
                                </Button>
-                               <Button id="analytics" fx:id="quickAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="Analytics">
+                               <Button id="analytics" fx:id="quickAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="Analytics">
                                   <font>
                                      <Font name="Britannic Bold" size="22.0" />
                                   </font>
@@ -165,7 +161,7 @@
                                      <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                                   </effect>
                                </Button>
-                               <Button id="publish-web" fx:id="quickPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="Publish Web">
+                               <Button id="publish-web" fx:id="quickPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="Publish Web">
                                   <font>
                                      <Font name="Britannic Bold" size="22.0" />
                                   </font>
@@ -182,7 +178,7 @@
                                      <Insets bottom="70.0" />
                                   </VBox.margin>
                                </Button>
-                               <Button id="settings" fx:id="quickSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@gui.css" text="Settings">
+                               <Button id="settings" fx:id="quickSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="Settings">
                                   <font>
                                      <Font name="Britannic Bold" size="22.0" />
                                   </font>
@@ -204,7 +200,7 @@
                                     <children>
                                         <VBox alignment="CENTER" prefHeight="150.0" prefWidth="161.0">
                                  <children>
-                                    <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: black; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="DELETE" textFill="WHITE">
+                                    <Button id="cancel" fx:id="quickDelete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: black; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@light.css" text="DELETE" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
@@ -218,7 +214,7 @@
                                           <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                                        </effect>
                                     </Button>
-                                    <Button id="cancel" fx:id="quickArchive" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: darkorange; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: darkorange; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="ARCHIVE" textFill="WHITE">
+                                    <Button id="cancel" fx:id="quickArchive" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: darkorange; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: darkorange; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@light.css" text="ARCHIVE" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
@@ -261,7 +257,7 @@
                                                 <Insets left="7.0" top="10.0" />
                                             </padding>
                                             <children>
-                                                <Button id="cancel" fx:id="quickCancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: F42A35; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: F42A35; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="CANCEL" textFill="WHITE">
+                                                <Button id="cancel" fx:id="quickReturn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: F42A35; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: F42A35; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@light.css" text="RETURN" textFill="WHITE">
                                                     <font>
                                                         <Font name="System Bold" size="13.0" />
                                                     </font>
@@ -275,7 +271,7 @@
                                                         <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                                                     </effect>
                                                 </Button>
-                                    <Button id="cancel" fx:id="quickSave" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: lightgreen; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: lightgreen; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@gui.css" text="SAVE">
+                                    <Button id="cancel" fx:id="quickSave" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: green; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: green; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" stylesheets="@light.css" text="SAVE" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="13.0" />
                                        </font>
@@ -689,9 +685,9 @@
                 </HBox>
             </children>
         </AnchorPane>
-        <HBox alignment="CENTER" prefHeight="68.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
+        <HBox alignment="CENTER" prefHeight="68.0" prefWidth="900.0" style="-fx-background-color: black;">
             <children>
-                <Label text="© 2023 Bob the Builder. All rights reserved.">
+                <Label text="© 2023 Bob the Builder. All rights reserved." textFill="WHITE">
                     <font>
                         <Font size="15.0" />
                     </font>

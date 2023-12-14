@@ -27,9 +27,9 @@ public class EditProjectController {
     private int kitchens, bathrooms, plumbing, floors, lanes;
     private double budget, size, length, width;
     private MyDate startDate, endDate;
-    private boolean build, bridges, tunnels, geoChallenges;
+    private boolean build, isActive, bridges, tunnels, geoChallenges;
     @FXML
-    private Button quickNewProject, quickViewProject, quickAnalytics, quickPublishWeb, quickSettings, quickCancel, quickSave, quickArchive;
+    private Button quickNewProject, quickViewProject, quickAnalytics, quickPublishWeb, quickSettings, quickReturn, quickSave, quickArchive, quickDelete;
     @FXML
     private Label labelTitle, labelCustomer;
     @FXML
@@ -42,6 +42,8 @@ public class EditProjectController {
     private HBox inputResidential, inputCommercial, inputIndustrial, inputRoads;
     @FXML
     private ComboBox<String> projectPublished;
+    @FXML
+    private MenuItem menuNew, menuSettings;
 
     /**
      * Sets up the Controller.
@@ -84,6 +86,9 @@ public class EditProjectController {
         }
         projectPublished.setValue(this.isPublished);
         projectPublished.setPromptText(this.isPublished);
+
+        this.isActive = project.isActive();
+        if (!this.isActive) quickArchive.setVisible(false);
 
         this.budget = project.getBudget();
         projectBudget.setPromptText(String.valueOf(this.budget));
@@ -217,7 +222,7 @@ public class EditProjectController {
      * @param e ActionEvent with quickActions() mostly being buttons
      */
     public void quickActions(ActionEvent e) {
-        if (e.getSource() == quickNewProject) {
+        if (e.getSource() == quickNewProject || e.getSource() == menuNew) {
             Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
@@ -265,7 +270,7 @@ public class EditProjectController {
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("PublishWeb");
             }
-        } else if (e.getSource() == quickSettings) {
+        } else if (e.getSource() == quickSettings || e.getSource() == menuSettings) {
             Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
@@ -277,7 +282,7 @@ public class EditProjectController {
             if (alert.getResult() == ButtonType.YES) {
                 handler.openView("Settings");
             }
-        } else if (e.getSource() == quickCancel) {
+        } else if (e.getSource() == quickReturn) {
             Alert alert = new Alert(Alert.AlertType.WARNING,
                     "Changes will be lost!",
                     ButtonType.YES, ButtonType.NO);
@@ -287,7 +292,7 @@ public class EditProjectController {
             stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
-                handler.openView("Welcome");
+                handler.openView("BrowseProject");
             }
         } else if (e.getSource() == quickSave) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
@@ -303,7 +308,7 @@ public class EditProjectController {
             }
         } else if (e.getSource() == quickArchive) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                    "This action is not reversible.",
+                    "Modify later to reactivate.",
                     ButtonType.YES, ButtonType.NO);
             alert.setTitle("CONFIRM ACTION?");
             alert.setHeaderText("Project will be archived!");
@@ -312,6 +317,18 @@ public class EditProjectController {
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 archiveProject();
+            }
+        } else if (e.getSource() == quickDelete) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                    "This action is not reversible.",
+                    ButtonType.YES, ButtonType.NO);
+            alert.setTitle("CONFIRM ACTION?");
+            alert.setHeaderText("Project will be deleted!");
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.YES) {
+                deleteProject();
             }
         }
     }
@@ -345,6 +362,50 @@ public class EditProjectController {
             alert.setGraphic(imageView);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.getIcons().add(new Image("file:Application/root/Utils/status.gif"));
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                handler.openView("Welcome");
+            }
+            //saving error pop-up
+        } catch (Exception k) {
+            Alert alert = new Alert(Alert.AlertType.ERROR,
+                    "Unable to save to file!",
+                    ButtonType.CLOSE);
+            alert.setTitle("WRITING ERROR");
+            alert.setHeaderText(null);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.CLOSE) {
+                loadProject(this.title);
+            }
+        }
+    }
+
+    public void deleteProject() {
+        try {
+            ProjectList allProjects = manager.readAllProjects();
+            //extracts project index - Sergiu
+            int index = 0;
+            for (int i = 0; i < allProjects.size(); i++) {
+                if (allProjects.getTitle(i).equals(this.title)) {
+                    index = i;
+                    break;
+                }
+            }
+            allProjects.delete(index);
+            manager.saveProjects(allProjects);
+
+            //pops-up confirmation alert
+            ImageView imageView = new ImageView((new Image("file:Application/root/Utils/deleted.gif", 75, 75, true, true)));
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                    "DELETED!",
+                    ButtonType.CLOSE);
+            alert.setTitle("PROJECT DELETED");
+            alert.setHeaderText("Project has been successfully deleted!");
+            alert.setGraphic(imageView);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.getIcons().add(new Image("file:Application/root/Utils/deleted.gif"));
             alert.showAndWait();
             if (alert.getResult() == ButtonType.CLOSE) {
                 handler.openView("Welcome");
@@ -734,6 +795,27 @@ public class EditProjectController {
                     end = String.valueOf(projectEndDate.getValue());
                 }
 
+                //checks isBefore - Sergiu
+                if (new MyDate(start).isBefore(new MyDate(end))) {
+                    //resets Style if error corrected - Sergiu
+                    projectEndDate.setStyle("");
+                } else {
+                    //uses Style to border the error - Sergiu
+                    mistake = true;
+                    projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "End Date is before Start Date!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                }
+
                 //keeps track if mistakes were made - Sergiu
                 if (!mistake) {
                     //creates Residential class with the Full-Constructor - Sergiu
@@ -833,6 +915,27 @@ public class EditProjectController {
                     end = String.valueOf(projectEndDate.getValue());
                 }
 
+                //checks isBefore - Sergiu
+                if (new MyDate(start).isBefore(new MyDate(end))) {
+                    //resets Style if error corrected - Sergiu
+                    projectEndDate.setStyle("");
+                } else {
+                    //uses Style to border the error - Sergiu
+                    mistake = true;
+                    projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "End Date is before Start Date!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                }
+
                 //keeps track if mistakes were made - Sergiu
                 if (!mistake) {
                     //creates Commercial class with the Full-Constructor - Sergiu
@@ -887,7 +990,7 @@ public class EditProjectController {
             case "Industrial":
                 String facilityType;
 
-                //extracts Intended Use - Sergiu
+                //extracts Industrial Type - Sergiu
                 //if empty keeps file settings - Sergiu
                 if (industrialType.getText().isEmpty()) {
                     facilityType = this.typeFacility;
@@ -901,6 +1004,27 @@ public class EditProjectController {
                     end = this.endDate.toStringDate();
                 } else {
                     end = String.valueOf(projectEndDate.getValue());
+                }
+
+                //checks isBefore - Sergiu
+                if (new MyDate(start).isBefore(new MyDate(end))) {
+                    //resets Style if error corrected - Sergiu
+                    projectEndDate.setStyle("");
+                } else {
+                    //uses Style to border the error - Sergiu
+                    mistake = true;
+                    projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "End Date is before Start Date!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
                 }
 
                 //keeps track if mistakes were made - Sergiu
@@ -1043,6 +1167,27 @@ public class EditProjectController {
                     end = this.endDate.toStringDate();
                 } else {
                     end = String.valueOf(projectEndDate.getValue());
+                }
+
+                //checks isBefore - Sergiu
+                if (new MyDate(start).isBefore(new MyDate(end))) {
+                    //resets Style if error corrected - Sergiu
+                    projectEndDate.setStyle("");
+                } else {
+                    //uses Style to border the error - Sergiu
+                    mistake = true;
+                    projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "End Date is before Start Date!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
                 }
 
                 //keeps track if mistakes were made - Sergiu

@@ -11,16 +11,20 @@ import java.io.ObjectOutputStream;
 
 public class StartGUI extends Application {
 
+    //checks if there is a save file and creates one if needed - Sergiu
     public void start(Stage window)
     {
         try{
             FileInputStream fileIn = new FileInputStream("Saves/projects.bin");
             ObjectInputStream read = new ObjectInputStream(fileIn);
-            System.out.println(".bin file detected.");
+            fileIn.close();
+            read.close();
         } catch (Exception e){
             try{
                 FileOutputStream fileOut = new FileOutputStream("Saves/projects.bin");
                 ObjectOutputStream write = new ObjectOutputStream(fileOut);
+                fileOut.close();
+                write.close();
                 System.out.println(".bin file created.");
             } catch (Exception E){
                 System.out.println("Unable to I/O!");

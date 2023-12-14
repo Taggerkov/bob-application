@@ -19,6 +19,11 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 /**
  * Browse Projects Controller // Project Browser class.
  *
@@ -54,10 +59,32 @@ public class BrowseProjectsController {
     /**
      * Resets all inputs, making it look like a freshly opened scene.
      */
-    public void reset() {
+    public void set() {
         flowPane.getChildren().clear();
-        //checks if file is empty
-        ProjectList allProjects = manager.readAllProjects();
+        ProjectList allProjects = null;
+
+        //checks if the file has been deleted and creates one if needed - Sergiu
+        try {
+            FileInputStream fileIn = new FileInputStream("Saves/projects.bin");
+            ObjectInputStream read = new ObjectInputStream(fileIn);
+            fileIn.close();
+            read.close();
+        } catch (Exception e){
+            try {
+                FileOutputStream fileOut = new FileOutputStream("Saves/projects.bin");
+                ObjectOutputStream write = new ObjectOutputStream(fileOut);
+                fileOut.close();
+                write.close();
+            } catch (Exception k){
+                System.out.println("Unable to I/O!");
+                k.printStackTrace();
+                System.exit(0);
+            }
+        }
+
+        allProjects = manager.readAllProjects();
+
+        //checks if file is empty - Sergiu
         if (allProjects == null) {
             isEmpty.setVisible(true);
         } else {
@@ -71,7 +98,6 @@ public class BrowseProjectsController {
                 MyDate start = temp.getStartDate();
                 MyDate end = temp.getEndDate();
                 boolean active = temp.isActive();
-                System.out.println(active);
                 boolean isRenovation = temp.isRenovation();
                 String isPublished = temp.getIsPublished();
 

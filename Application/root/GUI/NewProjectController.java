@@ -99,6 +99,7 @@ public class NewProjectController {
         projectEndDate.setValue(null);
         projectEndDate.setStyle(null);
         projectEndDate.setStyle("");
+        projectBuild.setValue("New Build");
         residentialKitchens.setText("");
         residentialBathrooms.setText("");
         residentialPlumbing.setText("");
@@ -706,11 +707,34 @@ public class NewProjectController {
                 //if empty autocompletes with default - Sergiu
                 if (projectEndDate.getValue() == null) {
                     MyDate temp = new MyDate(start);
+                    temp = new MyDate(start);
                     temp = temp.endDate(9);
                     end = temp.toStringDate();
                 } else {
                     end = String.valueOf(projectEndDate.getValue());
                 }
+
+                //checks isBefore - Sergiu
+                if (new MyDate(start).isBefore(new MyDate(end))) {
+                    //resets Style if error corrected - Sergiu
+                    projectEndDate.setStyle("");
+                } else {
+                    //uses Style to border the error - Sergiu
+                    mistake = true;
+                    projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "End Date is before Start Date!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                }
+
                 //keeps track if mistakes were made - Sergiu
                 if (!mistake) {
                     //creates Residential class with the Full-Constructor - Sergiu
@@ -812,6 +836,27 @@ public class NewProjectController {
                     end = String.valueOf(projectEndDate.getValue());
                 }
 
+                //checks isBefore - Sergiu
+                if (new MyDate(start).isBefore(new MyDate(end))) {
+                    //resets Style if error corrected - Sergiu
+                    projectEndDate.setStyle("");
+                } else {
+                    //uses Style to border the error - Sergiu
+                    mistake = true;
+                    projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "End Date is before Start Date!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
+                }
+
                 //keeps track if mistakes were made - Sergiu
                 if (!mistake) {
                     //creates Commercial class with the Full-Constructor - Sergiu
@@ -866,7 +911,7 @@ public class NewProjectController {
             case "Industrial":
                 String facilityType;
 
-                //extracts Intended Use - Sergiu
+                //extracts Industrial Type - Sergiu
                 //if empty autocompletes with default - Sergiu
                 if (industrialType.getText().isEmpty()) {
                     facilityType = "Unspecified";
@@ -882,6 +927,27 @@ public class NewProjectController {
                     end = temp.toStringDate();
                 } else {
                     end = String.valueOf(projectEndDate.getValue());
+                }
+
+                //checks isBefore - Sergiu
+                if (new MyDate(start).isBefore(new MyDate(end))) {
+                    //resets Style if error corrected - Sergiu
+                    projectEndDate.setStyle("");
+                } else {
+                    //uses Style to border the error - Sergiu
+                    mistake = true;
+                    projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "End Date is before Start Date!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
                 }
 
                 //keeps track if mistakes were made - Sergiu
@@ -1023,6 +1089,27 @@ public class NewProjectController {
                     end = temp.toStringDate();
                 } else {
                     end = String.valueOf(projectEndDate.getValue());
+                }
+
+                //checks isBefore - Sergiu
+                if (new MyDate(start).isBefore(new MyDate(end))) {
+                    //resets Style if error corrected - Sergiu
+                    projectEndDate.setStyle("");
+                } else {
+                    //uses Style to border the error - Sergiu
+                    mistake = true;
+                    projectEndDate.setStyle("-fx-border-color:red; -fx-border-width:2px");
+                    Alert alert = new Alert(Alert.AlertType.ERROR,
+                            "End Date is before Start Date!",
+                            ButtonType.CLOSE);
+                    alert.setTitle("ILLEGAL INPUT");
+                    alert.setHeaderText(null);
+                    Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                    stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                    alert.showAndWait();
+                    if (alert.getResult() == ButtonType.CLOSE) {
+                        alert.close();
+                    }
                 }
 
                 //keeps track if mistakes were made - Sergiu

@@ -20,7 +20,8 @@ public class ViewHandler {
     private EditProjectController EditProjectController;
     private AnalyticsController AnalyticsController;
     private PublishWebController PublishWebController;
-    private ProjectManager manager;
+    private final ProjectManager manager;
+    private String css;
 
     public ViewHandler(Stage target, ProjectManager manager) {
         this.target = target;
@@ -43,6 +44,9 @@ public class ViewHandler {
         switch (id) {
             case "Welcome":
                 target.setScene(WelcomeController.getScene());
+                if (css.equals("light")){
+                    WelcomeController.getScene().getStylesheets().add(getClass().getResource("file:Application/root/GUI/light.css").toExternalForm());
+                }
                 WelcomeController.reset();
                 sceneTitle += "Welcome!";
                 break;
@@ -53,7 +57,7 @@ public class ViewHandler {
                 break;
             case "BrowseProject":
                 target.setScene(BrowseProjectsController.getScene());
-                BrowseProjectsController.reset();
+                BrowseProjectsController.set();
                 sceneTitle += "Browse Projects";
                 break;
             case "Analytics":
