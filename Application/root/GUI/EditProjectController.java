@@ -75,7 +75,6 @@ public class EditProjectController {
 
 
         this.isPublished = project.getIsPublished();
-        System.out.println(isPublished);
         if (isPublished.equals("Online")) {
             projectPublished.getItems().setAll("Online", "Local");
         } else if (isPublished.equals("Publish")) {

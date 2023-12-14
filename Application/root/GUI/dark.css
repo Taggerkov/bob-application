@@ -1,0 +1,56 @@
+.text {
+-fx-text-fill: white;
+}
+#background {
+-fx-background-color: grey;
+}
+#header {
+-fx-background-color: black;
+}
+#quickMenu {
+-fx-background-color: #302e2f;
+}
+.highlight {
+-fx-background-color: black;
+-fx-text-fill: white;
+}
+.quick-button {
+-fx-background-color: #8e8d8d;
+-fx-effect: dropshadow( three-pass-box, #8e8d8d, 14.1, 0, 0, 2.0);
+}
+#settings {
+-fx-background-color: #9ca031;
+-fx-effect: dropshadow( three-pass-box, #9ca031, 14.1, 0, 0, 2.0);
+}
+/*Browse*/
+#browsePane {
+-fx-border-color: #302e2f;
+-fx-border-width: 4px;
+-fx-background-color: grey;
+}
+#browseBack {
+-fx-background-color: grey;
+}
+/*New*/
+#newPane {
+-fx-background-color: black;
+}
+/*Publish*/
+#publishLabel {
+-fx-background-color: black;
+-fx-text-fill: white;
+}
+/*Injected*/
+#injectedProject {
+-fx-background-color: #302e2f;
+}
+#injectedType {
+-fx-background-color: #9ca031;
+}
+/*Analytics*/
+.analityk {
+-fx-background-color: #302e2f;
+-fx-border-color: #302e2f;
+-fx-text-fill: white;
+-fx-effect: dropshadow( three-pass-box, white, 14.1, 0, 0, 2.0);
+}

@@ -53,7 +53,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EditProjectController">
+<VBox id="background" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EditProjectController">
     <children>
         <MenuBar focusTraversable="false" prefWidth="700.0" style="-fx-background-color: #C6C2C2;" useSystemMenuBar="true" VBox.vgrow="ALWAYS">
             <menus>
@@ -92,9 +92,9 @@
         </MenuBar>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <children>
-                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: lightblue;">
+                <HBox id="header" alignment="CENTER" prefHeight="60.0" prefWidth="900.0">
                     <children>
-                        <Label id="Trademark" alignment="CENTER" stylesheets="@light.css" text="Z - MANAGER 1.0" textFill="WHITE" underline="true">
+                        <Label id="trademark" alignment="CENTER" stylesheets="@light.css" text="Z - MANAGER 1.0" textFill="WHITE" underline="true">
                             <font>
                                 <Font name="Consolas Bold Italic" size="45.0" />
                             </font>
@@ -103,11 +103,11 @@
                 </HBox>
                 <HBox layoutY="60.0" prefHeight="507.0" prefWidth="900.0">
                     <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="200.0" style="-fx-background-color: #66FFFF;">
+                        <VBox id="quickMenu" alignment="TOP_CENTER" prefHeight="450.0" prefWidth="200.0">
                             <children>
-                                <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" stylesheets="@light.css" text="QUICK MENU" underline="true">
+                                <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" styleClass="text" text="QUICK MENU" underline="true">
                                     <font>
-                                        <Font name="OCR A Extended" size="32.0" />
+                                        <Font name="Wingdings" size="32.0" />
                                     </font>
                                     <opaqueInsets>
                                         <Insets />
@@ -116,7 +116,7 @@
                                         <Insets bottom="100.0" />
                                     </VBox.margin>
                                 </Label>
-                               <Button id="new-project" fx:id="quickNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="New Project">
+                               <Button fx:id="quickNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="New Project">
                                   <font>
                                      <Font name="Britannic Bold" size="22.0" />
                                   </font>
@@ -126,14 +126,11 @@
                                   <cursor>
                                      <Cursor fx:constant="HAND" />
                                   </cursor>
-                                  <effect>
-                                     <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                  </effect>
                                   <VBox.margin>
                                      <Insets />
                                   </VBox.margin>
                                </Button>
-                               <Button id="view-project" fx:id="quickViewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="View Project">
+                               <Button fx:id="quickViewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="View Project">
                                   <font>
                                      <Font name="Britannic Bold" size="22.0" />
                                   </font>
@@ -143,11 +140,8 @@
                                   <cursor>
                                      <Cursor fx:constant="HAND" />
                                   </cursor>
-                                  <effect>
-                                     <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                  </effect>
                                </Button>
-                               <Button id="analytics" fx:id="quickAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="Analytics">
+                               <Button fx:id="quickAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="Analytics">
                                   <font>
                                      <Font name="Britannic Bold" size="22.0" />
                                   </font>
@@ -157,11 +151,8 @@
                                   <cursor>
                                      <Cursor fx:constant="HAND" />
                                   </cursor>
-                                  <effect>
-                                     <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                  </effect>
                                </Button>
-                               <Button id="publish-web" fx:id="quickPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="Publish Web">
+                               <Button fx:id="quickPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="Publish Web">
                                   <font>
                                      <Font name="Britannic Bold" size="22.0" />
                                   </font>
@@ -171,14 +162,11 @@
                                   <cursor>
                                      <Cursor fx:constant="HAND" />
                                   </cursor>
-                                  <effect>
-                                     <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                  </effect>
                                   <VBox.margin>
                                      <Insets bottom="70.0" />
                                   </VBox.margin>
                                </Button>
-                               <Button id="settings" fx:id="quickSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="Settings">
+                               <Button id="settings" fx:id="quickSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" text="Settings">
                                   <font>
                                      <Font name="Britannic Bold" size="22.0" />
                                   </font>
@@ -188,9 +176,6 @@
                                   <cursor>
                                      <Cursor fx:constant="HAND" />
                                   </cursor>
-                                  <effect>
-                                     <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                  </effect>
                                </Button>
                             </children>
                         </VBox>
@@ -231,7 +216,7 @@
                                  </children></VBox>
                                         <VBox alignment="CENTER" prefHeight="150.0" prefWidth="370.0">
                                             <children>
-                                                <Label id="title" fx:id="labelTitle" style="-fx-background-color: aqua;">
+                                                <Label fx:id="labelTitle" styleClass="highlight">
                                                     <font>
                                                         <Font name="System Bold Italic" size="35.0" />
                                                     </font>
@@ -289,7 +274,7 @@
                                         </VBox>
                                     </children>
                                 </HBox>
-                                <HBox layoutX="22.0" layoutY="126.0" prefHeight="341.0" prefWidth="655.0" style="-fx-background-color: #66FFFF;">
+                                <HBox layoutX="22.0" layoutY="126.0" prefHeight="341.0" prefWidth="655.0" style="-fx-background-radius: 15px;" styleClass="highlight">
                                     <children>
                                         <VBox alignment="TOP_CENTER" prefHeight="342.0" prefWidth="314.0">
                                             <children>
@@ -302,7 +287,7 @@
                                           <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label contentDisplay="CENTER" text="Status:">
+                                          <Label contentDisplay="CENTER" styleClass="text" text="Status:">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -329,7 +314,7 @@
                                           <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     </rowConstraints>
                                                     <children>
-                                                        <Label contentDisplay="CENTER" text="Budget (€):" GridPane.rowIndex="2">
+                                                        <Label contentDisplay="CENTER" styleClass="text" text="Budget (€):" GridPane.rowIndex="2">
                                                             <GridPane.margin>
                                                                 <Insets />
                                                             </GridPane.margin>
@@ -338,17 +323,17 @@
                                                             </font>
                                                         </Label>
                                                         <TextField fx:id="projectBudget" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                        <Label contentDisplay="CENTER" text="Start Date:" GridPane.rowIndex="3">
+                                                        <Label contentDisplay="CENTER" styleClass="text" text="Start Date:" GridPane.rowIndex="3">
                                                             <font>
                                                                 <Font name="System Bold" size="15.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label contentDisplay="CENTER" text="Title:">
+                                                        <Label contentDisplay="CENTER" styleClass="text" text="Title:">
                                                             <font>
                                                                 <Font name="System Bold" size="15.0" />
                                                             </font>
                                                         </Label>
-                                                        <Label contentDisplay="CENTER" text="Customer:" GridPane.rowIndex="1">
+                                                        <Label contentDisplay="CENTER" styleClass="text" text="Customer:" GridPane.rowIndex="1">
                                                             <font>
                                                                 <Font name="System Bold" size="15.0" />
                                                             </font>
@@ -360,7 +345,7 @@
                                                                 <Cursor fx:constant="HAND" />
                                                             </cursor>
                                                         </DatePicker>
-                                          <Label contentDisplay="CENTER" text="End Date:" GridPane.rowIndex="4">
+                                          <Label contentDisplay="CENTER" styleClass="text" text="End Date:" GridPane.rowIndex="4">
                                              <font>
                                                 <Font name="System Bold" size="15.0" />
                                              </font>
@@ -388,13 +373,13 @@
                                                         <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
                                                     </rowConstraints>
                                                     <children>
-                                                        <Label contentDisplay="CENTER" text="Size:">
+                                                        <Label contentDisplay="CENTER" styleClass="text" text="Size:">
                                                             <font>
                                                                 <Font name="System Bold" size="15.0" />
                                                             </font>
                                                         </Label>
                                                         <TextField fx:id="projectSize" GridPane.columnIndex="1" />
-                                                        <Label contentDisplay="CENTER" text="Build:" GridPane.rowIndex="1">
+                                                        <Label contentDisplay="CENTER" styleClass="text" text="Build:" GridPane.rowIndex="1">
                                                             <font>
                                                                 <Font name="System Bold" size="15.0" />
                                                             </font>
@@ -413,13 +398,13 @@
                                                 </GridPane>
                                             </children>
                                         </VBox>
-                                          <AnchorPane style="-fx-background-color: #66FFFF;">
+                                          <AnchorPane>
                                               <children>
                                     <HBox fx:id="inputResidential" alignment="CENTER" layoutX="7.0" layoutY="14.0" prefHeight="204.0" prefWidth="292.0" visible="false">
                                        <children>
                                           <VBox alignment="CENTER" prefHeight="240.0" prefWidth="274.0">
                                              <children>
-                                                <Label text="RESIDENTIAL" underline="true">
+                                                <Label styleClass="text" text="RESIDENTIAL" underline="true">
                                                    <font>
                                                       <Font size="25.0" />
                                                    </font>
@@ -440,12 +425,12 @@
                                                             <Insets top="15.0" />
                                                          </GridPane.margin>
                                                       </TextField>
-                                                      <Label contentDisplay="CENTER" text="Kitchens:">
+                                                      <Label contentDisplay="CENTER" styleClass="text" text="Kitchens:">
                                                          <font>
                                                             <Font name="System Bold" size="15.0" />
                                                          </font>
                                                       </Label>
-                                                      <Label contentDisplay="CENTER" text="Bathrooms:" GridPane.rowIndex="1">
+                                                      <Label contentDisplay="CENTER" styleClass="text" text="Bathrooms:" GridPane.rowIndex="1">
                                                          <font>
                                                             <Font name="System Bold" size="15.0" />
                                                          </font>
@@ -454,12 +439,12 @@
                                                       <TextField fx:id="residentialBathrooms" promptText="1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                       <VBox alignment="CENTER_LEFT" GridPane.rowIndex="2">
                                                          <children>
-                                                            <Label contentDisplay="CENTER" text="Other">
+                                                            <Label contentDisplay="CENTER" styleClass="text" text="Other">
                                                                <font>
                                                                   <Font name="System Bold" size="15.0" />
                                                                </font>
                                                             </Label>
-                                                            <Label contentDisplay="CENTER" text="plumbing:">
+                                                            <Label contentDisplay="CENTER" styleClass="text" text="plumbing:">
                                                                <font>
                                                                   <Font name="System Bold" size="15.0" />
                                                                </font>
@@ -485,7 +470,7 @@
                                        <children>
                                           <VBox alignment="CENTER" prefWidth="274.0">
                                              <children>
-                                                <Label text="COMMERCIAL" underline="true">
+                                                <Label styleClass="text" text="COMMERCIAL" underline="true">
                                                    <font>
                                                       <Font size="25.0" />
                                                    </font>
@@ -505,7 +490,7 @@
                                                             <Insets top="15.0" />
                                                          </GridPane.margin>
                                                       </TextField>
-                                                      <Label contentDisplay="CENTER" text="No. Floors:">
+                                                      <Label contentDisplay="CENTER" styleClass="text" text="No. Floors:">
                                                          <font>
                                                             <Font name="System Bold" size="15.0" />
                                                          </font>
@@ -513,12 +498,12 @@
                                                       <TextField fx:id="commercialFloors" promptText="1" GridPane.columnIndex="1" />
                                                       <VBox alignment="CENTER_LEFT" GridPane.rowIndex="1">
                                                          <children>
-                                                            <Label contentDisplay="CENTER" text="Intended">
+                                                            <Label contentDisplay="CENTER" styleClass="text" text="Intended">
                                                                <font>
                                                                   <Font name="System Bold" size="15.0" />
                                                                </font>
                                                             </Label>
-                                                            <Label contentDisplay="CENTER" text="use:">
+                                                            <Label contentDisplay="CENTER" styleClass="text" text="use:">
                                                                <font>
                                                                   <Font name="System Bold" size="15.0" />
                                                                </font>
@@ -544,7 +529,7 @@
                                        <children>
                                           <VBox alignment="CENTER" prefHeight="150.0" prefWidth="274.0">
                                              <children>
-                                                <Label text="INDUSTRIAL" underline="true">
+                                                <Label styleClass="text" text="INDUSTRIAL" underline="true">
                                                    <font>
                                                       <Font size="25.0" />
                                                    </font>
@@ -565,12 +550,12 @@
                                                       </TextField>
                                                       <VBox alignment="CENTER_LEFT">
                                                          <children>
-                                                            <Label contentDisplay="CENTER" text="Type of">
+                                                            <Label contentDisplay="CENTER" styleClass="text" text="Type of">
                                                                <font>
                                                                   <Font name="System Bold" size="15.0" />
                                                                </font>
                                                             </Label>
-                                                            <Label contentDisplay="CENTER" text="facility:">
+                                                            <Label contentDisplay="CENTER" styleClass="text" text="facility:">
                                                                <font>
                                                                   <Font name="System Bold" size="15.0" />
                                                                </font>
@@ -596,7 +581,7 @@
                                        <children>
                                           <VBox alignment="CENTER" prefWidth="274.0">
                                              <children>
-                                                <Label text="ROADS" underline="true">
+                                                <Label styleClass="text" text="ROADS" underline="true">
                                                    <font>
                                                       <Font size="25.0" />
                                                    </font>
@@ -615,31 +600,31 @@
                                                       <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
                                                    </rowConstraints>
                                                    <children>
-                                                      <Label contentDisplay="CENTER" text="Bridges:">
+                                                      <Label contentDisplay="CENTER" styleClass="text" text="Bridges:">
                                                          <font>
                                                             <Font name="System Bold" size="15.0" />
                                                          </font>
                                                       </Label>
                                                       <CheckBox fx:id="roadsBridges" mnemonicParsing="false" GridPane.columnIndex="1" />
-                                                      <Label contentDisplay="CENTER" text="Tunnels:" GridPane.rowIndex="1">
+                                                      <Label contentDisplay="CENTER" styleClass="text" text="Tunnels:" GridPane.rowIndex="1">
                                                          <font>
                                                             <Font name="System Bold" size="15.0" />
                                                          </font>
                                                       </Label>
                                                       <CheckBox fx:id="roadsTunnels" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                      <Label contentDisplay="CENTER" text="No. Lanes:" GridPane.rowIndex="3">
+                                                      <Label contentDisplay="CENTER" styleClass="text" text="No. Lanes:" GridPane.rowIndex="3">
                                                          <font>
                                                             <Font name="System Bold" size="15.0" />
                                                          </font>
                                                       </Label>
                                                       <VBox alignment="CENTER_LEFT" GridPane.rowIndex="2">
                                                          <children>
-                                                            <Label contentDisplay="CENTER" text="Geo">
+                                                            <Label contentDisplay="CENTER" styleClass="text" text="Geo">
                                                                <font>
                                                                   <Font name="System Bold" size="15.0" />
                                                                </font>
                                                             </Label>
-                                                            <Label contentDisplay="CENTER" text="Challenges:">
+                                                            <Label contentDisplay="CENTER" styleClass="text" text="Challenges:">
                                                                <font>
                                                                   <Font name="System Bold" size="15.0" />
                                                                </font>
@@ -648,13 +633,13 @@
                                                       </VBox>
                                                       <CheckBox fx:id="roadsChallenges" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                                       <TextField fx:id="roadsLanes" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                      <Label contentDisplay="CENTER" text="Length:" GridPane.rowIndex="4">
+                                                      <Label contentDisplay="CENTER" styleClass="text" text="Length:" GridPane.rowIndex="4">
                                                          <font>
                                                             <Font name="System Bold" size="15.0" />
                                                          </font>
                                                       </Label>
                                                       <TextField fx:id="roadsLength" promptText="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                      <Label contentDisplay="CENTER" text="Width:" GridPane.rowIndex="5">
+                                                      <Label contentDisplay="CENTER" styleClass="text" text="Width:" GridPane.rowIndex="5">
                                                          <font>
                                                             <Font name="System Bold" size="15.0" />
                                                          </font>

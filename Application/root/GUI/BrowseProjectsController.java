@@ -185,7 +185,23 @@ public class BrowseProjectsController {
      * @param e an ActionEvent with openProject(), in this case the autocompleting TextField.
      */
     public void openProject(ActionEvent e) {
-        Project project = manager.getProject(autoComplete.getText());
-        handler.openProject(project.getTitle(), project.getType());
+        if (!autoComplete.getText().isEmpty()){
+            try {
+                Project project = manager.getProject(autoComplete.getText());
+                handler.openProject(project.getTitle(), project.getType());
+            } catch (Exception k){
+                Alert alert = new Alert(Alert.AlertType.ERROR,
+                        "Project doesn't exist!",
+                        ButtonType.CLOSE);
+                alert.setTitle("INVALID INPUT");
+                alert.setHeaderText(null);
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("file:Application/root/Utils/logo.png"));
+                alert.showAndWait();
+                if (alert.getResult() == ButtonType.CLOSE) {
+                    alert.close();
+                }
+            }
+        }
     }
 }

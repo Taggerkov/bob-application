@@ -1,3 +1,54 @@
-.quick-button{
-    -fx-alignment: center;
+.text {
+-fx-text-fill: black;
+}
+#background {
+-fx-background-color:  white;
+}
+#header {
+-fx-background-color:  lightblue;
+}
+#quickMenu {
+-fx-background-color:  aqua;
+}
+.highlight {
+-fx-background-color:  aqua;
+}
+.quick-button {
+-fx-background-color: white;
+-fx-effect: dropshadow( three-pass-box, black, 14.1, 0, 0, 2.0);
+}
+#settings {
+-fx-background-color: #FFDD4D;
+-fx-effect: dropshadow( three-pass-box, black, 14.1, 0, 0, 2.0);
+}
+/*Browse*/
+#browsePane {
+-fx-border-color: aqua;
+-fx-border-width: 4px;
+-fx-background-color: white;
+}
+#browseBack {
+-fx-background-color: white;
+}
+/*New*/
+#newPane {
+-fx-background-color: aqua;
+}
+/*Publish*/
+#publishLabel {
+-fx-background-color: aqua;
+}
+/*Injected*/
+#injectedProject {
+-fx-background-color: aqua;
+}
+#injectedType {
+-fx-background-color: #ead969;
+}
+/*Analytics*/
+.analityk {
+-fx-background-color: aqua;
+-fx-border-color: aqua;
+-fx-text-fill: black;
+-fx-effect: dropshadow( three-pass-box, black, 14.1, 0, 0, 2.0);
 }

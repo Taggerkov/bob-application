@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrowseProjectsController">
+<VBox id="background" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.BrowseProjectsController">
    <children>
       <MenuBar prefWidth="700.0" style="-fx-background-color: #C6C2C2; -fx-border-color: black; -fx-border-width: 0.1em;" VBox.vgrow="ALWAYS">
          <menus>
@@ -60,7 +60,7 @@
       </MenuBar>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: lightblue;">
+            <HBox id="header" alignment="CENTER" prefHeight="60.0" prefWidth="900.0">
                <children>
                   <Label id="Trademark" alignment="CENTER" stylesheets="@light.css" text="Z - MANAGER 1.0" textFill="WHITE" underline="true">
                      <font>
@@ -71,11 +71,11 @@
             </HBox>
             <HBox layoutY="60.0" prefHeight="509.0" prefWidth="900.0">
                <children>
-                  <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="200.0" style="-fx-background-color: #66FFFF;">
+                  <VBox id="quickMenu" alignment="TOP_CENTER" prefHeight="450.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" stylesheets="@light.css" text="QUICK MENU" underline="true">
+                        <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" styleClass="text" text="QUICK MENU" underline="true">
                            <font>
-                              <Font name="OCR A Extended" size="32.0" />
+                              <Font name="Wingdings" size="32.0" />
                            </font>
                            <opaqueInsets>
                               <Insets />
@@ -84,7 +84,7 @@
                               <Insets bottom="100.0" />
                            </VBox.margin>
                         </Label>
-                        <Button id="new-project" fx:id="quickNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" text="New Project">
+                        <Button fx:id="quickNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="New Project">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -94,14 +94,11 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                           <effect>
-                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                           </effect>
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button id="view-project" fx:id="quickViewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="View Project">
+                        <Button fx:id="quickViewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="View Project">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -111,11 +108,8 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                           <effect>
-                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                           </effect>
                         </Button>
-                        <Button id="analytics" fx:id="quickAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="Analytics">
+                        <Button fx:id="quickAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="Analytics">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -125,11 +119,8 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                           <effect>
-                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                           </effect>
                         </Button>
-                        <Button id="publish-web" fx:id="quickPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="Publish Web">
+                        <Button fx:id="quickPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="Publish Web">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -139,14 +130,11 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                           <effect>
-                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                           </effect>
                            <VBox.margin>
                               <Insets bottom="70.0" />
                            </VBox.margin>
                         </Button>
-                        <Button id="settings" fx:id="quickSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="Settings">
+                        <Button id="settings" fx:id="quickSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" text="Settings">
                            <font>
                               <Font name="Britannic Bold" size="22.0" />
                            </font>
@@ -156,9 +144,6 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                           <effect>
-                              <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                           </effect>
                         </Button>
                      </children>
                   </VBox>
@@ -170,7 +155,7 @@
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="275.0">
                                        <children>
-                                          <Label prefHeight="62.0" prefWidth="320.0" text="ALL PROJECTS">
+                                          <Label prefHeight="62.0" prefWidth="320.0" styleClass="text" text="ALL PROJECTS">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
@@ -204,7 +189,7 @@
                                           </Button>
                                           <HBox prefHeight="100.0" prefWidth="200.0">
                                              <children>
-                                                <Label text="Search:">
+                                                <Label id="text" text="Search:">
                                                    <font>
                                                       <Font size="16.0" />
                                                    </font>
@@ -222,17 +207,19 @@
                                     <Insets bottom="5.0" />
                                  </VBox.margin>
                               </HBox>
-                              <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="424.0" prefWidth="707.0" style="-fx-border-color: #66FFFF; -fx-border-width: 4px;">
-                                 <content>
-                                    <FlowPane fx:id="flowPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="681.0">
-                                       <padding>
-                                          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                       </padding></FlowPane>
-                                 </content>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </ScrollPane>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ScrollPane id="browsePane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="707.0">
+                                       <content>
+                                          <FlowPane id="browseBack" fx:id="flowPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="709.0">
+                                             <padding>
+                                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                             </padding>
+                                          </FlowPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                         <Label fx:id="isEmpty" alignment="CENTER" layoutX="56.0" layoutY="132.0" prefHeight="304.0" prefWidth="556.0" text="EMPTY" textFill="GREY" visible="false">

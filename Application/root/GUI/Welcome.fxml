@@ -41,13 +41,12 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="main" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.WelcomeController">
+<VBox id="background" fx:id="main" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.WelcomeController">
     <children>
         <MenuBar prefWidth="700.0" style="-fx-background-color: #C6C2C2; -fx-border-color: black; -fx-border-width: 0.1em;" VBox.vgrow="ALWAYS">
             <menus>
@@ -90,22 +89,22 @@
         </MenuBar>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <children>
-                <HBox alignment="CENTER" prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
+                <HBox id="header" alignment="CENTER" prefHeight="60.0" prefWidth="900.0">
                     <children>
-                        <Label id="Trademark" alignment="CENTER" stylesheets="@light.css" text="BOB'S SOFTWARE 0.1" underline="true">
+                        <Label alignment="CENTER" text="Z - MANAGER 1.0" textFill="WHITE" underline="true">
                             <font>
-                                <Font name="Unispace-Bold" size="45.0" />
+                                <Font name="Consolas Bold Italic" size="45.0" />
                             </font>
                         </Label>
                     </children>
                 </HBox>
-                <HBox layoutY="66.0" prefHeight="494.0" prefWidth="900.0">
+                <HBox layoutY="60.0" prefHeight="500.0" prefWidth="900.0">
                     <children>
-                        <VBox alignment="TOP_CENTER" prefWidth="200.0" style="-fx-background-color: #66FFFF;">
+                        <VBox id="quickMenu" alignment="TOP_CENTER" prefWidth="200.0">
                             <children>
-                                <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" stylesheets="@light.css" text="QUICK MENU" underline="true">
+                                <Label alignment="CENTER" prefHeight="66.0" prefWidth="217.0" styleClass="text" text="QUICK MENU" underline="true">
                                     <font>
-                                        <Font name="OCR A Extended" size="32.0" />
+                                        <Font name="Wingdings" size="32.0" />
                                     </font>
                                     <opaqueInsets>
                                         <Insets />
@@ -114,7 +113,7 @@
                                         <Insets bottom="100.0" />
                                     </VBox.margin>
                                 </Label>
-                                <Button id="quick-newproject" fx:id="quickNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" text="New Project">
+                                <Button fx:id="quickNewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="New Project">
                                     <font>
                                         <Font name="Britannic Bold" size="22.0" />
                                     </font>
@@ -124,14 +123,11 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
-                                    <effect>
-                                        <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                    </effect>
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin>
                                 </Button>
-                                <Button id="quick-viewproject" fx:id="quickViewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" text="View Project">
+                                <Button fx:id="quickViewProject" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="View Project">
                                     <font>
                                         <Font name="Britannic Bold" size="22.0" />
                                     </font>
@@ -141,11 +137,8 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
-                                    <effect>
-                                        <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                    </effect>
                                 </Button>
-                                <Button id="quick-analytics" fx:id="quickAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" text="Analytics">
+                                <Button fx:id="quickAnalytics" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="Analytics">
                                     <font>
                                         <Font name="Britannic Bold" size="22.0" />
                                     </font>
@@ -155,11 +148,8 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
-                                    <effect>
-                                        <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                    </effect>
                                 </Button>
-                                <Button id="quick-publish" fx:id="quickPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: white; -fx-background-insets: 3px;" styleClass="quick-button" text="Publish Web">
+                                <Button fx:id="quickPublishWeb" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="Publish Web">
                                     <font>
                                         <Font name="Britannic Bold" size="22.0" />
                                     </font>
@@ -169,14 +159,11 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
-                                    <effect>
-                                        <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                    </effect>
                                     <VBox.margin>
                                         <Insets bottom="70.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button id="settings" fx:id="quickSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-color: #FFDD4D; -fx-background-insets: 3px;" styleClass="quick-button" stylesheets="@light.css" text="Settings">
+                                <Button id="settings" fx:id="quickSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#quickActions" prefHeight="41.0" prefWidth="159.0" style="-fx-background-insets: 3px;" styleClass="quick-button" text="Settings">
                                     <font>
                                         <Font name="Britannic Bold" size="22.0" />
                                     </font>
@@ -186,9 +173,6 @@
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
-                                    <effect>
-                                        <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
-                                    </effect>
                                 </Button>
                             </children>
                         </VBox>
@@ -197,22 +181,22 @@
                                 <Cursor fx:constant="DEFAULT" />
                             </cursor>
                             <children>
-                                <Label layoutX="65.0" layoutY="78.0" text="WELCOME BACK!">
+                                <Label layoutX="65.0" layoutY="78.0" styleClass="text" text="WELCOME BACK!">
                                     <font>
                                         <Font size="72.0" />
                                     </font>
                                 </Label>
-                                <Label layoutX="97.0" layoutY="243.0" text="Everything is ready for you to do your thing!">
+                                <Label layoutX="97.0" layoutY="243.0" styleClass="text" text="Everything is ready for you to do your thing!">
                                     <font>
                                         <Font size="25.0" />
                                     </font>
                                 </Label>
-                                <Label layoutX="97.0" layoutY="285.0" text="Version 0.1 - See more about in            .">
+                                <Label layoutX="97.0" layoutY="285.0" styleClass="text" text="Version 0.1 - See more about in            .">
                                     <font>
                                         <Font size="25.0" />
                                     </font>
                                 </Label>
-                                <Hyperlink id="github-link" layoutX="444.0" layoutY="279.0" text="Github" underline="true">
+                                <Hyperlink layoutX="444.0" layoutY="279.0" text="Github" underline="true">
                                     <font>
                                         <Font size="25.0" />
                                     </font>
@@ -223,9 +207,9 @@
                 </HBox>
             </children>
         </AnchorPane>
-        <HBox alignment="CENTER" prefHeight="68.0" prefWidth="900.0" style="-fx-background-color: #C6C2C2;">
+        <HBox alignment="CENTER" prefHeight="68.0" prefWidth="900.0" style="-fx-background-color: black;">
             <children>
-                <Label text="© 2023 Bob the Builder. All rights reserved.">
+                <Label text="© 2023 Bob the Builder. All rights reserved." textFill="WHITE">
                     <font>
                         <Font size="15.0" />
                     </font>
