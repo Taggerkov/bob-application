@@ -44,9 +44,6 @@ public class ViewHandler {
         switch (id) {
             case "Welcome":
                 target.setScene(WelcomeController.getScene());
-                if (css.equals("light")){
-                    WelcomeController.getScene().getStylesheets().add(getClass().getResource("file:Application/root/GUI/light.css").toExternalForm());
-                }
                 WelcomeController.reset();
                 sceneTitle += "Welcome!";
                 break;
