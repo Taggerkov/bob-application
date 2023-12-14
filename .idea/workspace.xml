@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e83e3dcf-fe30-4b1b-b729-32aa2205c2f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/bob-webpage/xml/PublisingFile.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/PublishWebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/PublishWebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PublisingFile.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saves/projects.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Saves/projects.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bob-webpage/css/type2.css" beforeDir="false" afterPath="$PROJECT_DIR$/bob-webpage/css/type2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bob-webpage/project.html" beforeDir="false" afterPath="$PROJECT_DIR$/bob-webpage/project.html" afterDir="false" />
-    </list>
+    <list default="true" id="e83e3dcf-fe30-4b1b-b729-32aa2205c2f2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
