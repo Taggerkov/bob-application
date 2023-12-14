@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import parser.ParserException;
+import parser.XmlJsonParser;
 
 import java.io.File;
 
@@ -54,12 +56,26 @@ public class PublishWebController {
             handler.openView("Welcome");
         }
     }
+    public void confirmButtonClick() throws ParserException
+    {
+        ProjectList allProjects = manager.readAllProjects();
+        ProjectList unpublishedProjects = new ProjectList();
 
-    public void confirmButtonClick() {
+        for (int i = 0; i < allProjects.size(); i++)
+        {
+            if ((allProjects.get(i).getIsPublished()).equals("Publish"))
+            {
+                unpublishedProjects.add(allProjects.get(i));
+            }
+        }
+
+        XmlJsonParser parser = new XmlJsonParser();
+
+        File xmlFile = parser.toXml(unpublishedProjects, "PublisingFile.xml");
+        System.out.println("XML file: " + xmlFile.getAbsolutePath());
+
+        }
 
     }
-
-
-}
 
 
