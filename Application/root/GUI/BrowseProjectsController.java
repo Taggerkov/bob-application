@@ -60,7 +60,7 @@ public class BrowseProjectsController {
     }
 
     /**
-     * Resets all inputs, making it look like a freshly opened scene.
+     * Visually injects all projects in the GUI and links their IDs to the EditProjectController.
      */
     public void set() {
         flowPane.getChildren().clear();
@@ -144,6 +144,7 @@ public class BrowseProjectsController {
                 }
                 labelBox.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> handler.openProject(title, type));
             }
+            //adds autocomplete function VM arg (--add-exports javafx.base/com.sun.javafx.event=ALL-UNNAMED) needed!
             TextFields.bindAutoCompletion(autoComplete, autoTitles);
         }
     }
@@ -178,7 +179,13 @@ public class BrowseProjectsController {
         }
     }
 
-    public void labelLink(ActionEvent e) {
-        handler.openView("Welcome");
+    /**
+     * Redirects the user to the EditProjectController with the linked ID inputted.
+     *
+     * @param e an ActionEvent with openProject(), in this case the autocompleting TextField.
+     */
+    public void openProject(ActionEvent e) {
+        Project project = manager.getProject(autoComplete.getText());
+        handler.openProject(project.getTitle(), project.getType());
     }
 }

@@ -212,7 +212,7 @@
                                                       <Insets right="20.0" />
                                                    </padding>
                                                 </Label>
-                                                <TextField fx:id="autoComplete" prefHeight="25.0" prefWidth="263.0" />
+                                                <TextField fx:id="autoComplete" onAction="#openProject" prefHeight="25.0" prefWidth="263.0" />
                                              </children>
                                           </HBox>
                                        </children>
