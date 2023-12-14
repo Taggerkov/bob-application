@@ -71,7 +71,13 @@ public class PublishWebController {
 
         XmlJsonParser parser = new XmlJsonParser();
 
-        File xmlFile = parser.toXml(unpublishedProjects, "PublisingFile.xml");
+        // Specify the full file path
+        String filePath =  "bob-webpage/xml/PublisingFile.xml";
+
+        // Create the File object with the specified path
+        File xmlFile = new File(filePath);
+
+        xmlFile= parser.toXml(unpublishedProjects, filePath);
         System.out.println("XML file: " + xmlFile.getAbsolutePath());
 
         }
