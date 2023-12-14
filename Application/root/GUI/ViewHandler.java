@@ -21,7 +21,7 @@ public class ViewHandler {
     private AnalyticsController AnalyticsController;
     private PublishWebController PublishWebController;
     private final ProjectManager manager;
-    private String css;
+    private String css = "INPROGRESS";
 
     public ViewHandler(Stage target, ProjectManager manager) {
         this.target = target;
