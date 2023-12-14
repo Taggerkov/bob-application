@@ -212,7 +212,7 @@
                               <DropShadow blurType="GAUSSIAN" height="18.72" offsetY="2.0" radius="12.355" width="32.7" />
                            </effect>
                         </Button>
-                        <Button id="cancel" alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="284.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="159.0" style="-fx-background-color: #f5f542; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" text="CONFIRM">
+                        <Button id="confirm" onAction="#confirmButtonClick" alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="284.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="159.0" style="-fx-background-color: #f5f542; -fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-color: black; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="tab-button" text="CONFIRM">
                            <font>
                               <Font name="ROGFonts-Regular" size="13.0" />
                            </font>

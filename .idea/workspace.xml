@@ -44,13 +44,18 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Tagge/OneDrive/Documents/GitHub/bob-application/controlsfx-8.40.14.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
+    "last_opened_file_path": "C:/Users/bibek/OneDrive - ViaUC/Documents/GitHub/bob-application/bob-application/XmlJsonParser-1.4.jar",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.JavaFX"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bibek\OneDrive - ViaUC\Documents\GitHub\bob-application\bob-application" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.PowerUp!">
     <configuration name="PowerUp!" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main.RunApp" />
