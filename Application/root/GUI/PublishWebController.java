@@ -16,6 +16,11 @@ import parser.XmlJsonParser;
 
 import java.io.File;
 
+/**
+ * Controller that takes care of web publishing the projects.
+ *
+ * @author Raj, Sergiu Chirap
+ */
 public class PublishWebController {
     private Scene target;
     private ProjectManager manager;
@@ -35,19 +40,33 @@ public class PublishWebController {
     @FXML
     private MenuItem menuNew, menuCancel, menuSettings, menuQuit;
 
+    /**
+     * Controller initiator.
+     *
+     * @param handler link to the ViewHandler.
+     * @param target  sets Controllers stage.
+     * @param manager link to the ProjectManager.
+     */
     public void init(ViewHandler handler, Scene target, ProjectManager manager) {
         this.handler = handler;
         this.target = target;
         this.manager = manager;
     }
 
-    public void reset() {
-    }
-
+    /**
+     * Gets Controller scene.
+     *
+     * @return a Scene which is Controllers scene.
+     */
     public Scene getScene() {
         return target;
     }
 
+    /**
+     * A set of ViewHandler petitions preset.
+     *
+     * @param e an ActionEvent stating the chosen preset.
+     */
     public void quickActions(ActionEvent e) {
         if (e.getSource() == quickNewProject || e.getSource() == menuNew) {
             handler.openView("NewProject");
@@ -76,6 +95,11 @@ public class PublishWebController {
         }
     }
 
+    /**
+     * Parses project into a .xml which will be later injected into the web page.
+     *
+     * @throws ParserException a parser exception.
+     */
     public void confirmButtonClick() throws ParserException {
         ProjectList allProjects = manager.readAllProjects();
         ProjectList unpublishedProjects = new ProjectList();

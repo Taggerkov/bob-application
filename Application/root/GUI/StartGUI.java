@@ -9,24 +9,36 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * Gui initiator.
+ *
+ * @author Sergiu Chirap
+ * @version 1.5
+ */
 public class StartGUI extends Application {
 
-    //checks if there is a save file and creates one if needed - Sergiu
-    public void start(Stage window)
-    {
-        try{
+    /**
+     * Links ProjectManager with ViewHandler.
+     *
+     * @param window the primary stage for this application, onto which
+     *               the application scene can be set.
+     *               Applications may create other stages, if needed, but they will not be
+     *               primary stages.
+     */
+    public void start(Stage window) {
+        //checks if there is a save file and creates one if needed - Sergiu
+        try {
             FileInputStream fileIn = new FileInputStream("Saves/projects.bin");
             ObjectInputStream read = new ObjectInputStream(fileIn);
             fileIn.close();
             read.close();
-        } catch (Exception e){
-            try{
+        } catch (Exception e) {
+            try {
                 FileOutputStream fileOut = new FileOutputStream("Saves/projects.bin");
                 ObjectOutputStream write = new ObjectOutputStream(fileOut);
                 fileOut.close();
                 write.close();
-                System.out.println(".bin file created.");
-            } catch (Exception E){
+            } catch (Exception E) {
                 System.out.println("Unable to I/O!");
                 E.printStackTrace();
                 System.exit(0);

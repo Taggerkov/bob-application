@@ -24,10 +24,10 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
- * Browse Projects Controller // Project Browser class.
+ * Controller that takes care of project browsing.
  *
  * @author Sergiu Chirap
- * @version 0.5
+ * @version 1.5
  */
 public class BrowseProjectsController {
     private Scene target;
@@ -47,11 +47,11 @@ public class BrowseProjectsController {
     private MenuItem menuNew, menuCancel, menuSettings, menuQuit, menuReset;
 
     /**
-     * Sets up the first view.
+     * Controller initiator.
      *
-     * @param handler linked ViewHandler
-     * @param target  linked scene
-     * @param manager linked ProjectManager
+     * @param handler link to the ViewHandler.
+     * @param target  sets Controllers stage.
+     * @param manager link to the ProjectManager.
      */
     public void init(ViewHandler handler, Scene target, ProjectManager manager) {
         this.handler = handler;
@@ -60,7 +60,7 @@ public class BrowseProjectsController {
     }
 
     /**
-     * Visually injects all projects in the GUI and links their IDs to the EditProjectController.
+     * Visually injects all projects into the GUI and links their IDs to the EditProjectController.
      */
     public void set() {
         flowPane.getChildren().clear();
@@ -151,18 +151,18 @@ public class BrowseProjectsController {
     }
 
     /**
-     * Gets the scene from it's FXML.
+     * Gets Controller scene.
      *
-     * @return the scene of this Controller
+     * @return a Scene which is Controllers scene.
      */
     public Scene getScene() {
         return target;
     }
 
     /**
-     * Group of scene changer buttons to make moving around easy and fast.
+     * A set of ViewHandler petitions preset.
      *
-     * @param e ActionEvent with quickActions() mostly being buttons
+     * @param e an ActionEvent stating the chosen preset.
      */
     public void quickActions(ActionEvent e) {
         if (e.getSource() == quickNewProject || e.getSource() == menuNew) {
@@ -195,7 +195,7 @@ public class BrowseProjectsController {
     /**
      * Redirects the user to the EditProjectController with the linked ID inputted.
      *
-     * @param e an ActionEvent with openProject(), in this case the autocompleting TextField.
+     * @param e an ActionEvent which activates this method.
      */
     public void openProject(ActionEvent e) {
         if (!autoComplete.getText().isEmpty()) {

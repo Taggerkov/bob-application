@@ -195,10 +195,10 @@
                                  <children>
                                     <ScrollPane id="browsePane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="707.0">
                                        <content>
-                                          <FlowPane id="browseBack" fx:id="flowPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="709.0">
-                                             <padding>
-                                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                             </padding>
+                                          <FlowPane id="browseBack" fx:id="flowPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="427.0" prefWidth="717.0">
+                                             <children>
+                                                <VBox id="browseBack" prefHeight="388.0" prefWidth="680.0" />
+                                             </children>
                                           </FlowPane>
                                        </content>
                                     </ScrollPane>

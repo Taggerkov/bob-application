@@ -10,9 +10,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 
+/**
+ * A GUI Manager that handles and links all other Controllers with their FXML files.
+ *
+ * @author Sergiu Chirap
+ * @version 1.5
+ */
 public class ViewHandler {
 
     private Stage target;
@@ -25,11 +30,20 @@ public class ViewHandler {
     private final ProjectManager manager;
     private String css = "light";
 
+    /**
+     * ViewHandler Constructor.
+     *
+     * @param target  links JavaFX stage.
+     * @param manager link to the ProjectManager.
+     */
     public ViewHandler(Stage target, ProjectManager manager) {
         this.target = target;
         this.manager = manager;
     }
 
+    /**
+     * ViewHandler initiator.
+     */
     public void start() {
         loadWelcome();
         loadNewProject();
@@ -41,6 +55,11 @@ public class ViewHandler {
         openView("Welcome");
     }
 
+    /**
+     * Redirects display to the chosen Controller.
+     *
+     * @param id a String stating Controllers id.
+     */
     public void openView(String id) {
         String sceneTitle = "BOB'S SOFTWARE - ";
         switch (id) {
@@ -52,7 +71,6 @@ public class ViewHandler {
                 } else if (css.equals("dark")) {
                     WelcomeController.getScene().getStylesheets().add(getClass().getResource("dark.css").toExternalForm());
                 }
-                WelcomeController.reset();
                 sceneTitle += "Welcome!";
                 break;
             case "NewProject":
@@ -85,7 +103,6 @@ public class ViewHandler {
                 } else if (css.equals("dark")) {
                     AnalyticsController.getScene().getStylesheets().add(getClass().getResource("dark.css").toExternalForm());
                 }
-                AnalyticsController.reset();
                 sceneTitle += "Analytics";
                 break;
             case "PublishWeb":
@@ -96,7 +113,6 @@ public class ViewHandler {
                 } else if (css.equals("dark")) {
                     PublishWebController.getScene().getStylesheets().add(getClass().getResource("dark.css").toExternalForm());
                 }
-                PublishWebController.reset();
                 sceneTitle += "Publish Web";
                 break;
             case "Settings":
@@ -129,6 +145,12 @@ public class ViewHandler {
         target.show();
     }
 
+    /**
+     * Special redirect for EditProjectController which needs additional data to load.
+     *
+     * @param title a String stating projects name.
+     * @param type  a String stating projects type.
+     */
     public void openProject(String title, String type) {
         loadEditProject();
         String sceneTitle = "BOB'S SOFTWARE - ";
@@ -148,6 +170,9 @@ public class ViewHandler {
         target.show();
     }
 
+    /**
+     * Loader for WelcomeController.
+     */
     private void loadWelcome() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -170,6 +195,9 @@ public class ViewHandler {
         }
     }
 
+    /**
+     * Loader for NewProjectController.
+     */
     private void loadNewProject() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -193,6 +221,9 @@ public class ViewHandler {
 
     }
 
+    /**
+     * Loader for BrowseProjectsController.
+     */
     private void loadBrowseProjects() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -215,6 +246,9 @@ public class ViewHandler {
         }
     }
 
+    /**
+     * Loader for EditProjectController.
+     */
     private void loadEditProject() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -238,6 +272,9 @@ public class ViewHandler {
 
     }
 
+    /**
+     * Loader for AnalyticsController.
+     */
     private void loadAnalytics() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -260,6 +297,9 @@ public class ViewHandler {
         }
     }
 
+    /**
+     * Loader for PublishWebController.
+     */
     private void loadPublishWebController() {
         try {
             FXMLLoader loader = new FXMLLoader();

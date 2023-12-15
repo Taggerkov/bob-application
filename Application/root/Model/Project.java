@@ -6,15 +6,12 @@ import java.io.Serializable;
  * An abstract class parent to all other project classes.
  *
  * @author Sergiu Chirap
- * @version 1.5
+ * @version 2.5
  */
 public abstract class Project implements Serializable {
     private final String type;
-    private String title;
-    private String customer;
-    private double budget;
-
-    private double size;
+    private String title, customer;
+    private double budget, size;
     private final MyDate startDate;
     private MyDate endDate;
     private boolean isActive;
@@ -155,14 +152,6 @@ public abstract class Project implements Serializable {
      */
     public String getIsPublished() {
         return isPublished;
-    }
-
-    /**
-     * Gets project's size.
-     * @return a double stating project's size.
-     */
-    public void setIsPublished(String isPublished) {
-        this.isPublished = isPublished;
     }
 
     public void setTitle(String title) {

@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Model manager connecting the model with the file handler
  *
- * @author Alexandria Hansen, Sergiu Chirap
+ * @author Alexandria Hansen
  * @version 1.0
  */
 public class ProjectManager {
@@ -77,22 +77,6 @@ public class ProjectManager {
     }
 
     /**
-     * Boolean determining if a project title exists for any saved projects
-     *
-     * @param title the title to be compared to all project titles
-     * @return true if no project exists with the given title, false if the title is taken
-     */
-    public boolean titleAvailable(String title) {
-        ProjectList allProjects = readAllProjects();
-
-        for (int i = 0; i < allProjects.size(); i++) {
-            if (allProjects.getTitle(i).equals(title))
-                return false;
-        }
-        return true;
-    }
-
-    /**
      * Searches through all projects in files to find one with a given title
      *
      * @param title the title being searched for in all files
@@ -106,17 +90,5 @@ public class ProjectManager {
                 return allProjects.get(i);
         }
         return null;
-    }
-
-    public ProjectList getProjectByDate(String date) {
-        MyDate temp = new MyDate(date);
-        ProjectList allProjects = readAllProjects();
-        ProjectList projectsBeforeDate = new ProjectList();
-
-        for (int i = 0; i < allProjects.size(); i++) {
-            if (allProjects.get(i).getEndDate().isBefore(temp))
-                projectsBeforeDate.add(allProjects.get(i));
-        }
-        return projectsBeforeDate;
     }
 }

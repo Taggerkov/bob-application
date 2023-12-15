@@ -5,19 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e83e3dcf-fe30-4b1b-b729-32aa2205c2f2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/GUI/Analytics.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Analytics.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/AnalyticsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/BrowseProjects.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/BrowseProjects.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/BrowseProjectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/BrowseProjectsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/EditProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/EditProject.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/EditProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/EditProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/NewProject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/NewProject.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/PublishWeb.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/PublishWeb.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/PublishWebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/PublishWebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/Welcome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Welcome.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/WelcomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Model/Tester.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Main/RunApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Main/RunApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Model/Commercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Commercial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Model/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Industrial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Model/MyDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/MyDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Model/ProjectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/ProjectManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Model/RoadConstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/RoadConstruction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/Utils/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Utils/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Saves/projects.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.bin" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,11 +83,15 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/Application/root/GUI/NewProjectController.java</url>
           <line>149</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="13" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

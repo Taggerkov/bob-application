@@ -11,6 +11,12 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+/**
+ * Controller that takes care of welcoming display.
+ *
+ * @author Sergiu Chirap
+ * @version 1.0
+ */
 public class WelcomeController {
 
     private Scene target;
@@ -29,19 +35,33 @@ public class WelcomeController {
     @FXML
     private MenuItem menuNew, menuSettings, menuQuit;
 
+    /**
+     * Controller initiator.
+     *
+     * @param handler link to the ViewHandler.
+     * @param target  sets Controllers stage.
+     * @param manager link to the ProjectManager.
+     */
     public void init(ViewHandler handler, Scene target, ProjectManager manager) {
         this.handler = handler;
         this.target = target;
         this.manager = manager;
     }
 
-    public void reset() {
-    }
-
+    /**
+     * Gets Controller scene.
+     *
+     * @return a Scene which is Controllers scene.
+     */
     public Scene getScene() {
         return target;
     }
 
+    /**
+     * A set of ViewHandler petitions preset.
+     *
+     * @param e an ActionEvent stating the chosen preset.
+     */
     public void quickActions(ActionEvent e) {
         if (e.getSource() == quickNewProject || e.getSource() == menuNew) {
             handler.openView("NewProject");

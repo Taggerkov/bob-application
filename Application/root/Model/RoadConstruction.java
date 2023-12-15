@@ -2,13 +2,14 @@ package Model;
 
 import java.time.LocalDate;
 
+/**
+ * Class for RoadConstruction, extension of the class Project
+ *
+ * @author Salomeea Tricolici, Sergiu Chirap
+ * @version 2.0
+ */
 public class RoadConstruction extends Project {
-    /**
-     * Class for RoadConstruction, extension of the class Project
-     *
-     * @author Salomeea Tricolici, Sergiu Chirap
-     * @version 1.0
-     */
+
     private int noOfLanes;
     private double length;
     private double width;
@@ -17,19 +18,18 @@ public class RoadConstruction extends Project {
     private boolean hasTunnels;
 
     /**
-     * Full constructor for RoadConstruction class
+     * Full constructor for RoadConstruction class.
      *
-     * @param budget
-     * @param start
-     * @param end
-     * @param hasBridges
-     * @param hasTunnels
-     * @param length
-     * @param width
-     * @param hasGeoChallenge
-     * @param noOfLanes
+     * @param budget          projects budget.
+     * @param start           projects start date.
+     * @param end             projects end date.
+     * @param hasBridges      if project has bridges.
+     * @param hasTunnels      if project has tunnels.
+     * @param length          projects length.
+     * @param width           projects width.
+     * @param hasGeoChallenge if project has geo challenges.
+     * @param noOfLanes       projects number of lanes.
      */
-
     public RoadConstruction(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, int noOfLanes, double length, double width,
                             boolean hasGeoChallenge, boolean hasBridges, boolean hasTunnels, String isPublished) {
         super("Roads", budget, start, end, title, customer, size, isRenovation, isPublished);
@@ -57,17 +57,6 @@ public class RoadConstruction extends Project {
         hasGeoChallenge = false;
         hasBridges = false;
         hasTunnels = false;
-
-    }
-
-    /**
-     * sets the project to have or not bridges
-     * No bridges by default
-     *
-     * @param hasBridges
-     */
-    public void setHasBridges(boolean hasBridges) {
-        this.hasBridges = hasBridges;
     }
 
     /**
@@ -77,15 +66,6 @@ public class RoadConstruction extends Project {
      */
     public boolean getHasBridges() {
         return hasBridges;
-    }
-
-    /**
-     * sets the project to have or not tunnels
-     *
-     * @param hasTunnels no tunnels by default
-     */
-    public void setHasTunnels(boolean hasTunnels) {
-        this.hasTunnels = hasTunnels;
     }
 
     /**
@@ -100,9 +80,8 @@ public class RoadConstruction extends Project {
     /**
      * sets the length of the road
      *
-     * @param length
+     * @param length the length width to be changed with.
      */
-
     public void setLength(double length) {
         this.length = length;
     }
@@ -119,7 +98,7 @@ public class RoadConstruction extends Project {
     /**
      * sets the width of the road
      *
-     * @param width
+     * @param width the desired width to be changed with.
      */
     public void setWidth(double width) {
         this.width = width;
@@ -135,31 +114,12 @@ public class RoadConstruction extends Project {
     }
 
     /**
-     * sets the project to have or not geographical challenges
-     * not geoChallenges by default
-     *
-     * @param hasGeoChallenge
-     */
-    public void setHasGeoChallenge(boolean hasGeoChallenge) {
-        this.hasGeoChallenge = hasGeoChallenge;
-    }
-
-    /**
      * returns whether the project has or not geographical challenges
      *
      * @return true if the project has any geographical challenges and false if it does not
      */
     public boolean getHasGeoChallenge() {
         return hasGeoChallenge;
-    }
-
-    /**
-     * sets the number of lines
-     *
-     * @param noOfLanes
-     */
-    public void setNoOfLanes(int noOfLanes) {
-        this.noOfLanes = noOfLanes;
     }
 
     /**
@@ -174,10 +134,9 @@ public class RoadConstruction extends Project {
     /**
      * Checks if the given object is the same as the RoadConstruction one
      *
-     * @param obj
+     * @param obj the desired project to be compared with.
      * @return true if the given object is the same as the RoadConstruction object and false if the given object is different from the RoadConstruction object
      */
-
     public boolean equals(Object obj) {
         if (obj == null || obj.getClass() != this.getClass())
             return false;
@@ -185,6 +144,4 @@ public class RoadConstruction extends Project {
         return super.equals(other) && hasBridges == other.hasBridges && hasTunnels == other.hasTunnels && length == other.length
                 && width == other.width && hasGeoChallenge == other.hasGeoChallenge && noOfLanes == other.noOfLanes;
     }
-
-
 }

@@ -13,7 +13,7 @@ import java.net.URL;
 import java.time.LocalDate;
 
 /**
- * New Project Controller // Project Creation class.
+ * Controllers that takes care of Project creation.
  *
  * @author Sergiu Chirap
  * @version 2.0
@@ -40,11 +40,11 @@ public class NewProjectController {
     private MenuItem menuNew, menuCancel, menuSettings, menuConfirm, menuReset, menuQuit;
 
     /**
-     * Sets up the first view.
+     * Controller initiator.
      *
-     * @param handler linked ViewHandler
-     * @param target  linked scene
-     * @param manager linked ProjectManager
+     * @param handler link to the ViewHandler.
+     * @param target  sets Controllers stage.
+     * @param manager link to the ProjectManager.
      */
     public void init(ViewHandler handler, Scene target, ProjectManager manager) {
         this.handler = handler;
@@ -84,7 +84,7 @@ public class NewProjectController {
     }
 
     /**
-     * Resets all inputs, making it look like a freshly opened scene.
+     * Resets all inputs.
      */
     public void reset() {
         projectType.setValue("Residential");
@@ -124,18 +124,18 @@ public class NewProjectController {
     }
 
     /**
-     * Gets the scene from it's FXML.
+     * Gets Controller scene.
      *
-     * @return the scene of this Controller
+     * @return a Scene which is Controllers scene.
      */
     public Scene getScene() {
         return target;
     }
 
     /**
-     * Group of scene changer buttons to make moving around easy and fast.
+     * A set of ViewHandler petitions preset.
      *
-     * @param e ActionEvent with quickActions() mostly being buttons
+     * @param e an ActionEvent stating the chosen preset.
      */
     public void quickActions(ActionEvent e) {
         if (e.getSource() == quickNewProject || e.getSource() == menuNew || e.getSource() == menuReset) {
@@ -240,7 +240,7 @@ public class NewProjectController {
     /**
      * Modifies enabled inputs based on project type.
      *
-     * @param e an ActionEvent with setType(), in this case a ComboBox
+     * @param e an ActionEvent which states project type.
      */
     public void setType(ActionEvent e) {
         //extracts the chosen type from ComboBox - Sergiu
@@ -331,7 +331,7 @@ public class NewProjectController {
     /**
      * Modifies Title's label based on the project's Title input.
      *
-     * @param e an ActionEvent with setTitle(), in this case a TextField
+     * @param e an ActionEvent which states project title.
      */
     public void setTitle(ActionEvent e) {
         String title = projectTitle.getText();
@@ -381,7 +381,7 @@ public class NewProjectController {
     /**
      * Sets EndDate prompt text based on picked date and selected type.
      *
-     * @param e a ActionEvent with setEndDate(), in this case a DatePicker.
+     * @param e a ActionEvent which states project end start date.
      */
     public void setEndDate(ActionEvent e) {
         if (!(projectStartDate.getValue() == null)) {
@@ -410,7 +410,7 @@ public class NewProjectController {
     /**
      * Sets project's build. 'New Build' / 'Renovation' are the available options.
      *
-     * @param e an ActionEvent with setBuild(), in this case a ComboBox
+     * @param e an ActionEvent which states project build.
      */
     public void setBuild(ActionEvent e) {
         String choice = projectBuild.getValue();
@@ -425,7 +425,7 @@ public class NewProjectController {
     }
 
     /**
-     * Creates & Saves new project. Contains various input checks and per type branches.
+     * Creates a project with the input or default data.
      */
     public void createProject() {
         boolean mistake = false;
@@ -1183,6 +1183,7 @@ public class NewProjectController {
 
     /**
      * Saves the projects created by the Controller into the binary file. This is done by linking this class with the ProjectManager.
+     * This function deletes the old project from the list and adds the new as last.
      */
     private void saveProject(Project project) {
         try {

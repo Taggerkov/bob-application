@@ -6,7 +6,7 @@ import java.io.Serializable;
  * class for MyDate
  *
  * @author Bibek
- * @version 1.0
+ * @version 2.0
  */
 public class MyDate implements Serializable {
 
@@ -15,23 +15,9 @@ public class MyDate implements Serializable {
     private int year;
 
     /**
-     * Full constructor for MyDate class
+     * String to MyString converter.
      *
-     * @param day
-     * @param month
-     * @param year
-     */
-
-    public MyDate(int day, int month, int year) {
-        this.day = day;
-        this.month = month;
-        this.year = year;
-    }
-
-    /**
-     * constructor for MyDate class, default values
-     *
-     * @param date
+     * @param date a string which contains the date in the LocalDate format.
      */
 
     public MyDate(String date) {
@@ -52,16 +38,6 @@ public class MyDate implements Serializable {
     }
 
     /**
-     * sets the start or end day of a project
-     *
-     * @param day
-     */
-
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    /**
      * gets the start on end month of a project
      *
      * @return month
@@ -74,7 +50,7 @@ public class MyDate implements Serializable {
     /**
      * sets the start or end month of a project
      *
-     * @param month
+     * @param month the desired month to be changed with.
      */
 
     public void setMonth(int month) {
@@ -94,7 +70,7 @@ public class MyDate implements Serializable {
     /**
      * sets the start or end year of a project
      *
-     * @param year
+     * @param year the desired year to be changed with.
      */
 
     public void setYear(int year) {
@@ -102,10 +78,10 @@ public class MyDate implements Serializable {
     }
 
     /**
-     * Calculates the EndDate
+     * Calculates the EndDate based on desired months.
      *
-     * @param months the 'months' expected
-     * @return a MyDate stating the 'EndDate'
+     * @param months the 'months' expected.
+     * @return a MyDate stating the 'EndDate'.
      * @author Sergiu Chirap
      */
     public MyDate endDate(int months) {
@@ -126,7 +102,7 @@ public class MyDate implements Serializable {
     /**
      * Checks if the given date is before or same as the MyDate date
      *
-     * @param date
+     * @param date the desired date to be compared with.
      * @return true if its before or exact same date and false if its after
      * @author Salomeea Tricolici
      */
@@ -135,7 +111,7 @@ public class MyDate implements Serializable {
     }
 
     /**
-     * Returns MyDate as a String.
+     * Gets the MyDate as a String.
      *
      * @return a String stating the 'date'
      * @author Sergiu Chirap
@@ -143,13 +119,25 @@ public class MyDate implements Serializable {
     public String toString() {
         return month + "/" + day + "/" + year;
     }
+
     /**
-     * Returns a String of MyDate with LocalDate's style.
+     * Gets the MyDate as a String with the LocalDate format.
      *
-     * @return another String stating the 'date'
+     * @return a String stating the 'date' with LocalDate format.
      * @author Sergiu Chirap
      */
     public String toStringDate() {
-        return String.format("%d-%02d-%02d",year,month,day);
+        return String.format("%d-%02d-%02d", year, month, day);
+    }
+
+    /**
+     * Checks if two dates are the same.
+     *
+     * @param date the date wanted to be checked with.
+     * @return true or false depending on the result.
+     * @author Sergiu Chirap
+     */
+    public boolean equals(MyDate date) {
+        return this.day == date.getDay() && this.month == date.month && this.year == date.getYear();
     }
 }

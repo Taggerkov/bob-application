@@ -14,7 +14,7 @@ import java.net.URL;
 import java.time.LocalDate;
 
 /**
- * Edit Project Controller // Project Modification class.
+ * Controller that takes care of Project modification.
  *
  * @author Sergiu Chirap
  * @version 2.5
@@ -46,11 +46,11 @@ public class EditProjectController {
     private MenuItem menuNew, menuSave, menuReturn, menuSettings, menuQuit, menuArchive, menuDelete;
 
     /**
-     * Sets up the Controller.
+     * Controller initiator.
      *
-     * @param handler linked ViewHandler
-     * @param target  linked scene
-     * @param manager linked ProjectManager
+     * @param handler link to the ViewHandler.
+     * @param target  sets Controllers stage.
+     * @param manager link to the ProjectManager.
      */
     public void init(ViewHandler handler, Scene target, ProjectManager manager) {
         this.handler = handler;
@@ -59,7 +59,9 @@ public class EditProjectController {
     }
 
     /**
-     * Loads and sets all project data and inputs.
+     * Loads and prepares display based on chosen project.
+     *
+     * @param title a String stating projects title.
      */
     public void loadProject(String title) {
         this.title = title;
@@ -207,18 +209,18 @@ public class EditProjectController {
     }
 
     /**
-     * Gets the scene from it's FXML.
+     * Gets Controller scene.
      *
-     * @return the scene of this Controller
+     * @return a Scene which is Controllers scene.
      */
     public Scene getScene() {
         return target;
     }
 
     /**
-     * Group of scene changer buttons to make moving around easy and fast.
+     * A set of ViewHandler petitions preset.
      *
-     * @param e ActionEvent with quickActions() mostly being buttons
+     * @param e an ActionEvent stating the chosen preset.
      */
     public void quickActions(ActionEvent e) {
         if (e.getSource() == quickNewProject || e.getSource() == menuNew) {
@@ -347,7 +349,7 @@ public class EditProjectController {
     }
 
     /**
-     * Sets projects as 'Closed'. This act is permanent and no reversible.
+     * Sets the project as archived.
      */
     public void archiveProject() {
         try {
@@ -395,6 +397,9 @@ public class EditProjectController {
         }
     }
 
+    /**
+     * Deletes the project.
+     */
     public void deleteProject() {
         try {
             ProjectList allProjects = manager.readAllProjects();
@@ -442,7 +447,7 @@ public class EditProjectController {
     /**
      * Modifies Title's label based on the project's Title input.
      *
-     * @param e an ActionEvent with setTitle(), in this case a TextField
+     * @param e an ActionEvent stating projects title.
      */
     public void setTitle(ActionEvent e) {
         String title = projectTitle.getText();
@@ -492,7 +497,7 @@ public class EditProjectController {
     /**
      * Sets EndDate prompt text based on picked date and selected type.
      *
-     * @param e a ActionEvent with setEndDate(), in this case a DatePicker.
+     * @param e a ActionEvent which states projects end date.
      */
     public void setEndDate(ActionEvent e) {
         if (!(projectStartDate.getValue() == null)) {
@@ -518,13 +523,18 @@ public class EditProjectController {
         }
     }
 
+    /**
+     * Sets projects published status.
+     *
+     * @param e an ActionEvent which states projects status.
+     */
     public void setPublished(ActionEvent e) {
         this.isPublished = projectPublished.getValue();
         projectPublished.setPromptText(this.isPublished);
     }
 
     /**
-     * Saves new project. Contains various input checks and per type branches.
+     * Creates a project with the input or extracted data.
      */
     public void saveProject() {
         boolean mistake = false;
@@ -1260,7 +1270,7 @@ public class EditProjectController {
 
     /**
      * Saves the projects created by the Controller into the binary file. This is done by linking this class with the ProjectManager.
-     * To be considered, this function deletes the old project from the list and adds the new as last.
+     * This function deletes the old project from the list and adds the new as last.
      */
     private void saveProject(Project project) {
         try {

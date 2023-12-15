@@ -13,14 +13,14 @@ public class Commercial extends Project {
     private String intendedUse;
 
     /**
-     * 'Commercial' full-constructor. Custom use.
+     * 'Commercial' base constructor.
      *
-     * @param budget      custom budget
-     * @param start       custom start date
-     * @param end         custom end date
-     * @param noOfFloors  custom number of floors
-     * @param size        building's m^3 size
-     * @param intendedUse building's purpose
+     * @param budget      projects budget.
+     * @param start       projects start date.
+     * @param end         projects end date.
+     * @param noOfFloors  projects number of floors.
+     * @param size        projects size.
+     * @param intendedUse projects purpose.
      */
     public Commercial(double budget, String start, String end, String title, String customer, double size, int noOfFloors, String intendedUse, boolean isRenovation, String isPublished) {
         super("Commercial", budget, start, end, title, customer, size, isRenovation, isPublished);
@@ -39,33 +39,20 @@ public class Commercial extends Project {
     }
 
     /**
-     * Gets the number of floors of the project's building.
+     * Gets the number of floors of the project.
      *
-     * @return an integer stating the 'number of floors'
+     * @return an integer stating the 'number of floors'.
      */
     public int getNoOfFloors() {
         return noOfFloors;
     }
 
     /**
-     * Sets the number of floors of the project's building.
+     * Gets the intended use of the project.
      *
-     * @param noOfFloors the 'number of floors' desired
+     * @return a String stating its intended use.
      */
-    public void setNoOfFloors(int noOfFloors) {
-        this.noOfFloors = noOfFloors;
-    }
-
     public String getIntendedUse() {
         return intendedUse;
-    }
-
-    /**
-     * Sets the intended use of the project's building.
-     *
-     * @param intendedUse the 'intended use' desired
-     */
-    public void setIntendedUse(String intendedUse) {
-        this.intendedUse = intendedUse;
     }
 }

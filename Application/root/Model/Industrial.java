@@ -6,21 +6,21 @@ import java.time.LocalDate;
  * Class for Industrial, extension of the class "Project"
  *
  * @author Bibek, Sergiu Chirap
- * @version 1.0
+ * @version 2.0
  */
 public class Industrial extends Project {
-    private String typeOfFacility;
+    private final String typeOfFacility;
 
     /**
-     * Full constructor for Industrial class
+     * Full constructor for Industrial class.
      *
-     * @param budget
-     * @param start
-     * @param end
-     * @param title
-     * @param customer
-     * @param size
-     * @param typeOfFacility
+     * @param budget         projects budget.
+     * @param start          projects start.
+     * @param end            projects end date.
+     * @param title          projects title.
+     * @param customer       projects customer.
+     * @param size           projects size.
+     * @param typeOfFacility projects type of facility.
      */
 
     public Industrial(double budget, String start, String end, String title, String customer, double size, boolean isRenovation, String typeOfFacility, String isPublished) {
@@ -42,16 +42,6 @@ public class Industrial extends Project {
 
     public String getTypeOfFacility() {
         return typeOfFacility;
-    }
-
-    /**
-     * sets the type of facility
-     *
-     * @param typeOfFacility
-     */
-
-    public void setTypeOfFacility(String typeOfFacility) {
-        this.typeOfFacility = typeOfFacility;
     }
 
     /**

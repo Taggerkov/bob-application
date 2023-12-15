@@ -16,41 +16,25 @@
 
 <VBox id="background" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AnalyticsController">
     <children>
-        <MenuBar prefWidth="700.0" style="-fx-background-color: #C6C2C2; -fx-border-color: black; -fx-border-width: 0.1em;" VBox.vgrow="ALWAYS">
+        <MenuBar prefWidth="700.0" style="-fx-background-color: #C6C2C2;" VBox.vgrow="ALWAYS">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Open…" />
-                        <Menu mnemonicParsing="false" text="Open Recent" />
+                        <MenuItem fx:id="menuNew" mnemonicParsing="false" onAction="#quickActions" text="New" />
+                        <MenuItem fx:id="menuCancel" mnemonicParsing="false" onAction="#quickActions" text="Cancel" />
+                        <MenuItem fx:id="menuSettings" mnemonicParsing="false" onAction="#quickActions" text="Settings" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                        <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Save As…" />
-                        <MenuItem mnemonicParsing="false" text="Revert" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Preferences…" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
+                        <MenuItem fx:id="menuQuit" mnemonicParsing="false" onAction="#quickActions" text="Quit" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Undo" />
-                        <MenuItem mnemonicParsing="false" text="Redo" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Cut" />
-                        <MenuItem mnemonicParsing="false" text="Copy" />
-                        <MenuItem mnemonicParsing="false" text="Paste" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Select All" />
-                        <MenuItem mnemonicParsing="false" text="Unselect All" />
+                        <MenuItem mnemonicParsing="false" text="Empty" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+                        <MenuItem mnemonicParsing="false" text="User Guide" />
                     </items>
                 </Menu>
             </menus>
@@ -191,7 +175,7 @@
                                     <children>
                                         <VBox alignment="CENTER_RIGHT" prefHeight="242.0" prefWidth="306.0">
                                             <children>
-                                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="analityk" text="Residential">
+                                                <Button fx:id="expResidential" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#export" prefHeight="115.0" prefWidth="210.0" style="-fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="analityk" text="Residential">
                                                     <font>
                                                         <Font size="30.0" />
                                                     </font>
@@ -208,7 +192,7 @@
                                                         <Insets bottom="15.0" />
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="analityk" text="Industrial">
+                                                <Button fx:id="expIndustrial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#export" prefHeight="115.0" prefWidth="210.0" style="-fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="analityk" text="Industrial">
                                                     <font>
                                                         <Font size="30.0" />
                                                     </font>
@@ -226,7 +210,7 @@
                                         </VBox>
                                         <VBox alignment="CENTER_LEFT" prefHeight="242.0" prefWidth="306.0">
                                             <children>
-                                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="analityk" text="Commercial">
+                                                <Button fx:id="expCommercial" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#export" prefHeight="115.0" prefWidth="210.0" style="-fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="analityk" text="Commercial">
                                                     <font>
                                                         <Font size="30.0" />
                                                     </font>
@@ -243,7 +227,7 @@
                                                         <Insets bottom="15.0" />
                                                     </VBox.margin>
                                                 </Button>
-                                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="115.0" prefWidth="210.0" style="-fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="analityk" text="Roads">
+                                                <Button fx:id="expRoads" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#export" prefHeight="115.0" prefWidth="210.0" style="-fx-background-insets: 3px; -fx-border-width: 2px; -fx-border-insets: 3px; -fx-border-radius: 2;" styleClass="analityk" text="Roads">
                                                     <font>
                                                         <Font size="30.0" />
                                                     </font>
