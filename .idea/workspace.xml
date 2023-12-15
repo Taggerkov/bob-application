@@ -5,28 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e83e3dcf-fe30-4b1b-b729-32aa2205c2f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/Analytics.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Analytics.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/AnalyticsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/BrowseProjects.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/BrowseProjects.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/BrowseProjectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/BrowseProjectsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/EditProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/EditProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/NewProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/PublishWebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/PublishWebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/StartGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/root/GUI/Welcome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/Welcome.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Application/root/GUI/WelcomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/GUI/WelcomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Main/RunApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Main/RunApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Model/Commercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Commercial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Model/Industrial.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Industrial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Model/MyDate.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/MyDate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Model/ProjectManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/ProjectManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Model/RoadConstruction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Model/RoadConstruction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Application/root/Utils/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Application/root/Utils/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Saves/projects.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.bin" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,13 +44,6 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager">
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.PowerUp!" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -179,7 +179,7 @@
                                         <Font size="25.0" />
                                     </font>
                                 </Label>
-                                <Hyperlink layoutX="444.0" layoutY="279.0" text="Github" underline="true">
+                                <Hyperlink fx:id="gitHub" layoutX="444.0" layoutY="279.0" onAction="#quickActions" text="Github" underline="true">
                                     <font>
                                         <Font size="25.0" />
                                     </font>

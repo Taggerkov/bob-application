@@ -4,12 +4,14 @@ import Model.ProjectManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import java.awt.*;
+import java.net.URL;
 
 /**
  * Controller that takes care of welcoming display.
@@ -34,6 +36,8 @@ public class WelcomeController {
     public Button quickSettings;
     @FXML
     private MenuItem menuNew, menuSettings, menuQuit;
+    @FXML
+    private Hyperlink gitHub;
 
     /**
      * Controller initiator.
@@ -84,6 +88,12 @@ public class WelcomeController {
             alert.showAndWait();
             if (alert.getResult() == ButtonType.YES) {
                 System.exit(0);
+            }
+        } else if (e.getSource() == gitHub) {
+            try {
+                Desktop.getDesktop().browse(new URL("https://github.com/Taggerkov/bob-application").toURI());
+            } catch (Exception k) {
+                System.out.println("Repository not available!");
             }
         }
     }
