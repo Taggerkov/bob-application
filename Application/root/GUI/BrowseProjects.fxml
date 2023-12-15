@@ -206,7 +206,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <Label fx:id="isEmpty" alignment="CENTER" layoutX="56.0" layoutY="132.0" prefHeight="304.0" prefWidth="556.0" text="EMPTY" textFill="GREY" visible="false">
+                        <Label fx:id="isEmpty" alignment="CENTER" layoutX="56.0" layoutY="132.0" prefHeight="304.0" prefWidth="556.0" styleClass="text" text="EMPTY" textFill="GREY" visible="false">
                            <font>
                               <Font name="MV Boli" size="150.0" />
                            </font>
